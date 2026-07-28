@@ -1,0 +1,193 @@
+# Konfiguration der Nachrichtenübersicht
+#
+# Jede [[feed]]-Sektion ist eine Quelle. Felder:
+#   id       Eindeutiger Schlüssel (Dateiname für Offline-Fixtures, s. --offline-dir)
+#   name     Anzeigename in der HTML-Übersicht
+#   url      RSS-, Atom- oder RSS-1.0-Feed
+#   category Muss einem Schlüssel unter [categories] entsprechen
+#   optional Wenn true, wird ein Ausfall dieser Quelle nur leise protokolliert
+#            (sinnvoll für Feeds, die häufig zicken)
+
+[settings]
+# Nur Artikel berücksichtigen, die nicht älter als so viele Stunden sind.
+window_hours = 24
+# Maximale Artikel pro Quelle (verhindert, dass ein Vielschreiber alles dominiert).
+max_per_source = 12
+# Maximale Artikel pro Kategorie in der Ausgabe.
+max_per_category = 40
+# Zeitzone für alle Anzeigen.
+timezone = "Europe/Berlin"
+# HTTP-Timeout pro Feed in Sekunden und Anzahl der Wiederholversuche.
+timeout_seconds = 20
+retries = 2
+
+# Reihenfolge der Kategorien = Reihenfolge auf der Seite.
+[categories]
+agenturen = "Agenturen"
+deutschland = "Deutschland & Welt"
+wirtschaft = "Wirtschaft & Finanzen"
+tech = "Tech & IT"
+
+# ---------------------------------------------------------------------------
+# Agenturen (dpa, Reuters, AFP)
+#
+# Wichtig: dpa, AFP und Reuters bieten keine frei zugänglichen Voll-Feeds mehr
+# an - der Bezug der Agenturticker ist lizenzpflichtig. Reuters hat seine
+# öffentlichen RSS-Feeds 2020 abgeschaltet, dpa und AFP hatten nie welche.
+#
+# Umgehung hier: Google News liefert RSS für Suchanfragen, inklusive des
+# Operators `source:`. Damit bekommt man die Meldungen, die diese Agenturen
+# über Partnermedien veröffentlichen - kein vollständiger Ticker, aber die
+# relevanten Themen des Tages. Zusätzlich laufen mit ZEIT Online und n-tv zwei
+# Quellen mit, die sehr viel unveränderte dpa-Meldungen übernehmen.
+# ---------------------------------------------------------------------------
+
+[[feed]]
+id = "dpa"
+name = "dpa"
+url = "https://news.google.com/rss/search?q=when:1d+source:dpa&hl=de&gl=DE&ceid=DE:de"
+category = "agenturen"
+optional = true
+
+[[feed]]
+id = "reuters-de"
+name = "Reuters (DE)"
+url = "https://news.google.com/rss/search?q=when:1d+source:Reuters&hl=de&gl=DE&ceid=DE:de"
+category = "agenturen"
+optional = true
+
+[[feed]]
+id = "reuters-en"
+name = "Reuters (EN)"
+url = "https://news.google.com/rss/search?q=when:1d+source:Reuters&hl=en-US&gl=US&ceid=US:en"
+category = "agenturen"
+optional = true
+
+[[feed]]
+id = "afp"
+name = "AFP"
+url = "https://news.google.com/rss/search?q=when:1d+source:AFP&hl=de&gl=DE&ceid=DE:de"
+category = "agenturen"
+optional = true
+
+# ---------------------------------------------------------------------------
+# Deutschland & Welt
+# ---------------------------------------------------------------------------
+
+[[feed]]
+id = "tagesschau"
+name = "tagesschau"
+url = "https://www.tagesschau.de/index~rss2.xml"
+category = "deutschland"
+
+[[feed]]
+id = "spiegel"
+name = "SPIEGEL"
+url = "https://www.spiegel.de/schlagzeilen/tops/index.rss"
+category = "deutschland"
+
+[[feed]]
+id = "zeit"
+name = "ZEIT ONLINE"
+url = "https://newsfeed.zeit.de/index"
+category = "deutschland"
+
+[[feed]]
+id = "ntv"
+name = "n-tv"
+url = "https://www.n-tv.de/rss"
+category = "deutschland"
+
+[[feed]]
+id = "sueddeutsche"
+name = "Süddeutsche"
+url = "https://rss.sueddeutsche.de/rss/Topthemen"
+category = "deutschland"
+optional = true
+
+[[feed]]
+id = "faz"
+name = "FAZ"
+url = "https://www.faz.net/rss/aktuell/"
+category = "deutschland"
+optional = true
+
+[[feed]]
+id = "deutschlandfunk"
+name = "Deutschlandfunk"
+url = "https://www.deutschlandfunk.de/nachrichten-100.rss"
+category = "deutschland"
+optional = true
+
+# ---------------------------------------------------------------------------
+# Wirtschaft & Finanzen
+# ---------------------------------------------------------------------------
+
+[[feed]]
+id = "handelsblatt"
+name = "Handelsblatt"
+url = "https://www.handelsblatt.com/contentexport/feed/schlagzeilen"
+category = "wirtschaft"
+
+[[feed]]
+id = "spiegel-wirtschaft"
+name = "SPIEGEL Wirtschaft"
+url = "https://www.spiegel.de/wirtschaft/index.rss"
+category = "wirtschaft"
+
+[[feed]]
+id = "manager-magazin"
+name = "manager magazin"
+url = "https://www.manager-magazin.de/news/index.rss"
+category = "wirtschaft"
+
+[[feed]]
+id = "wiwo"
+name = "WirtschaftsWoche"
+url = "https://www.wiwo.de/contentexport/feed/rss/schlagzeilen"
+category = "wirtschaft"
+optional = true
+
+[[feed]]
+id = "ft"
+name = "Financial Times"
+url = "https://www.ft.com/rss/home"
+category = "wirtschaft"
+optional = true
+
+# ---------------------------------------------------------------------------
+# Tech & IT
+# ---------------------------------------------------------------------------
+
+[[feed]]
+id = "heise"
+name = "heise online"
+url = "https://www.heise.de/rss/heise-atom.xml"
+category = "tech"
+
+[[feed]]
+id = "golem"
+name = "Golem"
+url = "https://rss.golem.de/rss.php?feed=RSS2.0"
+category = "tech"
+
+[[feed]]
+id = "t3n"
+name = "t3n"
+url = "https://t3n.de/rss.xml"
+category = "tech"
+optional = true
+
+[[feed]]
+id = "hackernews"
+name = "Hacker News"
+url = "https://hnrss.org/frontpage?points=150"
+category = "tech"
+optional = true
+
+[[feed]]
+id = "arstechnica"
+name = "Ars Technica"
+url = "https://feeds.arstechnica.com/arstechnica/index"
+category = "tech"
+optional = true

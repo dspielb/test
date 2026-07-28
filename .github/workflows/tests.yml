@@ -1,0 +1,35 @@
+name: Tests
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.11 ist das Minimum - tomllib kam erst dort in die Standardbibliothek.
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Tests
+        run: python -m unittest discover -s tests -t . --verbose
+
+      - name: Durchlauf mit Beispieldaten (ohne Netz)
+        run: |
+          python tools/demo_feeds.py "${RUNNER_TEMP}/demo"
+          python -m newsdigest \
+            --offline-dir "${RUNNER_TEMP}/demo" \
+            --out "${RUNNER_TEMP}/vorschau"
+          test -s "${RUNNER_TEMP}/vorschau/index.html"

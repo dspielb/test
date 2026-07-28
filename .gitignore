@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Lokale Vorschauen und Beispieldaten
+demo-feeds/
+vorschau/

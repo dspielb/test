@@ -1,0 +1,63 @@
+name: Tägliche Nachrichtenübersicht
+
+on:
+  schedule:
+    # 04:00 UTC = 06:00 MESZ (Sommer) bzw. 05:00 MEZ (Winter).
+    # GitHub startet geplante Läufe bei hoher Last mit Verzögerung.
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Zeitfenster in Stunden (leer = Wert aus feeds.toml)"
+        required: false
+        type: string
+
+# Ein Lauf zur Zeit - sonst kollidieren zwei Jobs beim Push.
+concurrency:
+  group: nachrichten
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  uebersicht:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Übersicht erzeugen
+        run: |
+          python -m newsdigest --out docs --verbose \
+            ${{ inputs.hours && format('--hours {0}', inputs.hours) || '' }}
+
+      - name: Ergebnis committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet -- docs; then
+            echo "Keine Änderungen an docs/ - nichts zu committen."
+            exit 0
+          fi
+
+          git add docs
+          git commit -m "Nachrichtenübersicht $(date -u +%Y-%m-%d)"
+
+          # Bei parallelen Läufen kann sich der Branch zwischenzeitlich bewegt haben.
+          for versuch in 1 2 3 4; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push fehlgeschlagen, neuer Versuch in $((2 ** versuch))s"
+            sleep $((2 ** versuch))
+            git pull --rebase
+          done
+          echo "Push nach vier Versuchen fehlgeschlagen." >&2
+          exit 1
