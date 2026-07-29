@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Beispiel Nachrichten</title>
+    <link>https://beispiel.de/</link>
+    <description>Testfeed</description>
+    <item>
+      <title>Bundestag beschließt neues Klimapaket</title>
+      <link>https://beispiel.de/politik/klimapaket-123.html?utm_source=rss&amp;utm_medium=feed</link>
+      <description>&lt;p&gt;Der Bundestag hat am Donnerstag mit breiter Mehrheit das neue Klimapaket &lt;b&gt;beschlossen&lt;/b&gt;.&lt;/p&gt;</description>
+      <pubDate>Tue, 28 Jul 2026 08:30:00 +0200</pubDate>
+      <guid>https://beispiel.de/politik/klimapaket-123.html</guid>
+    </item>
+    <item>
+      <title>Umlaute: Über die Türkei &amp; Grüße</title>
+      <link>https://beispiel.de/welt/tuerkei-456.html</link>
+      <description>Kurzer Text ohne Markup.</description>
+      <pubDate>Tue, 28 Jul 2026 06:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <title>Eintrag ohne Datum</title>
+      <link>https://beispiel.de/vermischtes/789.html</link>
+      <description></description>
+    </item>
+    <item>
+      <title>Eintrag ohne Link wird verworfen</title>
+      <description>Sollte nicht auftauchen.</description>
+      <pubDate>Tue, 28 Jul 2026 05:00:00 +0200</pubDate>
+    </item>
+    <item>
+      <link>https://beispiel.de/ohne-titel.html</link>
+      <description>Auch ohne Titel wird verworfen.</description>
+    </item>
+    <item>
+      <title>GUID als Link-Ersatz</title>
+      <guid isPermaLink="true">https://beispiel.de/aus-guid-999.html</guid>
+      <description>Kein link-Element vorhanden.</description>
+      <dc:date>2026-07-28T04:15:00Z</dc:date>
+    </item>
+  </channel>
+</rss>
