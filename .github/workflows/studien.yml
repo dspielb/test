@@ -1,0 +1,79 @@
+name: Tägliche Studienübersicht
+
+on:
+  schedule:
+    # 05:30 UTC = 07:30 MESZ (Sommer) bzw. 06:30 MEZ (Winter).
+    # GitHub startet geplante Läufe bei hoher Last mit Verzögerung.
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Obergrenze neuer Studien (leer = Wert aus studies.toml)"
+        required: false
+        type: string
+      alle:
+        description: "Merkliste ignorieren und alle gefundenen Studien zeigen"
+        required: false
+        default: false
+        type: boolean
+
+# Ein Lauf zur Zeit - sonst kollidieren zwei Jobs bei Merkliste und Push.
+concurrency:
+  group: studien
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  studien:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Ohne dieses Paket läuft der Job weiter und zeigt statt der Kurzfassung
+      # einen Auszug aus dem Abstract.
+      - name: Abhängigkeiten
+        run: pip install --disable-pip-version-check -r requirements-studywatch.txt
+
+      - name: Übersicht erzeugen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+        run: |
+          python -m studywatch --out docs/studien --state state/gesehen.json --verbose \
+            ${{ inputs.max && format('--max {0}', inputs.max) || '' }} \
+            ${{ inputs.alle && '--alle' || '' }}
+
+      - name: Ergebnis committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Erst vormerken, dann prüfen: git diff allein übersieht neue Dateien,
+          # und beim ersten Lauf sind docs/studien und state genau das.
+          git add docs/studien state
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen - nichts zu committen."
+            exit 0
+          fi
+
+          git commit -m "Studienübersicht $(date -u +%Y-%m-%d)"
+
+          # Bei parallelen Läufen kann sich der Branch zwischenzeitlich bewegt haben.
+          for versuch in 1 2 3 4; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push fehlgeschlagen, neuer Versuch in $((2 ** versuch))s"
+            sleep $((2 ** versuch))
+            git pull --rebase
+          done
+          echo "Push nach vier Versuchen fehlgeschlagen." >&2
+          exit 1
