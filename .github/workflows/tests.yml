@@ -26,22 +26,10 @@ jobs:
       - name: Tests
         run: python -m unittest discover -s tests -t . --verbose
 
-      - name: Nachrichten-Durchlauf mit Beispieldaten (ohne Netz)
+      - name: Durchlauf mit Beispieldaten (ohne Netz)
         run: |
           python tools/demo_feeds.py "${RUNNER_TEMP}/demo"
           python -m newsdigest \
             --offline-dir "${RUNNER_TEMP}/demo" \
             --out "${RUNNER_TEMP}/vorschau"
           test -s "${RUNNER_TEMP}/vorschau/index.html"
-
-      - name: Studien-Durchlauf mit Beispieldaten (ohne Netz)
-        run: |
-          python tools/demo_studien.py "${RUNNER_TEMP}/studien"
-          python -m studywatch \
-            --seite "${RUNNER_TEMP}/studien/journal-watch.html" \
-            --offline-dir "${RUNNER_TEMP}/studien" \
-            --state "${RUNNER_TEMP}/studien/gesehen.json" \
-            --keine-zusammenfassung \
-            --kein-entwurf \
-            --out "${RUNNER_TEMP}/studien-vorschau"
-          test -s "${RUNNER_TEMP}/studien-vorschau/index.html"

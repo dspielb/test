@@ -1,4 +1,0 @@
-# Nur für studywatch nötig. Ohne dieses Paket läuft das Programm weiter und
-# zeigt statt der Kurzfassung einen Auszug aus dem Abstract.
-# Das Nachrichtenprojekt (newsdigest) bleibt abhängigkeitsfrei.
-anthropic>=0.69
