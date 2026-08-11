@@ -5,12 +5,15 @@ import logging
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 from urllib.parse import quote, urlencode
 
+from studywatch import mail
 from studywatch.__main__ import main
 from studywatch.enrich import CROSSREF, EUTILS
 from studywatch.http import dateiname_fuer
 from studywatch.state import laden
+from tests.test_studywatch_mail import FakeIMAP
 
 CONFIG = """
 [quelle]
@@ -71,12 +74,15 @@ class CliTestCase(unittest.TestCase):
         self.state = self.basis / "state" / "gesehen.json"
 
     def lauf(self, *extra: str) -> tuple[int, str]:
+        # Die Seite ist seit der Umstellung auf Gmail-Entwürfe eine Zusatzausgabe,
+        # deshalb hier ausdrücklich -o und kein Entwurf.
         argumente = [
             "-c", str(self.config),
             "-o", str(self.out),
             "--state", str(self.state),
             "--seite", str(self.seite),
             "--date", "2026-08-10",
+            "--kein-entwurf",
             *extra,
         ]
         puffer = io.StringIO()
@@ -194,6 +200,95 @@ class MitAnreicherung(CliTestCase):
         code, _ = self.lauf("--offline-dir", str(self.antworten))
         self.assertEqual(code, 0)
         self.assertIn("Restrictive versus liberal oxygen targets", self.index())
+
+
+class GmailEntwurf(CliTestCase):
+    """Der Entwurf ist die eigentliche Zustellung - hier gegen einen Fake-Server."""
+
+    def setUp(self):
+        super().setUp()
+        self.server = FakeIMAP()
+        self.umgebung = mock.patch.dict(
+            "os.environ",
+            {"GMAIL_BENUTZER": "ich@gmail.invalid", "GMAIL_APP_PASSWORT": "abcd efgh ijkl mnop"},
+        )
+        self.umgebung.start()
+        self.addCleanup(self.umgebung.stop)
+
+        verbindung = mock.patch.object(mail, "_verbinden", lambda _: self.server)
+        verbindung.start()
+        self.addCleanup(verbindung.stop)
+
+    def entwurfslauf(self, *extra: str) -> tuple[int, str]:
+        argumente = [
+            "-c", str(self.config),
+            "--state", str(self.state),
+            "--seite", str(self.seite),
+            "--date", "2026-08-10",
+            "--offline-dir", str(self.basis),  # Anreicherung läuft ins Leere, das ist hier egal
+            *extra,
+        ]
+        puffer = io.StringIO()
+        with contextlib.redirect_stdout(puffer), contextlib.redirect_stderr(puffer):
+            code = main(argumente)
+        return code, puffer.getvalue()
+
+    def test_draft_is_created_and_state_saved(self):
+        code, ausgabe = self.entwurfslauf()
+
+        self.assertEqual(code, 0)
+        self.assertIn("Gmail-Entwurf", ausgabe)
+        self.assertEqual(len(self.server.appends), 1)
+        self.assertEqual(len(laden(self.state)), 2)
+
+    def test_no_html_file_is_written_by_default(self):
+        self.entwurfslauf()
+        self.assertFalse(self.out.exists())
+
+    def test_draft_contains_the_studies(self):
+        self.entwurfslauf()
+        rohtext = self.server.appends[0][3].decode("utf-8", errors="replace")
+        self.assertIn("Restrictive", rohtext.replace("=\r\n", "").replace("=\n", ""))
+
+    def test_failed_delivery_keeps_the_state_untouched(self):
+        self.server.login_fehler = True
+        code, ausgabe = self.entwurfslauf()
+
+        self.assertEqual(code, 3)
+        self.assertIn("Entwurf nicht angelegt", ausgabe)
+        # Entscheidend: sonst gälten die Studien als erledigt, ohne dass sie je jemand sah.
+        self.assertFalse(self.state.exists())
+
+    def test_missing_credentials_fail_loudly(self):
+        with mock.patch.dict("os.environ", {}, clear=True):
+            code, ausgabe = self.entwurfslauf()
+
+        self.assertEqual(code, 3)
+        self.assertIn("GMAIL_BENUTZER", ausgabe)
+        self.assertFalse(self.state.exists())
+
+    def test_nothing_new_means_no_draft(self):
+        self.entwurfslauf()
+        code, ausgabe = self.entwurfslauf()
+
+        self.assertEqual(code, 0)
+        self.assertEqual(len(self.server.appends), 1)
+        self.assertIn("nichts Neues", ausgabe)
+
+    def test_empty_draft_can_be_switched_on(self):
+        self.config.write_text(
+            CONFIG + '\n[entwurf]\nauch_ohne_studien = true\n', encoding="utf-8"
+        )
+        self.entwurfslauf()
+        self.entwurfslauf()
+        self.assertEqual(len(self.server.appends), 2)
+
+    def test_without_any_output_the_state_is_kept(self):
+        code, ausgabe = self.entwurfslauf("--kein-entwurf")
+
+        self.assertEqual(code, 0)
+        self.assertIn("Keine Ausgabe erzeugt", ausgabe)
+        self.assertFalse(self.state.exists())
 
 
 class Fehlerfaelle(CliTestCase):

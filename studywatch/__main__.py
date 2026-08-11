@@ -9,9 +9,23 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import __version__, config as config_modul, enrich, scrape, state as state_modul, summarize
+from . import (
+    __version__,
+    config as config_modul,
+    enrich,
+    mail,
+    scrape,
+    state as state_modul,
+    summarize,
+)
 from .http import AbrufFehler, DateiNetz, Netz
-from .render import Bericht, render_archiv_index, render_bericht
+from .render import (
+    Bericht,
+    render_archiv_index,
+    render_bericht,
+    render_mail_html,
+    render_mail_text,
+)
 from .study import Studie
 
 log = logging.getLogger("studywatch")
@@ -26,7 +40,9 @@ def build_parser() -> argparse.ArgumentParser:
         "-c", "--config", default="studies.toml", help="Konfigurationsdatei (Standard: studies.toml)"
     )
     parser.add_argument(
-        "-o", "--out", default="docs/studien", help="Ausgabeverzeichnis (Standard: docs/studien)"
+        "-o",
+        "--out",
+        help="Zusätzlich eine HTML-Seite in dieses Verzeichnis schreiben (Standard: keine Datei)",
     )
     parser.add_argument(
         "--state",
@@ -45,6 +61,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--keine-zusammenfassung", action="store_true", help="Ohne Claude-API, nur Abstracts"
+    )
+    parser.add_argument(
+        "--kein-entwurf", action="store_true", help="Keinen Gmail-Entwurf anlegen"
     )
     parser.add_argument(
         "--alle", action="store_true", help="Merkliste ignorieren und alle gefundenen Studien zeigen"
@@ -77,6 +96,8 @@ def main(argv: list[str] | None = None) -> int:
         cfg = config_modul.mit_max_studien(cfg, args.max)
     if args.keine_zusammenfassung or args.kein_netz:
         cfg = config_modul.ohne_zusammenfassung(cfg)
+    if args.kein_entwurf or args.kein_netz:
+        cfg = config_modul.ohne_entwurf(cfg)
 
     netz = _netz(args, cfg)
     hinweise: list[str] = []
@@ -120,6 +141,7 @@ def main(argv: list[str] | None = None) -> int:
 
     verbrauch = summarize.zusammenfassen(ausgewaehlt, cfg)
     hinweise.extend(_zusammenfassungs_hinweise(cfg, ausgewaehlt, verbrauch))
+    hinweise.extend(_entwurf_hinweise(cfg, args))
 
     bericht = Bericht(
         studien=ausgewaehlt,
@@ -129,43 +151,90 @@ def main(argv: list[str] | None = None) -> int:
         gefunden_gesamt=len(gefunden),
         modell=cfg.zusammenfassung.modell if verbrauch.anfragen else "",
         hinweise=hinweise,
+        zeitzone=cfg.einstellungen.zeitzone,
     )
 
     if args.trockenlauf:
         _trockenlauf_ausgeben(bericht, verbrauch)
         return 0
 
-    geschrieben = schreibe_ausgabe(
-        bericht,
-        Path(args.out),
-        timezone_name=cfg.einstellungen.zeitzone,
-        archiv=not args.no_archive,
-        tag=_archiv_datum(args, cfg.einstellungen.zeitzone),
-    )
+    zugestellt: list[str] = []
 
-    # Erst merken, wenn die Seite steht - sonst verschwindet eine Studie
-    # spurlos, wenn das Schreiben scheitert.
+    if args.out:
+        geschrieben = schreibe_ausgabe(
+            bericht,
+            Path(args.out),
+            archiv=not args.no_archive,
+            tag=_archiv_datum(args, cfg.einstellungen.zeitzone),
+        )
+        zugestellt.append(str(geschrieben[0]))
+
+    if cfg.entwurf.aktiv:
+        try:
+            zugestellt.append(_entwurf_anlegen(bericht, cfg))
+        except mail.EntwurfFehler as exc:
+            # Die Merkliste bleibt bewusst ungeschrieben: sonst gelten die Studien
+            # als erledigt, obwohl sie nie jemand gesehen hat.
+            print(f"Entwurf nicht angelegt: {exc}", file=sys.stderr)
+            print(
+                "Die Merkliste bleibt unverändert - der nächste Lauf versucht es erneut.",
+                file=sys.stderr,
+            )
+            return 3
+
+    if not zugestellt:
+        # Weder Datei noch Entwurf: die Studien dürfen nicht als erledigt gelten.
+        print(
+            "Keine Ausgabe erzeugt (weder --out noch Entwurf) - die Merkliste bleibt unverändert.",
+            file=sys.stderr,
+        )
+        return 0
+
     zu_merken = gefunden if erstlauf else ausgewaehlt
     merkliste.eintragen(zu_merken, _archiv_datum(args, cfg.einstellungen.zeitzone))
     state_modul.speichern(merkliste, args.state)
 
-    print(f"{len(ausgewaehlt)} neue Studien von {len(gefunden)} geprüften → {geschrieben[0]}")
+    ziel = f" → {', '.join(zugestellt)}" if zugestellt else ""
+    print(f"{len(ausgewaehlt)} neue Studien von {len(gefunden)} geprüften{ziel}")
     if verbrauch.anfragen:
         print(f"Modellverbrauch: {verbrauch}")
     return 0
+
+
+def _entwurf_anlegen(bericht: Bericht, cfg) -> str:
+    """Legt den Entwurf ab und beschreibt, was passiert ist."""
+    if not bericht.studien and not cfg.entwurf.auch_ohne_studien:
+        log.info("Keine neuen Studien - es wird kein Entwurf angelegt.")
+        return "kein Entwurf (nichts Neues)"
+
+    zugang = mail.zugang_aus_umgebung(cfg)
+    if zugang is None:
+        raise mail.EntwurfFehler(
+            f"{cfg.entwurf.benutzer_env} und {cfg.entwurf.passwort_env} müssen gesetzt sein "
+            "(Gmail-Adresse und App-Passwort)."
+        )
+
+    nachricht = mail.baue_nachricht(
+        bericht,
+        cfg,
+        html=render_mail_html(bericht, mit_abstract=cfg.entwurf.mit_abstract),
+        text=render_mail_text(bericht, mit_abstract=cfg.entwurf.mit_abstract),
+        absender=zugang.benutzer,
+    )
+    ordner = mail.lege_entwurf_ab(nachricht, zugang, ordner=cfg.entwurf.ordner)
+    return f"Gmail-Entwurf in '{ordner}'"
 
 
 def schreibe_ausgabe(
     bericht: Bericht,
     out_dir: Path,
     *,
-    timezone_name: str,
     archiv: bool,
     tag: date,
 ) -> list[Path]:
     """Schreibt index.html und - falls gewünscht - den Archiveintrag des Tages."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    html = render_bericht(bericht, timezone=timezone_name)
+    html = render_bericht(bericht)
 
     index = out_dir / "index.html"
     index.write_text(html, encoding="utf-8")
@@ -184,6 +253,17 @@ def schreibe_ausgabe(
         geschrieben.append(uebersicht)
 
     return geschrieben
+
+
+def _entwurf_hinweise(cfg, args: argparse.Namespace) -> list[str]:
+    if args.kein_entwurf or not cfg.entwurf.aktiv:
+        return []
+    if mail.zugang_aus_umgebung(cfg) is not None:
+        return []
+    return [
+        f"Kein Gmail-Zugang: {cfg.entwurf.benutzer_env} und {cfg.entwurf.passwort_env} "
+        "sind nicht gesetzt."
+    ]
 
 
 # --- Bausteine ------------------------------------------------------------

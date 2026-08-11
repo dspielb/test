@@ -4,7 +4,7 @@
     python3 tools/demo_studien.py /tmp/demo
     python3 -m studywatch --seite /tmp/demo/journal-watch.html \\
         --offline-dir /tmp/demo --state /tmp/demo/gesehen.json \\
-        --keine-zusammenfassung --out /tmp/vorschau
+        --keine-zusammenfassung --kein-entwurf --out /tmp/vorschau
 
 Die Inhalte sind frei erfunden. Sie zeigen das Layout und prüfen die
 Verarbeitungskette, ohne echte Verlagsseiten anzufassen.

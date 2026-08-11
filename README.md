@@ -10,8 +10,8 @@ Standardbibliothek aus – keine Abhängigkeiten, keine virtuelle Umgebung nöti
 
 > Im selben Repository liegt ein zweites, eigenständiges Programm:
 > [**studywatch**](#tägliche-studienübersicht-studywatch) holt täglich die neuesten
-> Studien aus dem Critical Care Reviews Journal Watch und fasst sie auf Deutsch
-> zusammen.
+> Studien aus dem Critical Care Reviews Journal Watch, fasst sie auf Deutsch
+> zusammen und legt das Ergebnis als Entwurf im Gmail-Postfach ab.
 
 ## Schnellstart
 
@@ -142,7 +142,7 @@ Zusammenfassung und dadurch auch mehr Fehlgriffe.
 python3 -m unittest discover -s tests -t .
 ```
 
-128 Tests für `newsdigest` (227 im ganzen Repository), keine Netzabhängigkeit:
+128 Tests für `newsdigest` (257 im ganzen Repository), keine Netzabhängigkeit:
 die HTTP-Tests laufen gegen einen lokalen Testserver, alles andere gegen
 Fixtures. Sie laufen bei jedem Push über
 [`.github/workflows/tests.yml`](.github/workflows/tests.yml) gegen Python 3.11,
@@ -175,32 +175,51 @@ Systems und lässt sich sauber ausdrucken.
 Ruft jeden Tag die Seite
 [Critical Care Reviews – Journal Watch](https://criticalcarereviews.com/latest-evidence/journal-watch)
 ab, erkennt die dort verlinkten Studien, holt zu jeder Metadaten und Abstract von
-**Crossref** und **PubMed** und schreibt eine deutsche Kurzfassung – erzeugt mit
-der Claude-API. Ergebnis ist eine HTML-Seite mit Tagesarchiv, genau wie bei der
-Nachrichtenübersicht.
+**Crossref** und **PubMed**, schreibt eine deutsche Kurzfassung mit der Claude-API
+und legt das Ganze als **Entwurf im Gmail-Postfach** ab.
 
-Gezeigt wird nur, was seit dem letzten Lauf dazugekommen ist.
+Verschickt wird nichts. Der Entwurf liegt morgens in *Entwürfe* und wartet – lesen,
+weiterleiten oder löschen entscheidest du.
+
+Enthalten ist nur, was seit dem letzten Lauf dazugekommen ist. Gibt es nichts
+Neues, entsteht auch kein Entwurf.
 
 ## Schnellstart
 
 ```bash
 pip install -r requirements-studywatch.txt   # nur für die Kurzfassungen nötig
+
 export ANTHROPIC_API_KEY="sk-ant-…"
+export GMAIL_BENUTZER="du@gmail.com"
+export GMAIL_APP_PASSWORT="abcd efgh ijkl mnop"   # App-Passwort, nicht das Kontopasswort
+
 python3 -m studywatch
 ```
 
-Das schreibt:
-
-```
-docs/studien/index.html                 # die aktuelle Ausgabe
-docs/studien/archiv/2026-08-10.html     # Ausgabe des Tages
-docs/studien/archiv/index.html          # Übersicht aller Tage
-state/gesehen.json                      # Merkliste bereits gezeigter Studien
-```
+Geschrieben wird nur `state/gesehen.json` – die Merkliste bereits gezeigter
+Studien. Alles andere landet in Gmail.
 
 **Ohne API-Schlüssel läuft das Programm trotzdem durch** – statt einer Kurzfassung
-zeigt es dann die Schlussfolgerung aus dem Abstract, und die Seite weist das aus.
-Dasselbe gilt, wenn das Paket `anthropic` fehlt oder die API ausfällt.
+steht dann die Schlussfolgerung aus dem Abstract im Entwurf, und die Mail weist das
+aus. Dasselbe gilt, wenn das Paket `anthropic` fehlt oder die API ausfällt.
+
+**Ohne Gmail-Zugang bricht der Lauf dagegen ab** (Rückgabewert `3`) und lässt die
+Merkliste unangetastet – sonst gälten die Studien als erledigt, obwohl sie nie
+jemand gesehen hat. Der nächste Lauf nimmt dieselben noch einmal.
+
+### Erst ansehen, dann zustellen
+
+```bash
+python3 -m studywatch --kein-entwurf --out vorschau --state /tmp/vorschau.json
+open vorschau/index.html
+```
+
+`--out` erzeugt zusätzlich die HTML-Seite, die es früher als einzige Ausgabe gab.
+Ohne die Option entsteht keine Datei.
+
+**Beim Ausprobieren `--state` immer auf einen Pfad außerhalb des Repositorys
+legen.** Sonst verbraucht der Testlauf den Erstlauf, und der echte Lauf hält
+später alles für längst bekannt.
 
 ### Ohne Netzzugang ausprobieren
 
@@ -210,7 +229,7 @@ python3 -m studywatch \
   --seite /tmp/studien/journal-watch.html \
   --offline-dir /tmp/studien \
   --state /tmp/studien/gesehen.json \
-  --keine-zusammenfassung \
+  --keine-zusammenfassung --kein-entwurf \
   --out /tmp/vorschau
 ```
 
@@ -221,21 +240,51 @@ Die Inhalte in `tools/demo_studien.py` sind frei erfunden.
 | Option | Bedeutung |
 | --- | --- |
 | `-c, --config PFAD` | Konfigurationsdatei (Standard: `studies.toml`) |
-| `-o, --out PFAD` | Ausgabeverzeichnis (Standard: `docs/studien`) |
+| `-o, --out PFAD` | Zusätzlich eine HTML-Seite dorthin schreiben (Standard: keine Datei) |
 | `--state PFAD` | Merkliste (Standard: `state/gesehen.json`) |
 | `--max N` | Obergrenze neuer Studien, überschreibt die Konfiguration |
+| `--kein-entwurf` | Keinen Gmail-Entwurf anlegen |
 | `--seite PFAD` | Übersichtsseite aus einer HTML-Datei lesen statt abrufen |
 | `--offline-dir PFAD` | Alle HTTP-Antworten aus einem Verzeichnis lesen |
-| `--kein-netz` | Keine Netzaufrufe: weder Anreicherung noch Kurzfassungen |
+| `--kein-netz` | Keine Netzaufrufe: weder Anreicherung noch Kurzfassung noch Entwurf |
 | `--keine-zusammenfassung` | Ohne Claude-API, nur Abstracts |
 | `--alle` | Merkliste ignorieren und alles Gefundene zeigen |
 | `--trockenlauf` | Nichts schreiben, nur berichten, was passieren würde |
-| `--no-archive` | Nur `index.html` schreiben, kein Tagesarchiv |
+| `--no-archive` | Bei `--out`: kein Tagesarchiv |
 | `--date JJJJ-MM-TT` | Datum des Archiveintrags (Standard: heute) |
 | `-v, --verbose` | Zeigt jeden Schritt mit Zahlen |
 
 Rückgabewerte: `0` = in Ordnung, `1` = Quellseite nicht erreichbar,
-`2` = Fehler in der Konfiguration.
+`2` = Fehler in der Konfiguration, `3` = Entwurf konnte nicht abgelegt werden.
+
+## Gmail einrichten
+
+Der Zugang läuft über ein **App-Passwort** und IMAP. Das braucht kein
+Google-Cloud-Projekt und keine zusätzliche Bibliothek – `imaplib` steckt in der
+Standardbibliothek.
+
+1. **Zwei-Faktor-Anmeldung aktivieren**, falls noch nicht geschehen:
+   <https://myaccount.google.com/signinoptions/twosv>. Ohne sie gibt es keine
+   App-Passwörter.
+2. **App-Passwort erzeugen**: <https://myaccount.google.com/apppasswords>.
+   Einen Namen vergeben (z. B. `studywatch`), erzeugen, die 16 Zeichen kopieren.
+   Sie werden nur einmal angezeigt. Die Leerzeichen der Vierergruppen sind
+   Kosmetik – das Programm entfernt sie selbst.
+3. **IMAP im Postfach aktivieren**: Gmail → Zahnrad → *Alle Einstellungen
+   ansehen* → *Weiterleitung und POP/IMAP* → *IMAP aktivieren* → speichern.
+4. **Als GitHub-Secrets hinterlegen** (Settings → Secrets and variables →
+   Actions → *New repository secret*):
+   - `GMAIL_BENUTZER` – deine Gmail-Adresse
+   - `GMAIL_APP_PASSWORT` – das App-Passwort aus Schritt 2
+
+Sind App-Passwörter in deinem Konto gesperrt (kommt bei verwalteten
+Workspace-Konten vor), meldet der Lauf das beim Anmelden. Dann bleibt der Weg
+über die Gmail-API mit OAuth – dafür müsste `mail.py` erweitert werden.
+
+Den Entwürfe-Ordner sucht das Programm über das IMAP-Merkmal `\Drafts`, nicht
+über den Namen – damit ist es egal, ob dein Konto auf Deutsch oder Englisch
+steht. Nur falls das schiefgeht, lässt sich unter `[entwurf].ordner` ein Name
+fest eintragen.
 
 ## Wie es funktioniert
 
@@ -255,8 +304,10 @@ Rückgabewerte: `0` = in Ordnung, `1` = Quellseite nicht erreichbar,
    einziger Grundlage. Die Antwort ist über *structured outputs* auf fünf Felder
    festgelegt (Kernaussage, Hintergrund, Methodik, Ergebnis, Bedeutung), sodass
    nichts nachträglich aus Fließtext geparst werden muss.
-6. **Ausgeben** – eine HTML-Datei mit eingebettetem CSS, ohne JavaScript, hell und
-   dunkel, druckbar.
+6. **Zustellen** – die Mail entsteht mit Text- und HTML-Teil und wird per IMAP
+   in den Entwürfe-Ordner gelegt. Der HTML-Teil kommt ohne `<style>`-Block und
+   ohne aufklappbare Abschnitte aus, weil Mail-Programme beides nicht
+   verlässlich unterstützen; die Stilangaben stehen direkt an den Elementen.
 
 ### Was „neu" heißt
 
@@ -266,9 +317,13 @@ deshalb: *heute zum ersten Mal auf der Seite gesehen*. Dafür merkt sich
 Datei gehört ins Repository, sonst beginnt jeder Lauf von vorn.
 
 Beim **allerersten Lauf** ist die Merkliste leer und damit die gesamte Seite
-„neu". Damit nicht tagelang ein Altbestand nachrieselt, zeigt der erste Lauf die
+„neu". Damit nicht tagelang ein Altbestand nachrieselt, nimmt der erste Lauf die
 obersten `max_studien` Einträge und vermerkt den Rest als bekannt. Später
 gefundene Überhänge bleiben dagegen liegen und erscheinen im nächsten Lauf.
+
+Die Merkliste wird **erst nach erfolgreicher Zustellung** geschrieben. Scheitert
+der Entwurf, ändert sich nichts – der nächste Lauf versucht dieselben Studien
+erneut.
 
 ### Kosten
 
@@ -283,23 +338,30 @@ Modellverbrauch: 12 Anfragen, 14 233 Eingabe- und 3 918 Ausgabe-Tokens
 
 `max_studien` in `studies.toml` deckelt den Verbrauch nach oben.
 
-## Quelle und Verlage anpassen
+## Anpassen
 
-Alles steckt in [`studies.toml`](studies.toml). Fehlt ein Verlag, wird seine
-Domain unter `verlags_hosts` ergänzt – dafür ist keine Codeänderung nötig:
+Alles steckt in [`studies.toml`](studies.toml).
+
+Fehlt ein Verlag, wird seine Domain unter `verlags_hosts` ergänzt – dafür ist
+keine Codeänderung nötig:
 
 ```toml
 [einstellungen]
 verlags_hosts = ["doi.org", "pubmed.ncbi.nlm.nih.gov", "nejm.org", "…"]
 ```
 
-Unter `[zusammenfassung]` lassen sich Modell, `effort` und Obergrenzen einstellen,
-unter `[anreicherung]` die beiden Datendienste einzeln abschalten.
+Unter `[entwurf]` lassen sich Betreff (`{datum}` und `{anzahl}` als Platzhalter),
+Empfänger, Ordner und die Frage einstellen, ob das Abstract mit in die Mail soll.
+`auch_ohne_studien = true` erzeugt auch an ereignislosen Tagen einen Entwurf –
+als Lebenszeichen, dass der Lauf noch funktioniert.
+
+Unter `[zusammenfassung]` stehen Modell, `effort` und Obergrenzen, unter
+`[anreicherung]` lassen sich die beiden Datendienste einzeln abschalten.
 
 ## Automatischer Lauf
 
 [`.github/workflows/studien.yml`](.github/workflows/studien.yml) startet den Abruf
-täglich um 05:30 UTC (07:30 MESZ / 06:30 MEZ) und committet Seite und Merkliste.
+täglich um 05:30 UTC (07:30 MESZ / 06:30 MEZ) und committet danach die Merkliste.
 Der Lauf lässt sich unter *Actions → Tägliche Studienübersicht → Run workflow*
 auch von Hand auslösen.
 
@@ -308,29 +370,35 @@ Nötig sind:
 1. **Der Workflow muss im Standard-Branch liegen.** GitHub führt geplante
    Workflows ausschließlich aus dem Standard-Branch aus.
 2. **Schreibrechte für Actions** unter *Settings → Actions → General →
-   Workflow permissions*.
-3. **Das Secret `ANTHROPIC_API_KEY`** unter *Settings → Secrets and variables →
-   Actions*. Ohne dieses Secret läuft der Job durch und zeigt Abstract-Auszüge.
-   Optional lässt sich zusätzlich `NCBI_API_KEY` hinterlegen; er hebt das
-   PubMed-Limit von 3 auf 10 Anfragen pro Sekunde.
+   Workflow permissions* – für den Commit der Merkliste.
+3. **Die Secrets** unter *Settings → Secrets and variables → Actions*:
 
-Als Webseite veröffentlichen: *Settings → Pages → Source: Deploy from a branch*,
-Branch `main`, Ordner `/docs`. Die Studienübersicht liegt dann unter
-`https://<benutzer>.github.io/<repo>/studien/`.
+   | Secret | Pflicht | Wofür |
+   | --- | --- | --- |
+   | `GMAIL_BENUTZER` | ja | Gmail-Adresse, in deren Entwürfe die Mail geht |
+   | `GMAIL_APP_PASSWORT` | ja | App-Passwort (siehe [Gmail einrichten](#gmail-einrichten)) |
+   | `ANTHROPIC_API_KEY` | nein | Ohne ihn stehen Abstract-Auszüge statt Kurzfassungen in der Mail |
+   | `NCBI_API_KEY` | nein | Hebt das PubMed-Limit von 3 auf 10 Anfragen pro Sekunde |
+
+Schlägt der Entwurf fehl, endet der Job sichtbar rot (Code `3`) und die Merkliste
+bleibt unverändert – ein stiller Ausfall, bei dem Studien verloren gehen, ist
+damit ausgeschlossen.
 
 ## Grenzen
 
 - **Die Erkennung ist eine Heuristik.** Sie stützt sich auf die Zieladressen der
   Links und ist damit gegen Layoutänderungen robust – aber nicht gegen jede.
-  Findet der Lauf keinen einzigen Studienlink, steht das als Hinweis auf der
-  Seite; dann lohnt ein Blick auf `verlags_hosts`.
+  Findet der Lauf keinen einzigen Studienlink, steht das als Hinweis in der Mail;
+  dann lohnt ein Blick auf `verlags_hosts`.
 - **Kurzfassungen sind kein Ersatz für die Originalarbeit.** Sie entstehen
-  ausschließlich aus dem Abstract und stehen unter einem entsprechenden Hinweis
-  auf der Seite. Das Modell wird angewiesen, nichts zu ergänzen, Zahlen wörtlich
-  zu übernehmen und keine Behandlungsempfehlung zu formulieren – prüfen muss man
-  sie trotzdem.
+  ausschließlich aus dem Abstract und stehen unter einem entsprechenden Hinweis.
+  Das Modell wird angewiesen, nichts zu ergänzen, Zahlen wörtlich zu übernehmen
+  und keine Behandlungsempfehlung zu formulieren – prüfen muss man sie trotzdem.
 - **Abstracts fehlen manchmal.** Ohne Abstract gibt es keine Kurzfassung, sondern
   nur Titel, Journal und Links.
+- **Ein Entwurf ist flüchtig.** Gelöscht ist gelöscht – ein Archiv gibt es seit
+  der Umstellung auf Gmail nicht mehr. Wer eines möchte, ergänzt `--out docs/studien`
+  im Workflow und committet das Verzeichnis mit.
 
 ## Tests
 
@@ -338,10 +406,11 @@ Branch `main`, Ordner `/docs`. Die Studienübersicht liegt dann unter
 python3 -m unittest discover -s tests -t .
 ```
 
-99 Tests für `studywatch`, ohne Netz und ohne API-Schlüssel: HTTP-Antworten
-kommen aus Fixtures, die Claude-Aufrufe gegen einen Stub-Client. Abgedeckt sind
-auch die Rückfallebenen – abgelehnte Anfrage, unlesbare Antwort, fehlender
-Schlüssel, ausgefallener Datendienst.
+129 Tests für `studywatch`, ohne Netz, ohne API-Schlüssel und ohne Gmail-Konto:
+HTTP-Antworten kommen aus Fixtures, die Claude-Aufrufe gegen einen Stub-Client,
+der IMAP-Server gegen einen Fake, der mitschreibt statt zu verbinden. Abgedeckt
+sind auch die Rückfallebenen – abgelehnte Anfrage, unlesbare Antwort, fehlender
+Schlüssel, ausgefallener Datendienst, abgelehnte Anmeldung.
 
 ## Aufbau
 
@@ -354,8 +423,9 @@ studywatch/
   state.py         Merkliste bereits gezeigter Studien
   enrich.py        Crossref und PubMed
   summarize.py     Claude-API mit Rückfall auf den Abstract
-  render.py        HTML-Ausgabe
-  assets/style.css Layout, hell und dunkel
-studies.toml       Quelle, Verlage und Einstellungen
+  render.py        Fassungen für Mail (Text und HTML) und Webseite
+  mail.py          Entwurf per IMAP im Gmail-Postfach ablegen
+  assets/style.css Layout der Webseite, hell und dunkel
+studies.toml       Quelle, Verlage, Zustellung und Einstellungen
 tools/demo_studien.py Beispieldaten für den netzlosen Durchlauf
 ```
