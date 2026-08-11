@@ -42,5 +42,6 @@ jobs:
             --offline-dir "${RUNNER_TEMP}/studien" \
             --state "${RUNNER_TEMP}/studien/gesehen.json" \
             --keine-zusammenfassung \
+            --kein-entwurf \
             --out "${RUNNER_TEMP}/studien-vorschau"
           test -s "${RUNNER_TEMP}/studien-vorschau/index.html"

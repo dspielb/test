@@ -33,7 +33,7 @@ HINWEIS = (
 
 @dataclass
 class Bericht:
-    """Alles, was die Seite eines Tages anzeigt."""
+    """Alles, was eine Ausgabe des Tages anzeigt."""
 
     studien: list[Studie]
     quelle_name: str
@@ -42,6 +42,7 @@ class Bericht:
     gefunden_gesamt: int = 0
     modell: str = ""
     hinweise: list[str] = field(default_factory=list)
+    zeitzone: str = "Europe/Berlin"
 
     @property
     def anzahl(self) -> int:
@@ -51,10 +52,13 @@ class Bericht:
     def vom_modell(self) -> int:
         return sum(1 for s in self.studien if s.zusammenfassung and s.zusammenfassung.vom_modell)
 
+    @property
+    def erzeugt_am_lokal(self) -> datetime:
+        return self.erzeugt_am.astimezone(ZoneInfo(self.zeitzone))
 
-def render_bericht(bericht: Bericht, *, timezone: str = "Europe/Berlin") -> str:
-    tz = ZoneInfo(timezone)
-    lokal = bericht.erzeugt_am.astimezone(tz)
+
+def render_bericht(bericht: Bericht) -> str:
+    lokal = bericht.erzeugt_am_lokal
 
     teile = [
         _kopf(f"Neue Studien – {lokal:%d.%m.%Y}"),
@@ -94,6 +98,149 @@ def render_archiv_index(tage: list[date]) -> str:
         f'<main class="wrap"><ul class="archive">{eintraege}</ul></main>'
         "</body></html>"
     )
+
+
+# --- Fassung für die E-Mail ----------------------------------------------
+
+# Mail-Programme kennen weder <style>-Blöcke noch <details> zuverlässig.
+# Deshalb eine eigene, schlichtere Fassung mit Stilangaben direkt am Element.
+_M_RAHMEN = "max-width:680px;margin:0;font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#14181d;line-height:1.55;"
+_M_KOPFZEILE = "margin:0 0 4px;font-size:20px;font-weight:600;"
+_M_DATUM = "margin:0 0 24px;font-size:13px;color:#5b6672;"
+_M_TITEL = "margin:0 0 6px;font-size:17px;line-height:1.4;font-weight:600;"
+_M_TITEL_LINK = "color:#14181d;text-decoration:none;"
+_M_ZEILE = "margin:0 0 12px;font-size:13px;color:#5b6672;"
+_M_KERN = "margin:0 0 12px;padding:10px 14px;background:#e6f0f5;border-left:3px solid #1f5f7a;font-size:15px;"
+_M_FELD = "margin:0 0 8px;font-size:14px;color:#3c4650;"
+_M_ETIKETT = "color:#8a939e;font-size:12px;text-transform:uppercase;letter-spacing:0.04em;"
+_M_HERKUNFT = "margin:0;font-size:11px;color:#8a939e;"
+_M_TRENNER = "border:0;border-top:1px solid #dfe3e8;margin:24px 0;"
+_M_FUSS = "margin:0 0 8px;font-size:12px;color:#5b6672;"
+
+
+def render_mail_html(bericht: Bericht, *, mit_abstract: bool = False) -> str:
+    """HTML-Teil der Mail: ohne <style>-Block, ohne aufklappbare Abschnitte."""
+    lokal = bericht.erzeugt_am_lokal
+    teile = [
+        f'<div style="{_M_RAHMEN}">',
+        f'<p style="{_M_KOPFZEILE}">Neue Studien</p>',
+        f'<p style="{_M_DATUM}">{WOCHENTAGE[lokal.weekday()]}, {_langes_datum(lokal.date())} · '
+        f"{_zaehle(bericht.anzahl, 'neue Studie', 'neue Studien')} von "
+        f"{bericht.gefunden_gesamt} geprüften Einträgen</p>",
+    ]
+
+    if not bericht.studien:
+        teile.append(f'<p style="{_M_FELD}">Heute keine neuen Studien im Journal Watch.</p>')
+
+    for studie in bericht.studien:
+        teile.append(_mail_studie(studie, mit_abstract=mit_abstract))
+
+    teile.append(f'<hr style="{_M_TRENNER}">')
+    teile.append(f'<p style="{_M_FUSS}">{escape(HINWEIS)}</p>')
+    for hinweis in bericht.hinweise:
+        teile.append(f'<p style="{_M_FUSS}">{escape(hinweis)}</p>')
+    teile.append(
+        f'<p style="{_M_FUSS}">Quelle: '
+        f'<a href="{escape(bericht.quelle_url, quote=True)}">{escape(bericht.quelle_name)}</a> · '
+        f"erzeugt am {lokal:%d.%m.%Y um %H:%M} Uhr"
+        + (f" · Kurzfassungen mit {escape(bericht.modell)}" if bericht.modell else "")
+        + "</p>"
+    )
+    teile.append("</div>")
+    return "\n".join(teile)
+
+
+def _mail_studie(studie: Studie, *, mit_abstract: bool) -> str:
+    zeilen = [
+        '<div style="margin:0 0 28px;">',
+        f'<p style="{_M_TITEL}"><a href="{escape(studie.link, quote=True)}" '
+        f'style="{_M_TITEL_LINK}">{escape(studie.titel)}</a></p>',
+    ]
+
+    angaben = [escape(teil) for teil in (studie.journal, studie.autoren_kurz) if teil]
+    if studie.veroeffentlicht:
+        angaben.insert(1 if studie.journal else 0, _langes_datum(studie.veroeffentlicht))
+    for beschriftung, ziel in (("DOI", studie.doi_link), ("PubMed", studie.pubmed_link)):
+        if ziel:
+            angaben.append(f'<a href="{escape(ziel, quote=True)}">{beschriftung}</a>')
+    if angaben:
+        zeilen.append(f'<p style="{_M_ZEILE}">{" · ".join(angaben)}</p>')
+
+    zusammenfassung = studie.zusammenfassung
+    if zusammenfassung:
+        zeilen.append(f'<p style="{_M_KERN}">{escape(zusammenfassung.kernaussage)}</p>')
+        for feld, beschriftung in _FELDER:
+            wert = getattr(zusammenfassung, feld)
+            if wert:
+                zeilen.append(
+                    f'<p style="{_M_FELD}"><span style="{_M_ETIKETT}">{beschriftung}</span><br>'
+                    f"{escape(wert)}</p>"
+                )
+    elif studie.kontext:
+        zeilen.append(f'<p style="{_M_FELD}">{escape(studie.kontext)}</p>')
+
+    if mit_abstract and studie.abstract:
+        zeilen.append(f'<p style="{_M_FELD}">{escape(studie.abstract)}</p>')
+
+    zeilen.append(f'<p style="{_M_HERKUNFT}">{_herkunft(studie)}</p>')
+    zeilen.append("</div>")
+    return "".join(zeilen)
+
+
+def render_mail_text(bericht: Bericht, *, mit_abstract: bool = False) -> str:
+    """Textteil der Mail - was jedes Programm anzeigen kann."""
+    lokal = bericht.erzeugt_am_lokal
+    zeilen = [
+        "NEUE STUDIEN",
+        f"{WOCHENTAGE[lokal.weekday()]}, {_langes_datum(lokal.date())} · "
+        f"{_zaehle(bericht.anzahl, 'neue Studie', 'neue Studien')} von "
+        f"{bericht.gefunden_gesamt} geprüften Einträgen",
+        "",
+    ]
+
+    if not bericht.studien:
+        zeilen.append("Heute keine neuen Studien im Journal Watch.")
+
+    for nummer, studie in enumerate(bericht.studien, start=1):
+        zeilen.append(f"{nummer}. {studie.titel}")
+
+        angaben = [teil for teil in (studie.journal, studie.autoren_kurz) if teil]
+        if studie.veroeffentlicht:
+            angaben.insert(1 if studie.journal else 0, _langes_datum(studie.veroeffentlicht))
+        if angaben:
+            zeilen.append(f"   {' · '.join(angaben)}")
+        zeilen.append(f"   {studie.link}")
+        zeilen.append("")
+
+        zusammenfassung = studie.zusammenfassung
+        if zusammenfassung:
+            zeilen.append(f"   {zusammenfassung.kernaussage}")
+            for feld, beschriftung in _FELDER:
+                wert = getattr(zusammenfassung, feld)
+                if wert:
+                    zeilen.append("")
+                    zeilen.append(f"   {beschriftung.upper()}")
+                    zeilen.append(f"   {wert}")
+        elif studie.kontext:
+            zeilen.append(f"   {studie.kontext}")
+
+        if mit_abstract and studie.abstract:
+            zeilen.append("")
+            zeilen.append("   ABSTRACT")
+            zeilen.extend(f"   {absatz}" for absatz in studie.abstract.split("\n\n") if absatz.strip())
+
+        zeilen.append("")
+        zeilen.append("-" * 60)
+        zeilen.append("")
+
+    zeilen.append(HINWEIS)
+    zeilen.extend(bericht.hinweise)
+    zeilen.append("")
+    zeilen.append(f"Quelle: {bericht.quelle_name} – {bericht.quelle_url}")
+    zeilen.append(f"Erzeugt am {lokal:%d.%m.%Y um %H:%M} Uhr")
+    if bericht.modell:
+        zeilen.append(f"Kurzfassungen erzeugt mit {bericht.modell}")
+    return "\n".join(zeilen)
 
 
 # --- Bausteine ------------------------------------------------------------

@@ -42,29 +42,34 @@ jobs:
       - name: Abhängigkeiten
         run: pip install --disable-pip-version-check -r requirements-studywatch.txt
 
-      - name: Übersicht erzeugen
+      # Legt den Entwurf im Gmail-Postfach ab. Schlägt das fehl, endet der Job
+      # mit Code 3 und die Merkliste bleibt unverändert - der nächste Lauf
+      # nimmt dieselben Studien noch einmal.
+      - name: Entwurf erzeugen
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          GMAIL_BENUTZER: ${{ secrets.GMAIL_BENUTZER }}
+          GMAIL_APP_PASSWORT: ${{ secrets.GMAIL_APP_PASSWORT }}
         run: |
-          python -m studywatch --out docs/studien --state state/gesehen.json --verbose \
+          python -m studywatch --state state/gesehen.json --verbose \
             ${{ inputs.max && format('--max {0}', inputs.max) || '' }} \
             ${{ inputs.alle && '--alle' || '' }}
 
-      - name: Ergebnis committen
+      - name: Merkliste committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # Erst vormerken, dann prüfen: git diff allein übersieht neue Dateien,
-          # und beim ersten Lauf sind docs/studien und state genau das.
-          git add docs/studien state
+          # und beim ersten Lauf ist state genau das.
+          git add state
           if git diff --cached --quiet; then
             echo "Keine Änderungen - nichts zu committen."
             exit 0
           fi
 
-          git commit -m "Studienübersicht $(date -u +%Y-%m-%d)"
+          git commit -m "Studien vermerkt $(date -u +%Y-%m-%d)"
 
           # Bei parallelen Läufen kann sich der Branch zwischenzeitlich bewegt haben.
           for versuch in 1 2 3 4; do

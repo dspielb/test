@@ -98,11 +98,32 @@ class Zusammenfassung:
 
 
 @dataclass(frozen=True)
+class Entwurf:
+    """Zustellung als Gmail-Entwurf über IMAP."""
+
+    aktiv: bool = True
+    imap_server: str = "imap.gmail.com"
+    imap_port: int = 993
+    benutzer_env: str = "GMAIL_BENUTZER"
+    passwort_env: str = "GMAIL_APP_PASSWORT"
+    #: Leer = an die eigene Adresse.
+    an: str = ""
+    betreff: str = "Neue Studien – {datum}"
+    #: Leer = der Entwürfe-Ordner wird über das IMAP-Merkmal \\Drafts gefunden.
+    ordner: str = ""
+    #: Abstracts machen die Mail lang; die Links führen ohnehin zum Original.
+    mit_abstract: bool = False
+    #: Ohne neue Studien entsteht kein Entwurf - sonst sammelt sich täglich Leergut.
+    auch_ohne_studien: bool = False
+
+
+@dataclass(frozen=True)
 class Config:
     quelle: Quelle
     einstellungen: Einstellungen = field(default_factory=Einstellungen)
     anreicherung: Anreicherung = field(default_factory=Anreicherung)
     zusammenfassung: Zusammenfassung = field(default_factory=Zusammenfassung)
+    entwurf: Entwurf = field(default_factory=Entwurf)
 
 
 _ERLAUBTE_EFFORTS = ("low", "medium", "high", "xhigh", "max")
@@ -135,6 +156,7 @@ def from_dict(raw: dict, source: str = "<dict>") -> Config:
         einstellungen=_einstellungen(raw.get("einstellungen") or {}, source),
         anreicherung=_anreicherung(raw.get("anreicherung") or {}, source),
         zusammenfassung=_zusammenfassung(raw.get("zusammenfassung") or {}, source),
+        entwurf=_entwurf(raw.get("entwurf") or {}, source),
     )
 
 
@@ -144,6 +166,10 @@ def mit_max_studien(cfg: Config, anzahl: int) -> Config:
 
 def ohne_zusammenfassung(cfg: Config) -> Config:
     return replace(cfg, zusammenfassung=replace(cfg.zusammenfassung, aktiv=False))
+
+
+def ohne_entwurf(cfg: Config) -> Config:
+    return replace(cfg, entwurf=replace(cfg.entwurf, aktiv=False))
 
 
 def _einstellungen(raw: dict, source: str) -> Einstellungen:
@@ -195,6 +221,29 @@ def _zusammenfassung(raw: dict, source: str) -> Zusammenfassung:
             )
         werte["effort"] = effort
     return Zusammenfassung(**werte)  # type: ignore[arg-type]
+
+
+def _entwurf(raw: dict, source: str) -> Entwurf:
+    werte: dict[str, object] = {}
+    for key in ("aktiv", "mit_abstract", "auch_ohne_studien"):
+        if key in raw:
+            werte[key] = _wahrheitswert(raw[key], key, source)
+    for key in ("imap_server", "benutzer_env", "passwort_env", "an", "ordner"):
+        if key in raw:
+            werte[key] = _text(raw[key], key, source)
+    if "imap_port" in raw:
+        werte["imap_port"] = _zahl(raw["imap_port"], "imap_port", source, minimum=1)
+    if "betreff" in raw:
+        betreff = _text(raw["betreff"], "betreff", source)
+        try:
+            betreff.format(datum="", anzahl=0)
+        except (KeyError, IndexError, ValueError) as exc:
+            raise ConfigError(
+                f"{source}: [entwurf].betreff kennt nur die Platzhalter "
+                f"{{datum}} und {{anzahl}} ({exc})."
+            ) from None
+        werte["betreff"] = betreff
+    return Entwurf(**werte)  # type: ignore[arg-type]
 
 
 def _zahl(wert: object, key: str, source: str, *, minimum: int) -> int:

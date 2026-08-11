@@ -56,6 +56,26 @@ kontakt_email = ""
 ncbi_api_key_env = "NCBI_API_KEY"
 parallel = 4
 
+[entwurf]
+# Die Übersicht landet als Entwurf im Gmail-Postfach - verschickt wird nichts.
+aktiv = true
+imap_server = "imap.gmail.com"
+imap_port = 993
+# Umgebungsvariablen mit Gmail-Adresse und App-Passwort (nicht dem Kontopasswort).
+benutzer_env = "GMAIL_BENUTZER"
+passwort_env = "GMAIL_APP_PASSWORT"
+# Leer = Entwurf an die eigene Adresse.
+an = ""
+# Erlaubte Platzhalter: {datum} und {anzahl}.
+betreff = "Neue Studien – {datum}"
+# Leer = der Entwürfe-Ordner wird über das IMAP-Merkmal \Drafts gefunden.
+# Das funktioniert unabhängig von der Kontosprache; nur im Notfall fest eintragen.
+ordner = ""
+# Abstracts machen die Mail lang; die Links führen ohnehin zum Original.
+mit_abstract = false
+# Ohne neue Studien entsteht kein Entwurf - sonst sammelt sich täglich Leergut.
+auch_ohne_studien = false
+
 [zusammenfassung]
 aktiv = true
 modell = "claude-opus-5"
