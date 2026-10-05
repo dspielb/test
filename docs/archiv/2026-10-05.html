@@ -1,0 +1,445 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nachrichten – 05.10.2026</title><style>:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-alt: #f0f2f5;
+  --border: #dfe3e8;
+  --text: #14181d;
+  --text-muted: #5b6672;
+  --text-faint: #8a939e;
+  --accent: #a03c2f;
+  --accent-soft: #f5e7e4;
+  --shadow: 0 1px 2px rgba(16, 22, 28, 0.06), 0 4px 12px rgba(16, 22, 28, 0.04);
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171b;
+    --surface: #1c2026;
+    --surface-alt: #232830;
+    --border: #303740;
+    --text: #e8ebef;
+    --text-muted: #a3adb9;
+    --text-faint: #78828e;
+    --accent: #e8836f;
+    --accent-soft: #33231f;
+    --shadow: none;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+/* --- Kopfbereich --- */
+
+header.page {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 28px;
+}
+
+header.page .wrap { padding-top: 34px; padding-bottom: 22px; }
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.dateline {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.meta {
+  margin: 14px 0 0;
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+nav.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+nav.categories a {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+nav.categories a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Abschnitte --- */
+
+section { margin-bottom: 40px; scroll-margin-top: 16px; }
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--text);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+h2 .count {
+  margin-left: auto;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.section-note {
+  margin: 8px 0 14px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* --- Artikel --- */
+
+ol.stories {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+li.story {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+li.story:last-child { border-bottom: none; }
+
+li.story h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+li.story h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+li.story h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+p.summary {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.source {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.also {
+  color: var(--text-faint);
+}
+
+.also a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.also a:hover { color: var(--accent); }
+
+/* --- Top-Themen --- */
+
+section.top {
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+section.top h2 {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+section.top li.story { border-bottom-color: var(--border); }
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --- Fuß --- */
+
+footer.page {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+footer.page h2 {
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-bottom: 0;
+}
+
+ul.status {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+ul.status li::before {
+  content: "●";
+  margin-right: 6px;
+  color: #3f9a52;
+}
+
+ul.status li.failed::before { color: #c2503f; }
+
+.empty {
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* --- Archiv --- */
+
+ul.archive {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+ul.archive li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+ul.archive a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+ul.archive a:hover { color: var(--accent); }
+
+ul.archive .weekday {
+  margin-left: 8px;
+  color: var(--text-faint);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.5rem; }
+  .wrap { padding: 0 16px 48px; }
+}
+
+@media print {
+  body { background: #fff; }
+  nav.categories, footer.page { display: none; }
+  li.story { break-inside: avoid; }
+}
+</style></head><body>
+<header class="page"><div class="wrap"><h1>Nachrichtenüberblick</h1><p class="dateline">Montag, 5. Oktober 2026 · Stand 13:09 Uhr</p><p class="meta">124 Meldungen aus 17 Quellen · Zeitfenster 24 Stunden · 4 Quellen nicht erreichbar</p><nav class="categories"><a href="#agenturen">Agenturen</a><a href="#deutschland">Deutschland &amp; Welt</a><a href="#wirtschaft">Wirtschaft &amp; Finanzen</a><a href="#tech">Tech &amp; IT</a></nav></div></header>
+<main class="wrap">
+<section class="top" id="top-themen"><h2>Top-Themen</h2><p class="section-note">Meldungen, über die mehrere Quellen gleichzeitig berichten.</p><ol class="stories"><li class="story"><h3><a href="https://www.deutschlandfunk.de/medizin-nobelpreis-geht-an-zwei-deutsche-wissenschaftler-und-einen-us-amerikaner-100.html" rel="noopener">Stockholm - Medizin-Nobelpreis geht an zwei deutsche Wissenschaftler und einen US-Amerikaner</a></h3><p class="summary">Der Nobelpreis für Medizin geht in diesem Jahr unter anderem an zwei deutsche Wissenschaftler. Das Nobelpreis-Komitee in Stockholm gab bekannt, dass Peter ⁠Hegemann und ⁠Georg Nagel gemeinsam mit dem US-Amerikaner Karl Deisseroth geehrt werden.</p><div class="byline"><span class="source">Deutschlandfunk</span><span class="badge">4 Quellen</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time><span class="also">auch bei <a href="https://www.sueddeutsche.de/wissen/medizin-nobelpreis-li.3558483" rel="noopener">Süddeutsche</a>, <a href="https://www.n-tv.de/wissen/Medizin-Nobelpreis-geht-an-zwei-Deutsche-und-einen-US-Amerikaner-id31381667.html" rel="noopener">n-tv</a>, <a href="https://www.faz.net/aktuell/wissen/medizin-ernaehrung/nobelpreis-fuer-medizin-geht-an-zwei-deutsche-und-einen-us-amerikaner-accg-201288768.html" rel="noopener">FAZ</a></span></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/ministerpraesident-s-nchez-kuendigt-vorgezogene-neuwahlen-an-102.html" rel="noopener">Spanien - Ministerpräsident Sánchez kündigt vorgezogene Neuwahlen an</a></h3><p class="summary">In Spanien finden am 29. November vorgezogene Neuwahlen statt. Dies kündigte Ministerpräsident Sánchez in Madrid an. Er zieht damit die Konsequenz aus der derzeitigen innenpolitischen Blockade im Parlament.</p><div class="byline"><span class="source">Deutschlandfunk</span><span class="badge">2 Quellen</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/ausland/spanien-pedro-sanchez-kuendigt-nach-abstimmungsniederlage-neuwahlen-an-a-120740d7-5959-4ed5-b5e6-4857ec59857b#ref=rss" rel="noopener">SPIEGEL</a></span></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/politik/weltwirtschaft/brasilien-lula-und-bolsonaro-sohn-flavio-muessen-in-die-stichwahl-a-49d7defb-01f5-494e-87f4-ac2f7919de47#ref=rss" rel="noopener">Brasilien: Lula und Bolsonaro-Sohn Flávio müssen in die Stichwahl</a></h3><p class="summary">Der 80-jährige Amtsinhaber oder der Spross des hart rechten Ex-Präsidenten – wer regiert künftig in Brasilien? Vorerst kann sich weder Luiz Inácio Lula da Silva noch Flávio Bolsonaro durchsetzen. Die Entscheidung fällt in drei Wochen.</p><div class="byline"><span class="source">manager magazin</span><span class="badge">2 Quellen</span><time datetime="2026-10-05T09:32:00+02:00">09:32 Uhr</time><span class="also">auch bei <a href="https://www.wiwo.de/politik/ausland/stichwahl-in-brasilien-flavio-bolsonaro-leicht-favorisiert-gegen-lula/100259673.html" rel="noopener">WirtschaftsWoche</a></span></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/it/uebernahme-schneider-electric-kauft-us-softwarefirma-fuer-21-milliarden-euro/100259687.html" rel="noopener">Übernahme: Schneider Electric kauft US-Softwarefirma für 21 Milliarden Euro</a></h3><p class="summary">Schneider Electric plant mit dem milliardenschweren Zukauf des Softwareunternehmens PTC seinen Einstieg in den USA. Der französische Konzern will so sein Softwaregeschäft weiter ausbauen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><span class="badge">2 Quellen</span><time datetime="2026-10-05T09:18:00+02:00">09:18 Uhr</time><span class="also">auch bei <a href="https://www.manager-magazin.de/unternehmen/tech/schneider-electric-kauft-fuer-22-6-milliarden-dollar-us-softwarefirma-a-d255604b-66fb-4fe8-9a84-f5364b7eaeb7#ref=rss" rel="noopener">manager magazin</a></span></div></li></ol></section>
+<section id="agenturen"><h2>Agenturen<span class="count">12 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSVotTm16YzZEU2xvWHNOcjllZVU1RlNYZjBoUnMzWThDbHRLUmJpUE16d0lSR00xcXRBNXppSGcwZHpjNGd6azFjeVBWSHV5T3lZWG9mZEdMRmhBYzVhMF9seTQ2UnZTa201X3hHb2o1ZHN5alNJRmFPcUdvaWVnX1ZKWFZVYmwyS2huNHg2bG1TNlVNT3RuUk5Mbi1naHRFaFQ0YjRKZ0YtVVUta3V2Q1dmQzN5bTlkZmpV?oc=5" rel="noopener">Yemeni government forces seize district by Bab el-Mandeb, military sources say - Reuters</a></h3><p class="summary">Yemeni government forces seize district by Bab el-Mandeb, military sources say Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T11:20:23+02:00">11:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNZG82UmhiYjFHZDhlNE9UOGsxcUI2M1JPWkFCeGYtbTJZaUpfVENWcm52dWFwbGJvdXBIRU9zVGl1VDdpWDFmOE40WENRRXlnYkI1Q01qNUM2MzJKdEh0cHdkdGh2R3VVMVNSck1vY3gxS09GOTdZWXNsZ1E2dW4xS1U4OWVXLW94Z01PSUV3b1oydEJhOThmcVhNRlNYam5zNHIwajBRUQ?oc=5" rel="noopener">flydubai FZ1073: Co-Pilot Planned the Attack Before He Was Hired - MiGFlug</a></h3><p class="summary">flydubai FZ1073: Co-Pilot Planned the Attack Before He Was Hired MiGFlug</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T10:53:34+02:00">10:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQWGE1S0stdFJsbDNLUzJXWWVrQzJwSXF3LU1zUU11UjlpeHhYdm52QnNOTXRXT0R0bjJMVWhuaGpuRlJLbFQwQnRYUGU1LXFxOWpzRFUwSmxOSFlfaVhJTkZuRGppWFNnV3VBZDJuYWw4b0d6aElFSzdsdDNPdHY0MzN5bkZmNjI0RHFfUUV3?oc=5" rel="noopener">Germany to establish first Bundeswehr drone regiment by 2027 - georgiatoday.ge</a></h3><p class="summary">Germany to establish first Bundeswehr drone regiment by 2027 georgiatoday.ge</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T08:41:36+02:00">08:41 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiX0FVX3lxTE5aWUplUHRMeHdPOGxHaDFhY0RYajN0WDBjMVJyVjd5X3duelNGUkUxZnB3MnNkMEVWVGF4cmRRa29vZEMxRlVicG9paWhQLU5RQy1RbGV0aUwyZUpRNVVv?oc=5" rel="noopener">Ethiopian troops retake Mekelle as TPLF rebels retreat from Tigray&#x27;s capital - The Jerusalem Post</a></h3><p class="summary">Ethiopian troops retake Mekelle as TPLF rebels retreat from Tigray&#x27;s capital The Jerusalem Post</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T08:01:28+02:00">08:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxOVktJbDRXMWQ5SE96b3JWb2JwVFREdlhnUTU5c2pnSDQyVTdRNUNSRWFORXN1dEkxb3NIaHZDdUZycDhIdVI0bW5EeW1pMWNwRk1zUGtvb25ybW8zWWRfSktHb0RVZEVoaHlpa2pDYk02M2s3NnhleEU1cEFadjJFN0RPbVdXU1RnYWZQMXp0SGpWVnFuZEFiUHNodVBFalFNVFpZMGw1N0xoNkF3RW5YU2Fpdi0tTTBuTk93RDU2VGpGdGtzZ2N3?oc=5" rel="noopener">COMMENTARY: India may be best placed to fill a China-sized hole in fuel exports - Reuters</a></h3><p class="summary">COMMENTARY: India may be best placed to fill a China-sized hole in fuel exports Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T08:00:00+02:00">08:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQTWNTamd2X2E5enhOeE1xaTZwbkVyVzFHczhfX0hBZ1FUMVZFaWxBaTNzcGtMN2kzNTFDeW1hcTFPem0yYVJrM2VaUkc5ZW0zTkJxLTdUSnJkeFU2QUxIbXgtTlFQTkloN2xlVkk3dTZ3SWxfejN2dzAxNWtBM0hkaDBBbjFRZl9mc29QMW5mU2d4MDhla2xCT0R5TTJkdjVRQUJEMHE4bUczQXpRVkhrQVNXZV9Pbjg?oc=5" rel="noopener">A woman was arrested in the U.S. on suspicion of spying on the son of Taiwan&#x27;s president — Reuters - UA.NEWS</a></h3><p class="summary">A woman was arrested in the U.S. on suspicion of spying on the son of Taiwan&#x27;s president — Reuters UA.NEWS</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T07:44:44+02:00">07:44 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi-gFBVV95cUxQa1VicmJzZ21ZdHZiTlRua0dCQkprWldDc0NRTHdacWdNcGJpNE80ekVvWXZjWGtVd1VUd0MyOXpCcFBNYm9HVHVaMnh1bFV4T2NxTEVsenlEQXh6bWV1c0JLT0VoMGlwcEJYSUtVU1dKVTZSMG9qUlJkNjI1MHhiLTVFajBiTDNkSlExb21NcUUxTTBmQVBFM0NiUzNza1M5cWM4UXI1N3NhaGJnVFdVM251cW94cjFzRklFeEt0UnJNN1FMSVhRMVcwMFIzRi1UVFh2eE1rakx6Yy02anZWakwtM1R4ckZVNk93djlVOUVScFdzRktBQzBB?oc=5" rel="noopener">Tom Cruise&#x27;s latest release &#x27;Digger&#x27; bombs at box office, rakes in only USD 8 Million in opening weekend - aninews.in</a></h3><p class="summary">Tom Cruise&#x27;s latest release &#x27;Digger&#x27; bombs at box office, rakes in only USD 8 Million in opening weekend aninews.in</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T06:30:00+02:00">06:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxOYV80R0dGQklxOF9rbDA4ZmwtTlZwVmtSdVAxYUNIOTFqUThtdDZfbjhQcDAySGxtcFBZa05tbGMycy1wRFY1M2U0WktSc2o2N0JCTVVlVEFkalBpdmJYRUQ5UVRDbDZzalpLWnJwNUlnNkRaaThzTEYxOVV2c2VQdS15OWQ4TEpUaDRMUzlaOFJtd1FS?oc=5" rel="noopener">Britain set to levy tariffs on Chinese electric cars, The Times reports, Money News - AsiaOne</a></h3><p class="summary">Britain set to levy tariffs on Chinese electric cars, The Times reports, Money News AsiaOne</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T05:42:24+02:00">05:42 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOdHVjSGpwT1BvV0o3X3IxRjRLOGpRY2I4blNIUkJmTl9sMUVWV3RLbUdyLXNpSDRoNEVITDhUazlvRmJQdkk5ODJuRUR3Q0NNb2lsQ3lsTS1ZOE5ldjV1REF6SUc2UXFmT0VKMFZtejZTeFhPSUFvNEhGcFQyY3kwSzFSbk4yUjh5cWFaZzU3enVkZUkxNm42RVVQVFQ0LWVKbFRqYkc2bTdSRW41Y2FFTC05bEdUQ2xMMW9FaXZoWmFqZw?oc=5" rel="noopener">Bolsonaro beats expectations in Brazil presidential vote, will face Lula in runoff - The Financial Express</a></h3><p class="summary">Bolsonaro beats expectations in Brazil presidential vote, will face Lula in runoff The Financial Express</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T05:31:14+02:00">05:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZXRpNVN3bkRlV2tXR0pieXJrZlpwNGpBVXMtVWRNbkNQSUh6aWp5dGRDX1lHY2owQXg3N19PdndZYVRFbldGbk5kUkdNbFRiV1BHM21KcUxndXRzNDFSU2twaHAzdTBzdmRDVVhIN05RNElLWmZuamtTUGpHM1diTFlVaTAxeGo3d05CQ1NWUWZDRGREeUdlZXNJRnY0YlRDMEt5S1NGaE9ZMXlFMUkzbDdUY0pkR0FrSzFr?oc=5" rel="noopener">Reflationist ex-BOJ policymaker calls end to low rates, big spending - Reuters</a></h3><p class="summary">Reflationist ex-BOJ policymaker calls end to low rates, big spending Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T02:16:00+02:00">02:16 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOdEo4Y1pEUUNhNmE0Y2lQSXpjRk5qLVdOUEFxdXNuelNVaFgzLU9QWVdGSXJmMl9WZXdfMlZ1dU5aMWVfanh2Q1FpWG9xNG96UjRGc3FITVpneTM3VzF6QTFHUVpoTC1Hb1pITjVTa1dNOWV4NmVTUXR6RWRmbWFpTTJsaXNsTFpkR1k5Tk03aXVackNOOWs4OUdGTlpHdw?oc=5" rel="noopener">Bengals lose WRs Ja&#x27;Marr Chase (concussion), Tee Higgins (adductor) - Reuters</a></h3><p class="summary">Bengals lose WRs Ja&#x27;Marr Chase (concussion), Tee Higgins (adductor) Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T01:11:27+02:00">01:11 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOGhDUmJ2UzEwZ0hlenFISFFXdkZyVHd1TGNIZEhLTERLaDRWaXh4dlpVM1RfU0p4Vlh2cjVybWZtOWZkVVp0ZEVndGQ3T2pZd0tyelVvV3JnQ09FQlNOYWtVeUhCMjZud2NpYUVEZllhbHhIeVFvOXpEY0lLTklTNnNpNnhDTUdVS1dYSzl6S3VwbzgydXlKZVFRTkE4Y0dsYlJtQldVWkY?oc=5" rel="noopener">OpenAI&#x27;s Altman says AI benefits warrant accepting some risks - Reuters</a></h3><p class="summary">OpenAI&#x27;s Altman says AI benefits warrant accepting some risks Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-05T00:35:00+02:00">00:35 Uhr</time></div></li></ol></section>
+<section id="deutschland"><h2>Deutschland &amp; Welt<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.deutschlandfunk.de/ministerpraesident-s-nchez-kuendigt-vorgezogene-neuwahlen-an-102.html" rel="noopener">Spanien - Ministerpräsident Sánchez kündigt vorgezogene Neuwahlen an</a></h3><p class="summary">In Spanien finden am 29. November vorgezogene Neuwahlen statt. Dies kündigte Ministerpräsident Sánchez in Madrid an. Er zieht damit die Konsequenz aus der derzeitigen innenpolitischen Blockade im Parlament.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/ausland/spanien-pedro-sanchez-kuendigt-nach-abstimmungsniederlage-neuwahlen-an-a-120740d7-5959-4ed5-b5e6-4857ec59857b#ref=rss" rel="noopener">SPIEGEL</a></span></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/medizin-nobelpreis-geht-an-zwei-deutsche-wissenschaftler-und-einen-us-amerikaner-100.html" rel="noopener">Stockholm - Medizin-Nobelpreis geht an zwei deutsche Wissenschaftler und einen US-Amerikaner</a></h3><p class="summary">Der Nobelpreis für Medizin geht in diesem Jahr unter anderem an zwei deutsche Wissenschaftler. Das Nobelpreis-Komitee in Stockholm gab bekannt, dass Peter ⁠Hegemann und ⁠Georg Nagel gemeinsam mit dem US-Amerikaner Karl Deisseroth geehrt werden.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time><span class="also">auch bei <a href="https://www.sueddeutsche.de/wissen/medizin-nobelpreis-li.3558483" rel="noopener">Süddeutsche</a>, <a href="https://www.n-tv.de/wissen/Medizin-Nobelpreis-geht-an-zwei-Deutsche-und-einen-US-Amerikaner-id31381667.html" rel="noopener">n-tv</a>, <a href="https://www.faz.net/aktuell/wissen/medizin-ernaehrung/nobelpreis-fuer-medizin-geht-an-zwei-deutsche-und-einen-us-amerikaner-accg-201288768.html" rel="noopener">FAZ</a></span></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/umweltminister-schneider-will-wasserverschmutzer-staerker-zur-kasse-bitten-104.html" rel="noopener">Konferenz in Berlin - Umweltminister Schneider will Wasserverschmutzer stärker zur Kasse bitten</a></h3><p class="summary">Bundesumweltminister Schneider will die Pharma- und Kosmetikbranche für Wasserverschmutzungen stärker zur Kasse bitten.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/jemenitische-truppen-melden-erfolge-gegen-huthi-rebellen-102.html" rel="noopener">Kampf ums Rote Meer - Jemenitische Truppen melden Erfolge gegen Huthi-Rebellen</a></h3><p class="summary">Im Jemen gehen die Streitkräfte der international anerkannten Regierung in einer Großoffensive gegen die Huthi-Miliz vor.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/bahn-setzt-wegen-zahlreicher-uebergriffe-auf-bodycams-mit-ton-100.html" rel="noopener">Pilotprojekt - Bahn setzt wegen zahlreicher Übergriffe auf Bodycams mit Ton</a></h3><p class="summary">Die Deutsche Bahn testet zwei Monate lang Bodycams mit Tonaufzeichnung.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/nachfrage-nach-elektroautos-nimmt-spuerbar-zu-100.html" rel="noopener">Zulassungszahlen - Nachfrage nach Elektroautos nimmt spürbar zu</a></h3><p class="summary">In Deutschland sind im September rund 88.600 reine Elektroautos neu zugelassen worden.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/geheimdienstchefs-sehen-reale-gefahr-eines-gewaltsamen-konflikts-mit-russland-100.html" rel="noopener">Anhörung im Bundestag - Geheimdienstchefs sehen reale Gefahr eines gewaltsamen Konflikts mit Russland</a></h3><p class="summary">Der Präsident des Bundesnachrichtendienstes, Jäger, hat vor einem möglichen gewaltsamen Konflikt mit Russland gewarnt. Die Gefahr von Anschlägen auf Ziele in Deutschland bleibe real, sagte Jäger in einer öffentlichen Anhörung im Bundestag.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/gruene-in-nordrhein-westfalen-nominieren-erneut-mona-neubaur-als-spitzenkandidatin-100.html" rel="noopener">Vor Wahl im April - Grüne in Nordrhein-Westfalen nominieren erneut Mona Neubaur als Spitzenkandidatin</a></h3><p class="summary">Der Grünen-Vorstand in Nordrhein-Westfalen hat die stellvertretende Ministerpräsidentin Neubaur als Spitzenkandidatin für die Landtagswahl im April nominiert.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/hackerangriff-auf-zentrales-melderegister-daenemarks-daten-von-8-8-millionen-buergern-erbeutet-100.html" rel="noopener">Cyberkriminalität - Hackerangriff auf zentrales Melderegister Dänemarks: Daten von 8,8 Millionen Bürgern erbeutet</a></h3><p class="summary">In Dänemark haben Unbekannte das zentrale Melderegister gehackt und Zugriff auf Daten von 8,8 Millionen Bürgern erhalten.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/ifo-umfrage-stimmung-in-deutscher-autoindustrie-weiter-gesunken-100.html" rel="noopener">Wirtschaft - Ifo-Umfrage: Stimmung in deutscher Autoindustrie weiter gesunken</a></h3><p class="summary">Die Stimmung in der deutschen Autoindustrie ist im September auf einen Jahres-Tiefststand gefallen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/waldbrand-nahe-inka-stadt-machu-picchu-unter-kontrolle-102.html" rel="noopener">Peru - Waldbrand nahe Inka-Stadt Machu Picchu unter Kontrolle</a></h3><p class="summary">Ein Waldbrand nahe der Hauptzufahrtsstraße zur Inka-Stadt Machu Picchu in Peru ist nach Angaben der Feuerwehr eingedämmt. Nach vielen Stunden ununterbrochener Löscharbeiten seien die Flammen vollständig unter Kontrolle, teilte die Feuerwehr der Region Cusco mit.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/bundesfamilienministerin-prien-nach-kiew-gereist-100.html" rel="noopener">Ukraine - Bundesfamilienministerin Prien nach Kiew gereist</a></h3><p class="summary">Unmittelbar nach Bundeskanzler Merz ist Familienministerin Prien in die Ukraine gereist.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-05T13:05:33+02:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/politik/deutschland/2026-10/eeg-novelle-energie-reform-daniel-guenther-friedrich-merz" rel="noopener">Energiepolitik: Daniel Günther warnt in Brief an Friedrich Merz vor EEG-Reform</a></h3><p class="summary">Schleswig-Holsteins Regierungschef übt harsche Kritik an den vom Bund geplanten Neuregelungen zu Erneuerbarer Energie. Diese hätten das Potenzial, Deutschland zu schaden.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T13:04:30+02:00">13:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/steinmeier-wuerdigt-einsatz-fuer-demokratie-und-zusammenhalt" rel="noopener">Verdienstorden: Steinmeier würdigt Einsatz für Demokratie und Zusammenhalt</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T13:01:47+02:00">13:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/politik/news-iran-nahost-krieg-huthi-saudi-arabien-jemen-oel-bab-al-mandab-li.3530668" rel="noopener">Newsblog zum Nahost-Krieg: Jemenitische Truppen melden Erfolge an Meerenge Bab al-Mandab</a></h3><p class="summary">Hunderte Kämpfer der Huthi seien eingekesselt worden, erklärt der Sprecher der Regierungstruppen. Die von der Miliz kontrollierte Nachrichtenagentur Saba dementiert die Berichte.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-10-05T12:59:55+02:00">12:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/gesellschaft/ungluecke/kleinflugzeug-absturz-bei-gundelsheim-maschine-aus-thueringen-accg-201289559.html" rel="noopener">Im Kreis Heilbronn: Herkunft des abgestürzten Kleinflugzeugs geklärt</a></h3><p class="summary">Nach dem Flugzeugabsturz bei Gundelsheim steht fest, dass die Maschine aus Thüringen kam. Bei den Toten soll es sich um einen Vater und seinen Sohn handeln. Die Gründe für den Absturz sind noch unklar.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-05T12:59:40+02:00">12:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/inland/regional/niedersachsen/entscheidung-gefallen-marine-bekommt-neuen-hafen-in-emden,marinehafen-104.html" rel="noopener">Neuer Marinehafen in Emden: Pistorius verkündet Entscheidung</a></h3><p class="summary">Die Marine soll aufgerüstet werden und braucht einen weiteren Hafen in der Nordsee. Dieser soll im niedersächsischen Emden entstehen. Das hat Bundesverteidigungsminister Pistorius heute bekannt gegeben.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-05T12:59:03+02:00">12:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/zwei-tote-nach-laubenbrand" rel="noopener">Tote nach Brand: Zwei Tote nach Laubenbrand</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:57:29+02:00">12:57 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/aussenbandriss-giulia-gwinn-faellt-laenger-aus" rel="noopener">DFB-Kapitänin: Außenbandriss: Giulia Gwinn fällt länger aus</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:56:19+02:00">12:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/skelettierte-leiche-in-wald-nahe-der-elbe-gefunden" rel="noopener">Leichenfund: Skelettierte Leiche in Wald nahe der Elbe gefunden</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:55:37+02:00">12:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/leerstehendes-gebaeude-brennt-in-werder-keine-verletzten" rel="noopener">Oberes Geschoss: Leerstehendes Gebäude brennt in Werder - keine Verletzten</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:54:51+02:00">12:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/a9-nach-unfall-gesperrt-drei-verletzte" rel="noopener">A9 am Morgen freigegeben: A9 nach Unfall gesperrt – drei Verletzte</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:53:49+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/inland/innenpolitik/nachrichtendienste-chefs-anhoerung-100.html" rel="noopener">BND-Chef warnt vor &quot;gewaltsamem Konflikt mit Russland&quot;</a></h3><p class="summary">Nach Einschätzung von BND-Chef Jäger befindet sich Deutschland in einem &quot;Schattenkrieg&quot; mit Russland. Bei ihrer jährlichen Anhörung warnten die Nachrichtendienste erneut vor einem Anschlagsrisiko - und drängten auf mehr Befugnisse.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-05T12:53:48+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/video/merz-in-kiew-drohnenangriff-auf-bruecke-201289505.html" rel="noopener">Kanzler in Kiew: Drohnenangriff auf Brücke während Besuch von Merz</a></h3><p class="summary">Während Bundeskanzler Friedrich Merz in Kiew mit seiner Wirtschaftsdelegation Kooperationen mit einem Volumen von rund 6,6 Milliarden Euro vereinbart, schlägt eine russische Drohne in eine Brücke ein. Zwei Menschen werden verletzt.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-05T12:53:33+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/rolex-lamborghini-porsche-das-versteigert-die-justiz-bald" rel="noopener">Gepfändete Gegenstände: Rolex, Lamborghini, Porsche: Das versteigert die Justiz bald</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:53:31+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/05/redo-will-bei-big-brother-wieder-mehr-zu-sich-finden" rel="noopener">Influencer: «Redo» will bei «Big Brother» wieder mehr zu sich finden</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:53:29+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/sport/fussball/Naechster-schwerer-Schock-fuer-DFB-Frauen-und-Giulia-Gwinn-id31382255.html" rel="noopener">Ausfall für mehrere Wochen: Nächster schwerer Schock für DFB-Frauen und Giulia Gwinn</a></h3><p class="summary">Der erneute Ausfall von Kapitänin Giulia Gwinn durchkreuzt die Pläne bei den DFB-Frauen, die sich eigentlich langsam für die WM-Mission einspielen sollen. Für Gwinn kommt es immer wieder knüppeldick.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-10-05T12:52:34+02:00">12:52 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/politik/ausland/datenleck-an-daenemarks-melderegister-wer-weiss-jetzt-alles-wo-die-daenen-wohnen-accg-201288611.html" rel="noopener">„Riesiges Datenleck“: Wer weiß jetzt alles, wo die Dänen wohnen?</a></h3><p class="summary">In Dänemark spielt Datenschutz kaum eine Rolle. Ein Hackerangriff auf das zentrale Melderegister könnte das nun ändern.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-05T12:50:10+02:00">12:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/psychologie/einsamkeit-wie-der-verzicht-auf-pornos-mir-hilft-a-addddc27-a012-4fd2-8a7b-a883b9178538#ref=rss" rel="noopener">Einsamkeit: Wie der Verzicht auf Pornos mir hilft</a></h3><p class="summary">Männer, die Sexfilme schauen, wollen meistens schnelle Ablenkung vom Alltag. Der Kick der Pornografie ist aber so intensiv, dass viele nicht mehr ohne können – wie ich. Wo ist der Ausweg?</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-10-05T12:48:00+02:00">12:48 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/zeit-magazin/wochenmarkt/2025-11/mini-pilz-okonomiyaki-rezept-wochenmarkt" rel="noopener">Mini-Pilz-Okonomiyaki : Knusper, knusper, Päuschen</a></h3><p class="summary">Diese knusprigen Mini-Pfannkuchen mit Kohl, Pilzen und Reis eignen sich super als Snack für Arbeits- oder Lernpausen. Käse kommt auch rein, das Kimchi dazu ist optional.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:45:49+02:00">12:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/feuilleton/2026-10/vaterschaft-carearbeit-maenner-kinder-feuilleton-podcast" rel="noopener">Vaterschaft: Dürfen sich auch Väter beschweren?</a></h3><p class="summary">Männer, die über Care-Arbeit jammern, Dads, die sich fürs Dadsein feiern – nie war Vaterschaft so divers wie heute. Doch wie entkommen Väter dem Druck all dieser Rollen?</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:44:49+02:00">12:44 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wetter/deutschland/wettervorhersage-deutschland-100.html" rel="noopener">Wetter Deutschland: Wolken, Temperaturen, Wind und Aussichten</a></h3><p class="summary">Am Dienstag im Süden und in der Mitte oft sonnig, mancherorts bis zum Mittag neblig-trüb. Im Norden neben Sonnenschein zum Teil dichte Wolken und Richtung Küsten ein paar Schauer auf.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-05T12:42:56+02:00">12:42 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/familie/2026-10/flirten-teenager-jugendliche-kinder-eltern-tipps" rel="noopener">Flirten: Wie flirtet man richtig? Ich frage für meinen Sohn</a></h3><p class="summary">Der Sohn hält seinen Vater für kompetent und will von ihm wissen: Wie klappt’s mit dem Crush? Doch als Vater muss man erst mal nach altersgerechten Antworten suchen.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-05T12:40:03+02:00">12:40 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/sport/nfl/NFL-Erkenntnisse-Woche-4-Todesurteil-nach-vier-Spielen-diese-Topteams-stehen-am-Abgrund-id31379938.html" rel="noopener">NFL-Erkenntnisse aus Woche 4: Katastrophenstarts überall - diese Topteams stehen am Abgrund</a></h3><p class="summary">Nach vier Wochen in der NFL müssen scheinbar schon mehrere Mitfavoriten die Segel streichen. Die Patriots versuchen etwas Neues und die Giants erleben die volle &quot;Jameis Winston Experience&quot;.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-10-05T12:33:56+02:00">12:33 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/bayern/nuernberg-bundeswehr-kampfjets-eurofighter-luftwaffe-li.3558508" rel="noopener">Übung am Albrecht-Dürer-Airport: Kampfflugzeuge starten in Nürnberg</a></h3><p class="summary">Die Luftwaffe trainiert am zweitgrößten bayerischen Flughafen. Die Bundeswehr reaktiviert damit eine alte Taktik aus dem Kalten Krieg – auch vor dem Hintergrund der Bedrohung durch Russland.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-10-05T12:31:16+02:00">12:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/feuilleton/debatten/musik-als-ueberlebensmittel-maria-kalesnikava-auf-dem-beethovenfest-accg-201286654.html" rel="noopener">Inhaftierte Oppositionelle: Warum Diktatoren jeder unabhängigen Kultur misstrauen</a></h3><p class="summary">Wozu Musik, wozu überhaupt Kultur? Die belarussische Oppositionelle und Musikerin Maria Kalesnikava beschwört auf dem Bonner Beethovenfest den Kern europäischer Zivilisation.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-05T12:31:07+02:00">12:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wirtschaft/verbraucher/e-auto-praemie-126.html" rel="noopener">Seit Mai: E-Auto-Prämie an 100.000 Antragsteller ausgezahlt</a></h3><p class="summary">Die neue Prämie zur Förderung von E-Autos hat laut Umweltminister Schneider die Erwartungen übertroffen. Geld sei bereits an 100.000 Antragsteller geflossen - viele von ihnen mit geringerem Einkommen.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-05T12:27:00+02:00">12:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/sport/tischtennis-erstmals-seit-2018-kein-chinese-an-der-spitze-der-weltrangliste-a-55db7fb1-9539-459a-ac2b-161b05fb9d86#ref=rss" rel="noopener">Tischtennis: Erstmals seit 2018 kein Chinese an der Spitze der Weltrangliste</a></h3><p class="summary">Keine Nation beherrscht das Tischtennis wie China. Doch die Dominanz bröckelt. Der einstige chinesische Weltranglistenerste Wang Chuqin ist bloß noch die Nummer vier. Überholt haben ihn zwei Japaner und ein Franzose.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-10-05T12:27:00+02:00">12:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/sport/nations-league-2026-irland-israel-uefa-fussball-li.3558593" rel="noopener">Nations League: Irland will nicht mehr gegen Israel spielen</a></h3><p class="summary">Die Uefa müsse eingreifen und etwas unternehmen, fordert der irische Nationaltrainer Hallgrimsson nach dem Rückspiel in der Nations League.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-10-05T12:20:57+02:00">12:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/muenchen/oktoberfest-muenchen-2026-news-wiesn-liveticker-montag-ende-li.3549371" rel="noopener">Oktoberfest: Sanitäter melden mehr als 600 Einsätze am letzten Wiesntag</a></h3><p class="summary">Zum Wiesn-Abschluss hat die Aicher Ambulanz ordentlich zu tun. Nach gut zwei Wochen ist nun allerdings Schluss: Eindrücke vom Ende eines Rekord-Oktoberfests.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-10-05T12:16:54+02:00">12:16 Uhr</time></div></li></ol></section>
+<section id="wirtschaft"><h2>Wirtschaft &amp; Finanzen<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/nobelpreis-medizin-nobelpreis-geht-an-zwei-deutsche/100259767.html" rel="noopener">Nobelpreis: Revolution in der Hirnforschung: Medizin-Nobelpreis geht an zwei Deutsche und einen US-Amerikaner</a></h3><p class="summary">Zusammen mit einem US-Forscher werden die beiden Wissenschaftler für ihre Entdeckung der Optogenetik prämiert. Sie macht sichtbar, wie Nervenzellen funktionieren.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:20:42+02:00">12:20 Uhr</time><span class="also">auch bei <a href="https://www.wiwo.de/technologie/forschung/nobelpreis-fuer-medizin-geht-an-zwei-deutsche-forscher-und-us-kollegen/100259771.html" rel="noopener">WirtschaftsWoche</a></span></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/politik/weltwirtschaft/brasilien-lula-und-bolsonaro-sohn-flavio-muessen-in-die-stichwahl-a-49d7defb-01f5-494e-87f4-ac2f7919de47#ref=rss" rel="noopener">Brasilien: Lula und Bolsonaro-Sohn Flávio müssen in die Stichwahl</a></h3><p class="summary">Der 80-jährige Amtsinhaber oder der Spross des hart rechten Ex-Präsidenten – wer regiert künftig in Brasilien? Vorerst kann sich weder Luiz Inácio Lula da Silva noch Flávio Bolsonaro durchsetzen. Die Entscheidung fällt in drei Wochen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T09:32:00+02:00">09:32 Uhr</time><span class="also">auch bei <a href="https://www.wiwo.de/politik/ausland/stichwahl-in-brasilien-flavio-bolsonaro-leicht-favorisiert-gegen-lula/100259673.html" rel="noopener">WirtschaftsWoche</a></span></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/it/uebernahme-schneider-electric-kauft-us-softwarefirma-fuer-21-milliarden-euro/100259687.html" rel="noopener">Übernahme: Schneider Electric kauft US-Softwarefirma für 21 Milliarden Euro</a></h3><p class="summary">Schneider Electric plant mit dem milliardenschweren Zukauf des Softwareunternehmens PTC seinen Einstieg in den USA. Der französische Konzern will so sein Softwaregeschäft weiter ausbauen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T09:18:00+02:00">09:18 Uhr</time><span class="also">auch bei <a href="https://www.manager-magazin.de/unternehmen/tech/schneider-electric-kauft-fuer-22-6-milliarden-dollar-us-softwarefirma-a-d255604b-66fb-4fe8-9a84-f5364b7eaeb7#ref=rss" rel="noopener">manager magazin</a></span></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/mobilitaet/elektromobilitaet/opel-mokka-gse-wie-faehrt-sich-der-opel-mit-rallye-genen/100257875.html" rel="noopener">Autotest: ﻿Auf zu großem Fuß – so fährt sich der Opel mit Rallye-Genen</a></h3><p class="summary">Opel will mit dem Kürzel GSE wieder sportlicher werden. Den Auftakt macht der Mokka. Mit Sport-Update soll das Modell echtes Rallyegefühl bieten. Doch das hat seinen Preis.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:59:00+02:00">12:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/meinung/kolumnen/kinder-warum-verstehen-oma-und-opa-unsere-muedigkeit-nicht/100253551.html" rel="noopener">Kinder: Warum verstehen Oma und Opa unsere Müdigkeit nicht?</a></h3><p class="summary">Kinder großzuziehen, war früher sicher auch anstrengend. Aber heutzutage beschweren sich die Eltern immerzu. Zu Recht?</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:56:00+02:00">12:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/service/china-aufholjagd-bei-auto-reparaturkosten-setzt-europaeische-hersteller-unter-druck-a-922de8d2-fd41-4a48-b3ac-06bb2408c628#ref=rss" rel="noopener">China: Aufholjagd bei Auto-Reparaturkosten setzt europäische Hersteller unter Druck</a></h3><p class="summary">Europas Vorsprung bei Reparaturkosten gegenüber China schmilzt. Laut dem Allianz-Zentrum für Technik holen chinesische Hersteller auf, während europäische nachlassen. Für Fahrzeughalter kann das teuer werden.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-05T12:54:00+02:00">12:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/technik/medizin/viel-hilft-nicht-viel-verbraucherzentrale-klaert-3-supplement-mythen-auf/100259803.html" rel="noopener">Viel hilft nicht viel: Verbraucherzentrale klärt 3 Supplement-Mythen auf</a></h3><p class="summary">Vitamin C schützt vor Infekten, oder? Wie gesund ist der Griff zu Pillen und Pulvern? Oder wie riskant? Verbraucherschützer ordnen verbreitete Annahmen zu Nahrungsergänzungsmitteln ein.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:53:02+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/unternehmen/mittelstand/new-york-der-social-media-hype-um-das-60-dollar-brot/100259525.html" rel="noopener">Luxusmarketing: Das Geschäft mit dem 60-Dollar-Brot</a></h3><p class="summary">In New York ist ein Hype um österreichisches Roggensauerteigbrot entstanden. Er zeigt, wie sich die Sehnsucht nach Herkunft und Handwerk mit Luxusmarketing und Social Media verbinden lässt.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:50:00+02:00">12:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/livestream-der-deutschland-gipfel-von-wirtschaftswoche-und-handelsblatt/100259689.html" rel="noopener">Livestream: Der Deutschland-Gipfel von WirtschaftsWoche und Handelsblatt</a></h3><p class="summary">Am 7. Oktober diskutieren der Bundeskanzler, Ökonominnen, Dax-Chefs und Investoren über den Standort Deutschland. Seien Sie live dabei.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T12:49:09+02:00">12:49 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/finanzbetrug-fahndung-nach-onecoin-betruegerin-teilvermoegen-eingezogen/100259799.html" rel="noopener">Finanzbetrug: Fahndung nach Onecoin-Betrügerin - Teilvermögen eingezogen</a></h3><p class="summary">Ruja Ignatova gilt als Erfinderin der vermeintlichen Kryptowährung Onecoin. Nach ihr wird weiter wegen Betrugs international gefahndet. Für einige Geschädigte gibt es aber eine gute Nachricht.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:38:03+02:00">12:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/maerkte/devisen-rohstoffe/anleihen-euro-sackt-ab-sorgen-ueber-staatsschuldenkrise-werden-groesser/100259684.html" rel="noopener">Anleihen: Euro sackt ab – die Sorgen über eine Staatsschuldenkrise werden größer</a></h3><p class="summary">Die europäische Gemeinschaftswährung fällt auf den niedrigsten Stand seit 17 Monaten. Das weckt Erinnerungen an die Euro-Krise. Denn erneut gelten die Staatsschulden als Auslöser.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:36:48+02:00">12:36 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/iran-krieg-regierungstruppen-greifen-huthis-an-miliz-rueckt-bis-provinzhauptstadt-vor/100136895.html" rel="noopener">+++ Iran-Krieg +++: Regierungstruppen greifen Huthis an – Miliz rückt bis Provinzhauptstadt vor</a></h3><p class="summary">Saudisches Militärbündnis greift Huthi-Ziele im Jemen an +++ Tanker meldet Explosionen nahe der Meerenge Bab al-Mandab +++ Irans Ölminister tritt zurück+++ Der Newsblog.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:35:00+02:00">12:35 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/wahlen-in-spanien-spaniens-regierungschef-sanchez-kuendigt-neuwahlen-an/100259711.html" rel="noopener">Wahlen in Spanien: Spaniens Regierungschef Sánchez kündigt Neuwahlen an</a></h3><p class="summary">Nach dem Scheitern zweier Mieterschutz-Dekrete im Parlament steht Spaniens Regierung unter Druck. Nun geht Ministerpräsident Pedro Sánchez auf volles Risiko.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:32:18+02:00">12:32 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/standortentscheidung-pistorius-kuendigt-marinehafen-in-emden-an/100259797.html" rel="noopener">Standortentscheidung: Pistorius kündigt Marinehafen in Emden an</a></h3><p class="summary">Deutschlands neuer Marinehafen soll wie erwartet in Emden entstehen. Verteidigungsminister Pistorius bestätigt entsprechende Pläne. Eine andere Stadt geht leer aus.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:28:17+02:00">12:28 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/arabische-halbinsel-kampf-ums-rote-meer-jemenitische-truppen-melden-erfolge/100259740.html" rel="noopener">Arabische Halbinsel: Kampf ums Rote Meer: Jemenitische Truppen melden Erfolge</a></h3><p class="summary">Im Südwesten des Jemens entbrennen schwere Gefechte um den Zugang zum Roten Meer. Während die international anerkannte Regierung Raumgewinne verkündet, spricht die Huthi-Miliz von Propaganda.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:28:07+02:00">12:28 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/finanzen/geldanlage/onecoin-zehn-millionen-euro-fliessen-an-opfer-der-krypto-queen-ruja-ignatova/100259744.html" rel="noopener">Onecoin: Zehn Millionen Euro fließen an Opfer der Krypto-Queen</a></h3><p class="summary">Die Kryptobetrügerin Ruja Ignatova brachte Anleger um Milliarden. Bis heute fehlt von ihr jede Spur. Ermittlern gelang es nun, zwei Immobilien zu verkaufen. Wer hat Anspruch auf die Millionen?</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T12:26:19+02:00">12:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/e0dfef01-4933-4ab9-8927-d08115f4822c" rel="noopener">Bond turbulence means it’s time for the ECB to put QT on hold</a></h3><p class="summary">Prudence suggests a halt by the central bank until more stable conditions are restored</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-05T12:22:05+02:00">12:22 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/unternehmen/dienstleister/luftfahrt-fraport-will-flughafengeschaeft-in-griechenland-ausbauen/100259508.html" rel="noopener">Luftfahrt: 22 Flughäfen sollen hinzukommen: Fraport will Geschäft in Griechenland ausbauen</a></h3><p class="summary">Der deutsche Konzern bewirbt sich um die Konzession für 22 weitere Regionalflughäfen. Das Geschäft in Griechenland ist für Fraport bereits ein wichtiger Ertragstreiber – und der Markt wächst weiter.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-05T12:21:55+02:00">12:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/technologie/raumfahrt-open-cosmos-plant-eine-der-groessten-satellitenflotten-europas/100259704.html" rel="noopener">Raumfahrt: Open Cosmos plant eine der größten Satellitenflotten Europas</a></h3><p class="summary">192 Satelliten sollen sichere Verbindungen aus dem All ermöglichen – und Open Cosmos will dafür auch in Deutschland wachsen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T12:20:00+02:00">12:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/lifestyle/leute/medizin-nobelpreis-an-zwei-deutsche-und-einen-us-forscher-a-55f0040b-24d6-424c-be87-1d946a21f7b8#ref=rss" rel="noopener">Medizin-Nobelpreis: Auszeichnung für Pioniere der Optogenetik</a></h3><p class="summary">Sie legten die Grundlage für die sogenannte Optogenetik: Den Medizin-Nobelpreis erhalten die drei Grundlagenforscher Karl Deisseroth, Peter Hegemann und Georg Nagel.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T12:04:00+02:00">12:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/service/weihnachten-haendler-sehen-kaum-konsumstimmung-zum-jahresende-a-311e9bd5-cba2-451a-91ef-649fc8615e7b#ref=rss" rel="noopener">Weihnachten: Händler sehen kaum Konsumstimmung zum Jahresende</a></h3><p class="summary">Verbraucher rechnen laut einer Umfrage mit steigenden Preisen, der Handel sieht zum Jahresende keine Konsumstimmung aufkommen. Auch in der Industrie gibt es Dämpfer.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-05T12:03:00+02:00">12:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/unternehmen/casten-schneider-betreiber-von-ki-rechenzentren-sollen-mehr-fuer-wasser-zahlen-a-a87bbb29-1d6e-4253-9d94-beb2b45fa238#ref=rss" rel="noopener">Carsten Schneider: Betreiber von KI-Rechenzentren sollen mehr für Wasser zahlen</a></h3><p class="summary">Umweltminister Carsten Schneider will die Betreiber von Rechenzentren bei Wasserknappheit stärker in die Pflicht nehmen. Die Grundbedürfnisse von Bürgern dürften nicht mit Großverbrauchern konkurrieren.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-05T12:02:00+02:00">12:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/handel/kaffeeboom-melitta-erholt-sich-vom-koffeinschock/100235506.html" rel="noopener">Kaffeehersteller: Melitta erholt sich vom Koffeinschock</a></h3><p class="summary">Ausgerechnet der weltweite Kaffeeboom hat Melitta in eine schwere Krise gestürzt. Jetzt probiert man es in Minden mit kühnen Wachstumsplänen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T11:55:00+02:00">11:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/politik/weltwirtschaft/kuenstliche-intelligenz-donald-trump-will-jay-clayton-zum-ki-sonderbeauftragten-machen-a-fa7952ab-9d3d-44ce-85ee-5ad592329362#ref=rss" rel="noopener">Künstliche Intelligenz: US-Geheimdienstdirektor Jay Clayton wird KI-Sonderbeauftragter</a></h3><p class="summary">Donald Trump macht seinen Geheimdienstchef Jay Clayton zum Sonderbeauftragten für KI. Der Mann hat keine Erfahrungen mit Techfirmen oder KI, ist aber ein treuer Gefolgsmann des US-Präsidenten.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T11:37:00+02:00">11:37 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/finanzen/geldanlage/geld-brasilien-als-chance-abseits-der-ki-rallye-das-sind-unsere-anlagetipps-a-9f05ff37-72f2-4ab3-9d4c-ad914a3d34ce#ref=rss" rel="noopener">Geld: Brasilien als Chance abseits der KI-Rallye – das sind unsere Anlagetipps</a></h3><p class="summary">Brasilien hat, was den USA fehlt: eine Story, die unabhängig ist von Nvidia, Apple oder Microsoft. Am Wochenende wurde dort gewählt – was Anleger jetzt wissen müssen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T11:34:00+02:00">11:34 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/alexander-karp-palantir-chef-laesst-15-000-hektar-wald-in-schweden-kaufen-a-8afda0b1-18d7-43c5-ab7a-c0a2f2d56cba#ref=rss" rel="noopener">Alexander Karp: Palantir-Chef lässt 15.000 Hektar Wald in Schweden kaufen</a></h3><p class="summary">Erst verlieren Jäger in einer Region in Schweden ihre Jagdrechte. Dann wird bekannt: Das fragliche Gebiet wurde an eine Firma verkauft, die Alexander Karp gehört. Was er mit dem Land anfangen will, ist seitdem Gegenstand von Spekulationen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T11:13:00+02:00">11:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/866dea03-4cee-4009-b130-6f7a191336c4?syn-25a6b1a6=1" rel="noopener">Spanish prime minister Pedro Sánchez calls snap election</a></h3><p class="summary">Move to hold vote on November 29 comes after government defeat on legislation aimed at ending housing crisis</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-05T11:00:07+02:00">11:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/lifestyle/leute/top-500-archiv-das-manager-magazin-macht-erstmals-das-archiv-der-reichsten-deutschen-online-zugaenglich-a-0583c44d-99f8-40a0-b2ba-f9c9a16b321e#ref=rss" rel="noopener">Die reichsten Deutschen: Das Archiv der Vermögen seit 2001 im Überblick</a></h3><p class="summary">Seit 2001 veröffentlicht das manager magazin jedes Jahr die Reichstenliste. Jetzt gibt es das Archiv dazu: Wie entwickeln sich die großen Vermögen des Landes? Ein interaktiver Blick in ein Vierteljahrhundert deutsche Wirtschaftsgeschichte.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T10:59:00+02:00">10:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/erfolg/beruf/arbeitszeitgesetz-reform-perspektiven/100229802.html" rel="noopener">Neues Arbeitszeitgesetz: „Ich arbeite ohnehin immer länger als erlaubt“</a></h3><p class="summary">Die Bundesregierung will die Arbeitszeit von Beschäftigten neu regeln. Doch was halten die Betroffenen eigentlich davon? Drei Perspektiven.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T10:55:00+02:00">10:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/1ab64d24-0f32-4dc8-86b5-20d06e3b3588?syn-25a6b1a6=1" rel="noopener">Brazil’s Bolsonaro dynasty closes in on stunning comeback</a></h3><p class="summary">First-round vote raises prospect of dramatic victory for Flávio Bolsonaro, son of the former president</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-05T10:49:35+02:00">10:49 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/deutsche-telekom-konzern-will-mit-ki-milliarden-sparen-und-umsatz-treiben-a-33552266-cd54-4926-b781-7545834d234e#ref=rss" rel="noopener">Deutsche Telekom: Konzern will mit KI Milliarden sparen und Umsatz treiben</a></h3><p class="summary">Telekom-Chef Höttges stimmt das Hohelied auf die KI an. Sie verändere den Konzern nicht nur von Grund auf, sondern unterstütze ihn bereits in vielen Bereichen. Mit KI und Automatisierung will die Telekom die Kosten noch stärker senken.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T10:30:00+02:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/53e88a8d-65b5-445e-82ee-aee253a32094?syn-25a6b1a6=1" rel="noopener">Saudi Aramco chief warns world’s oil stockpiles are ‘scarily thin’</a></h3><p class="summary">Amin Nasser says inventories depleted by Middle East conflict could take up to two years to rebuild</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-05T10:21:07+02:00">10:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/it/deutsche-telekom-dax-konzern-will-durch-ki-einsatz-milliarden-sparen/100259721.html" rel="noopener">Telekommunikation: Deutsche Telekom will durch KI-Einsatz Milliarden sparen</a></h3><p class="summary">Mit KI und Automatisierung will die Telekom bis 2030 jährlich 2,5 Milliarden Euro Kosten reduzieren. Was das für Service und neue Angebote bedeutet.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T10:21:00+02:00">10:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/028da85c-0e1f-4f1b-ad04-eac78c4f18c0?syn-25a6b1a6=1" rel="noopener">Flávio Bolsonaro takes commanding lead in Brazil election</a></h3><p class="summary">Son of jailed former far-right president in pole position against President Luiz Inácio Lula da Silva</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-05T10:05:01+02:00">10:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/industrie/maschinenbau-in-deutschland-zu-wenig-auftraege-aus-dem-inland/100259710.html" rel="noopener">Maschinenbau: Zu wenig Aufträge aus dem Inland</a></h3><p class="summary">Im August fehlen in der deutschen Industrie Großaufträge. Was das für Produktion und Auslastung der Anlagen bedeutet – und wann wieder Wachstum erwartet wird.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T10:01:00+02:00">10:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/8b19b9f7-9237-47bf-bc50-d8b78aa7fe24?syn-25a6b1a6=1" rel="noopener">Euro slides to 17-month low against dollar</a></h3><p class="summary">High energy prices and concerns over France’s public finances add to pressure on the single currency</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-05T09:43:45+02:00">09:43 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/europa/spanien-ministerpraesident-pedro-sanchez-kuendigt-neuwahlen-an/100259702.html" rel="noopener">Spanien: Spaniens Ministerpräsident kündigt Neuwahlen für Ende November an</a></h3><p class="summary">Nach dem Scheitern zweier Mieterschutz-Dekrete im Parlament steht Spaniens Regierung unter Druck. Nun geht Ministerpräsident Pedro Sánchez ins Risiko.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T09:34:26+02:00">09:34 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/politik/europa/spanien-ministerpraesident-kuendigt-vorgezogene-neuwahlen-a-301aa49c-579b-41c8-bb95-ff1b0463d652#ref=rss" rel="noopener">Spanien: Ministerpräsident kündigt vorgezogene Neuwahlen an</a></h3><p class="summary">Nach Abstimmungsniederlagen im Parlament am vergangenen Freitag kündigt Spaniens Ministerpräsident Pedro Sánchez nun Neuwahlen an. Die Bevölkerung soll am 29. November an die Urnen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-05T09:22:00+02:00">09:22 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/service/energiepreise-rechner-zeigt-wie-teuer-der-winter-fuer-sie-wird-a-e34814a0-0f22-42d7-ad36-148a9b206647#ref=rss" rel="noopener">Energiepreise: Rechner zeigt, wie teuer der Winter für Sie wird</a></h3><p class="summary">Die kommenden Monate dürften für viele Haushalte spürbar teurer werden: Sprit, Gas oder Heizöl kosten wegen des Irankriegs deutlich mehr. Der interaktive SPIEGEL-Rechner zeigt, was auf Sie zukommen könnte.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-05T09:13:00+02:00">09:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/bundesregierung-im-streit-union-und-spd-wiederholen-die-fehler-der-ampel/100259277.html" rel="noopener">Bundesregierung: Starke Parteien schaffen Kompromisse – Schwarz-Rot schafft Streit</a></h3><p class="summary">Geschichte wiederholt sich nicht, die Große Koalition ist keine Ampel. Union und SPD wiederholen dennoch Fehler, die die Vorgängerregierung an den Abgrund führten. Ein Kommentar.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-05T08:59:55+02:00">08:59 Uhr</time></div></li></ol></section>
+<section id="tech"><h2>Tech &amp; IT<span class="count">32 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.heise.de/news/Halide-3-2-Volle-Kontrolle-ueber-Apples-variable-Blende-11473483.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Halide 3.2: Volle Kontrolle über Apples variable Blende</a></h3><p class="summary">Apple bietet insgesamt vier Blendenwerte für die neuen iPhones in seiner Kamera-Anwendung. Die Profi-Foto-App Halide macht sie vollständig variabel.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:58:00+02:00">12:58 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/tesla-boomt-wieder-mehr-als-jeder-dritte-neuwagen-vollelektrisch-2610-213709.html" rel="noopener">Tesla boomt wieder: Mehr als jeder dritte Neuwagen vollelektrisch</a></h3><p class="summary">Schon 100.000 Haushalte profitieren von der Kaufprämie für E-Autos. Vor allem Teslas Verkaufszahlen sind im September 2026 stark angestiegen. (Elektroauto, Tesla)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:53:02+02:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Daenemark-Illegaler-Zugriff-auf-Millionen-Datensaetze-11476119.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Dänemark: Illegaler Zugriff auf Millionen Datensätze</a></h3><p class="summary">Unbekannte haben in Dänemark Zugriff auf die Daten von rund 8,8 Millionen Menschen erhalten. Das Ausmaß ist unklar – ein klassischer Cyberangriff war es nicht.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:52:00+02:00">12:52 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-amazons-meistverkaufter-e-scooter-vor-dem-prime-day-zum-tiefstpreis-2610-213708.html" rel="noopener">Anzeige: Amazons meistverkaufter E-Scooter vor dem Prime Day zum Tiefstpreis</a></h3><p class="summary">Prime-Day-Frühstart bei Amazons meistverkauftem E-Scooter: Der Segway F2 Pro D II fällt für Prime-Mitglieder auf den Tiefstpreis von 399 Euro. (Prime Day, Segway)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:50:02+02:00">12:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Nobelpreis-fuer-Medizin-an-zwei-Deutsche-und-einen-Amerikaner-vergeben-11475989.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Zwei Deutsche erhalten den Nobelpreis für Medizin</a></h3><p class="summary">Für ihre Arbeit in den Neurowissenschaften erhalten drei Wissenschaftler den Nobelpreis für Medizin. Sie haben eine neue Disziplin begründet, die Optogenetik.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:47:00+02:00">12:47 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/jagex-runescape-bekommt-ein-neues-mmorpg-mit-unreal-engine-2610-213706.html" rel="noopener">Jagex: Runescape bekommt ein neues MMORPG mit Unreal Engine</a></h3><p class="summary">Jagex arbeitet an einem neuen Runescape. Das MMORPG entsteht mit Unreal Engine und soll gemeinsam mit der Community entwickelt werden. (MMORPG, Rollenspiel)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:38:02+02:00">12:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-smarter-wecker-amazon-echo-spot-fuer-prime-mitglieder-erstmals-unter-50-euro-2610-213710.html" rel="noopener">Anzeige: Smarter Wecker Amazon Echo Spot für Prime-Mitglieder erstmals unter 50 Euro</a></h3><p class="summary">Als Wecker mit Display und sattem Klang verdrängt der Amazon Echo Spot das Handy vom Nachttisch und fällt zum Prime Day auf einen Bestpreis. (Smart Home, Technik/Hardware)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:37:01+02:00">12:37 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Skoda-Octavia-bekommt-Vollhybrid-mit-100-oder-125-kW-11476027.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Skoda Octavia bekommt Vollhybrid mit 100 oder 125 kW</a></h3><p class="summary">Der Volkswagen-Konzern verteilt seinen neu entwickelten Hybridantrieb, der seriell oder parallel betrieben wird, nun auch in den Skoda Octavia.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:26:00+02:00">12:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/google-gboard-conveyor-belt-edition-bei-dieser-tastatur-fahren-die-tasten-auf-foerderbaendern-2610-213704.html" rel="noopener">Google Gboard Conveyor Belt Edition: Bei dieser Tastatur fahren die Tasten auf Förderbändern</a></h3><p class="summary">Wie jedes Jahr stellt Google Japan wieder eine besonders obskure Tastatur vor. Diesmal können wir uns sogar die Nägel feilen lassen. (Tastatur, Google)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:25:02+02:00">12:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Microsoft-Authenticator-Android-Backup-ab-Januar-nur-noch-mit-Google-One-11475979.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Microsoft-Authenticator-Backup ab Januar nicht mehr mit Microsoft-Konto</a></h3><p class="summary">Microsofts Authenticator kann ein Backup in der Cloud ablegen. Ab Januar geht das unter Android nicht mehr mit persönlichen Microsoft-Konten.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:21:00+02:00">12:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/cyberangriff-antriebssystem-eines-oel-supertankers-gehackt-2610-213707.html" rel="noopener">Cyberangriff: Antriebssystem eines Öl-Supertankers gehackt</a></h3><p class="summary">Unbefugte kontrollieren das digitale System des Schiffs. Es ist nicht der erste Vorfall dieser Art. (Hacker, Security)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:13:01+02:00">12:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/ploopy-bean-im-test-ein-mausgewordener-trackpoint-2610-213168.html" rel="noopener">Ploopy Bean im Test: Ein mausgewordener Trackpoint</a></h3><p class="summary">Der Ploopy Bean ist eine quelloffene, 3D-gedruckte Trackpoint-Maus. Für Trackpoint-Fans ist er ideal, auch wenn man sich umgewöhnen muss. Ein Test von Tobias Költzsch (Peripheriegeräte, Test)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T12:00:02+02:00">12:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/hintergrund/Pleitewelle-bei-E-Bikes-Was-dahintersteckt-und-worauf-Kaeufer-achten-sollten-11425065.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" rel="noopener">heise+ | Kriselnde E-Bike-Hersteller: Was dahintersteckt und worauf Käufer achten sollten</a></h3><p class="summary">Eine Milliardenpleite erschüttert die E-Bike-Industrie und doch ist die Branche optimistisch. Wie das zusammenpasst und was es für Ihren Fahrradkauf bedeutet.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:00:00+02:00">12:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/KI-Projekte-bauen-und-betreiben-Jetzt-Vortrag-fuer-die-Mastering-AI-einreichen-11473595.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">heise-Angebot: KI-Projekte bauen und betreiben: Jetzt Vortrag für die Mastering AI einreichen</a></h3><p class="summary">Am 28. und 29. April 2027 findet in Karlsruhe die Mastering AI statt. Der Call for Proposals für die Fachkonferenz zu KI-Projekten läuft bis zum 19. November.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T12:00:00+02:00">12:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/trotz-handelskrieg-ki-und-5g-patentdeal-zwischen-huawei-und-qualcomm-2610-213705.html" rel="noopener">Trotz Handelskrieg: KI und 5G-Patentdeal zwischen Huawei und Qualcomm</a></h3><p class="summary">Huawei und Qualcomm vereinbaren ein Abkommen zur Kreuzlizenzierung von Patenten. Darunter Huaweis Tau-Scaling-Law und neue Optik-Standards für KI-Rechenzentren. (Huawei, FTC)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T11:50:02+02:00">11:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/bildmanipulationen-content-signatur-c2pa-ausgehebelt-2610-213700.html" rel="noopener">Bildmanipulationen: Content-Signatur C2PA ausgehebelt</a></h3><p class="summary">Ein Sicherheitsforscher nutzt eine Regel des Standards, die Bereiche eines Bilds von der Signaturberechnung ausschließt. Diese Regel ist jedoch technisch notwendig. (Datensicherheit, Photoshop)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T11:39:02+02:00">11:39 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/iPhone-18-Pro-Max-AT-T-Geraete-muessen-unter-Umstaenden-getauscht-werden-11475347.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">AT&amp;T-Netz in den USA: Austausch von iPhone 18 Pro Max droht</a></h3><p class="summary">Offenbar reicht iOS 27.0.1 nicht aus, um ein Problem mit Apples neuem iPhone-Topmodell zu beheben. Tritt der Fehler auf, hilft nur Hardwaretausch.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T11:37:00+02:00">11:37 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/IBM-Bob-COBOL-trifft-KI-ohne-Umweg-ueber-die-Cloud-11475819.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">IBM Bob: COBOL trifft KI – ohne Umweg über die Cloud</a></h3><p class="summary">IBM bietet Bob nun als selbstgehostete Option an. So können Unternehmen KI-gestützte Softwareentwicklung in ihrer eigenen Infrastruktur nutzen.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T11:32:00+02:00">11:32 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/chipkrise-google-erhoeht-preis-des-pixel-10a-um-100-euro-2610-213701.html" rel="noopener">Chipkrise: Google erhöht Preis des Pixel 10a um 100 Euro</a></h3><p class="summary">Nicht nur die neue Pixel-11-Serie ist teurer geworden: Google hebt auch den Preis des Pixel 10a auf 650 Euro an. Online ist das Gerät günstiger. (Smartphone, Google)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T11:28:02+02:00">11:28 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-laptop-powerbank-mit-25-000-mah-und-165-w-im-fruehen-prime-angebot-2610-213703.html" rel="noopener">Anzeige: Laptop-Powerbank mit 25.000 mAh und 165 W im frühen Prime-Angebot</a></h3><p class="summary">Eine Laptop-Powerbank mit 25.000 mAh, 165 W, zwei Kabeln und zwei Ports gibt es im frühen Prime-Angebot zum Sparpreis bei Amazon. (Technik/Hardware, Anker)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T11:26:02+02:00">11:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/rechenzentren-in-nebraska-schlechte-schwaerzung-verraet-steuergeschenke-an-google-2610-213699.html" rel="noopener">Rechenzentren in Nebraska: Schlechte Schwärzung verrät Steuergeschenke an Google</a></h3><p class="summary">Geschwärzte Stellen sind per Copy-Paste leserlich gemacht worden. Dahinter finden sich Infos zu Steuerrückzahlungen und Strombedarf für Rechenzentren. (Google, Rechenzentrum)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-05T11:15:02+02:00">11:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Nach-Muse-Auch-ChatGPT-App-fuer-macOS-war-angreifbar-11475385.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">ChatGPT-App für macOS: Angreifer konnten sensible Daten einsehen – wie bei Muse</a></h3><p class="summary">Nach Meta hatte auch OpenAI ein Sicherheitsproblem in seiner macOS-App. Erneut wurde es vom Security-Experten Patrick Wardle entdeckt.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T11:08:00+02:00">11:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Insider-Vorschauen-bringen-den-Pfad-zu-Windows-11475833.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Insider-Vorschauen bringen den Pfad ~ zu Windows</a></h3><p class="summary">Microsoft hat zum Wochenende neue Windows-Insider-Vorschauen veröffentlicht. Der Unix-Pfad ~ kommt damit zu Windows.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T11:01:00+02:00">11:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Roboter-fliegt-wie-ein-Ahornsamen-in-der-Luft-segelt-autonom-auf-dem-Wasser-11475743.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Roboter fliegt wie ein Ahornsamen in der Luft, segelt autonom auf dem Wasser</a></h3><p class="summary">Roboter „Albatross“ landet durch Autorotation sanft auf dem Wasser. Dort wird er zum autonomen Segelboot – ohne seinen Körperaufbau zu verändern.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-05T10:56:00+02:00">10:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger" rel="noopener">Denmark Data Breach Exposes 8.8M People&#x27;s Personal Data</a></h3><p class="summary">Article URL: https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger Comments URL: https://news.ycombinator.com/item?id=49962012 Points: 152 # Comments: 104</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-05T10:09:36+02:00">10:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/science/2026/10/new-forensice-evidence-supports-egyptian-retainer-sacrifice/" rel="noopener">New forensic evidence supports Egyptian &quot;retainer sacrifice&quot;</a></h3><p class="summary">Fresh analysis of First Dynasty mass burials finds signs of fatal blunt force trauma on 39 percent of skulls</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-05T06:00:52+02:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.motorsport.com/f1/news/horrible-totally-unacceptable-powerless-f1-drivers-frustrated-by-bahrain-f1-software-glitch/10861968/" rel="noopener">Powerless F1 drivers frustrated by Bahrain F1 software glitch</a></h3><p class="summary">Article URL: https://www.motorsport.com/f1/news/horrible-totally-unacceptable-powerless-f1-drivers-frustrated-by-bahrain-f1-software-glitch/10861968/ Comments URL: https://news.ycombinator.com/item?id=49959869 Points: 218 # Comments: 188</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-05T03:54:08+02:00">03:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://github.com/omlahore/RemoveMacAI" rel="noopener">Turn off Apple Intelligence on macOS 27 and get its disk space back</a></h3><p class="summary">Article URL: https://github.com/omlahore/RemoveMacAI Comments URL: https://news.ycombinator.com/item?id=49957116 Points: 596 # Comments: 407</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-04T21:42:25+02:00">21:42 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.1011now.com/2026/09/30/more-questions-than-answers-about-lincolns-google-data-center-water-electricity-usage/" rel="noopener">Improper redaction reveals Google Data Center water and electricity usage</a></h3><p class="summary">Article URL: https://www.1011now.com/2026/09/30/more-questions-than-answers-about-lincolns-google-data-center-water-electricity-usage/ Comments URL: https://news.ycombinator.com/item?id=49957068 Points: 402 # Comments: 532</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-04T21:37:05+02:00">21:37 Uhr</time></div></li>
+<li class="story"><h3><a href="https://wieslawsoltes.github.io/VB6/" rel="noopener">A browser-native classic Visual Basic VB6 IDE</a></h3><p class="summary">Article URL: https://wieslawsoltes.github.io/VB6/ Comments URL: https://news.ycombinator.com/item?id=49956681 Points: 256 # Comments: 88</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-04T20:49:17+02:00">20:49 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/science/2026/10/lions-and-cheetahs-and-chimps-oh-my-a-spotlight-on-africas-diverse-wildlife/" rel="noopener">Lions and cheetahs and chimps, oh my: a spotlight on Africa&#x27;s diverse wildlife</a></h3><p class="summary">Wunmi Mosaku (Sinners, Loki) narrates NatGeo&#x27;s new documentary Africa: Earth&#x27;s Wild Home</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-04T17:34:14+02:00">17:34 Uhr</time></div></li>
+<li class="story"><h3><a href="https://github.com/Niko1221/Strata" rel="noopener">Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s</a></h3><p class="summary">Article URL: https://github.com/Niko1221/Strata Comments URL: https://news.ycombinator.com/item?id=49953495 Points: 817 # Comments: 361</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-04T14:51:53+02:00">14:51 Uhr</time></div></li></ol></section>
+<footer class="page"><h2>Quellen-Status</h2><ul class="status"><li class="failed">dpa – Feed enthielt keine Artikel</li><li class="failed">Reuters (DE) – Feed enthielt keine Artikel</li><li>Reuters (EN) (24)</li><li class="failed">AFP – Feed enthielt keine Artikel</li><li>tagesschau (66)</li><li>SPIEGEL (19)</li><li>ZEIT ONLINE (15)</li><li>n-tv (50)</li><li>Süddeutsche (15)</li><li>FAZ (160)</li><li>Deutschlandfunk (31)</li><li>Handelsblatt (50)</li><li>SPIEGEL Wirtschaft (20)</li><li>manager magazin (30)</li><li>WirtschaftsWoche (20)</li><li>Financial Times (10)</li><li>heise online (157)</li><li>Golem (40)</li><li class="failed">t3n – Feed enthielt keine Artikel</li><li>Hacker News (10)</li><li>Ars Technica (20)</li></ul><p>Automatisch erzeugt am 05.10.2026 um 13:09 Uhr (CEST). Alle Rechte an den verlinkten Inhalten liegen bei den jeweiligen Anbietern. <a href="archiv/index.html">Archiv</a></p></footer>
+</main></body></html>
