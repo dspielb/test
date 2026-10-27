@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nachrichten – 27.10.2026</title><style>:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-alt: #f0f2f5;
+  --border: #dfe3e8;
+  --text: #14181d;
+  --text-muted: #5b6672;
+  --text-faint: #8a939e;
+  --accent: #a03c2f;
+  --accent-soft: #f5e7e4;
+  --shadow: 0 1px 2px rgba(16, 22, 28, 0.06), 0 4px 12px rgba(16, 22, 28, 0.04);
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171b;
+    --surface: #1c2026;
+    --surface-alt: #232830;
+    --border: #303740;
+    --text: #e8ebef;
+    --text-muted: #a3adb9;
+    --text-faint: #78828e;
+    --accent: #e8836f;
+    --accent-soft: #33231f;
+    --shadow: none;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+/* --- Kopfbereich --- */
+
+header.page {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 28px;
+}
+
+header.page .wrap { padding-top: 34px; padding-bottom: 22px; }
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.dateline {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.meta {
+  margin: 14px 0 0;
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+nav.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+nav.categories a {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+nav.categories a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Abschnitte --- */
+
+section { margin-bottom: 40px; scroll-margin-top: 16px; }
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--text);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+h2 .count {
+  margin-left: auto;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.section-note {
+  margin: 8px 0 14px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* --- Artikel --- */
+
+ol.stories {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+li.story {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+li.story:last-child { border-bottom: none; }
+
+li.story h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+li.story h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+li.story h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+p.summary {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.source {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.also {
+  color: var(--text-faint);
+}
+
+.also a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.also a:hover { color: var(--accent); }
+
+/* --- Top-Themen --- */
+
+section.top {
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+section.top h2 {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+section.top li.story { border-bottom-color: var(--border); }
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --- Fuß --- */
+
+footer.page {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+footer.page h2 {
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-bottom: 0;
+}
+
+ul.status {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+ul.status li::before {
+  content: "●";
+  margin-right: 6px;
+  color: #3f9a52;
+}
+
+ul.status li.failed::before { color: #c2503f; }
+
+.empty {
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* --- Archiv --- */
+
+ul.archive {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+ul.archive li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+ul.archive a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+ul.archive a:hover { color: var(--accent); }
+
+ul.archive .weekday {
+  margin-left: 8px;
+  color: var(--text-faint);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.5rem; }
+  .wrap { padding: 0 16px 48px; }
+}
+
+@media print {
+  body { background: #fff; }
+  nav.categories, footer.page { display: none; }
+  li.story { break-inside: avoid; }
+}
+</style></head><body>
+<header class="page"><div class="wrap"><h1>Nachrichtenüberblick</h1><p class="dateline">Dienstag, 27. Oktober 2026 · Stand 10:33 Uhr</p><p class="meta">136 Meldungen aus 21 Quellen · Zeitfenster 24 Stunden</p><nav class="categories"><a href="#agenturen">Agenturen</a><a href="#deutschland">Deutschland &amp; Welt</a><a href="#wirtschaft">Wirtschaft &amp; Finanzen</a><a href="#tech">Tech &amp; IT</a></nav></div></header>
+<main class="wrap">
+<section class="top" id="top-themen"><h2>Top-Themen</h2><p class="section-note">Meldungen, über die mehrere Quellen gleichzeitig berichten.</p><ol class="stories"><li class="story"><h3><a href="https://www.deutschlandfunk.de/kanzler-merz-wirbt-in-singapur-fuer-freihandelsabkommen-mit-laendern-der-pazifik-region-100.html" rel="noopener">Asien-Reise - Kanzler Merz wirbt in Singapur für Freihandelsabkommen mit Ländern der Pazifik-Region</a></h3><p class="summary">Bundeskanzler Merz hat sich bei einem Besuch in Singapur für Freihandelsabkommen zwischen der EU und den Mitgliedsstaaten der sogenannten Transpazifischen Partnerschaft eingesetzt. Beide Seiten würden mehr als ein Drittel des Welthandels vereinen, sagte Merz in dem Stadtstaat.</p><div class="byline"><span class="source">Deutschlandfunk</span><span class="badge">2 Quellen</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/welthandel-merz-wirbt-in-asien-fuer-freihandelsabkommen-mit-pazifik-region-a-cd130177-0f37-4627-aafd-23990d1d3d69#ref=rss" rel="noopener">SPIEGEL</a></span></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/porsche-verkauft-weniger-autos-aber-gewinn-steigt" rel="noopener">Auto: Porsche verkauft weniger Autos - aber Gewinn steigt</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><span class="badge">2 Quellen</span><time datetime="2026-10-27T10:16:58+01:00">10:16 Uhr</time><span class="also">auch bei <a href="https://www.faz.net/aktuell/wirtschaft/unternehmen/business-liveticker-porsche-verkauft-weniger-autos-aber-gewinn-steigt-faz-200452404.html" rel="noopener">FAZ</a></span></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/auto/porsche-autobauer-stabilisiert-rendite-bei-schwachem-absatz/100265166.html" rel="noopener">Autobauer: Porsche stabilisiert Rendite bei schwachem Absatz</a></h3><p class="summary">Porsche erholt sich vom Gewinneinbruch. Doch China-Schwäche, US-Zölle und die verhaltene E-Auto-Nachfrage bremsen den Sportwagenbauer weiter deutlich.</p><div class="byline"><span class="source">WirtschaftsWoche</span><span class="badge">2 Quellen</span><time datetime="2026-10-27T09:12:00+01:00">09:12 Uhr</time><span class="also">auch bei <a href="https://www.manager-magazin.de/unternehmen/mobilitaet/porsche-sportwagenbauer-stabilisiert-rendite-trotz-schwachem-absatz-a-78c2a869-ff90-4a33-8bca-f757a3b773db#ref=rss" rel="noopener">manager magazin</a></span></div></li>
+<li class="story"><h3><a href="https://www.sportschau.de/fussball/bayern-stuermer-harry-kane-gewinnt-ballon-dor,ballon-d-or-kane-100.html" rel="noopener">Ballon d&#x27;Or: Harry Kane vom FC Bayern gewinnt Auszeichnung</a></h3><p class="summary">Harry Kane ist bei der Gala in London mit dem Ballon d&#x27;Or ausgezeichnet worden. Er ist der erste Bundesliga-Spieler seit Matthias Sammer 1996, der den Award gewinnt. Kane setzte sich vor Mbappé und Yamal durch.</p><div class="byline"><span class="source">tagesschau</span><span class="badge">2 Quellen</span><time datetime="2026-10-27T08:56:03+01:00">08:56 Uhr</time><span class="also">auch bei <a href="https://www.sueddeutsche.de/sport/ballon-d-or-live-liveticker-gala-kane-li.3569528" rel="noopener">Süddeutsche</a></span></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/microsoft-bietet-rund-60-000-mitarbeitern-abfindungen-an-a-51915fa4-261a-4828-ae37-1add671256a7#ref=rss" rel="noopener">Microsoft bietet rund 60.000 Mitarbeitern Abfindungen an</a></h3><p class="summary">Der Ausbau von KI-Infrastruktur wird immer teurer. Um die Kosten unter Kontrolle zu bringen, sollen bei Microsoft nun Mitarbeiter gehen.</p><div class="byline"><span class="source">manager magazin</span><span class="badge">2 Quellen</span><time datetime="2026-10-27T07:47:00+01:00">07:47 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/unternehmen/microsoft-techkonzern-bietet-60-000-mitarbeitern-abfindungen-an-a-b0b9c84d-ab45-4b2f-a353-1f601334571d#ref=rss" rel="noopener">SPIEGEL Wirtschaft</a></span></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/gadgets/2026/10/microsoft-offers-voluntary-buyouts-to-60000-employees/" rel="noopener">Microsoft offers to buy out a quarter of its workforce</a></h3><p class="summary">Employees in the US, Canada, India, and the UK may receive offers to leave MS today.</p><div class="byline"><span class="source">Ars Technica</span><span class="badge">2 Quellen</span><time datetime="2026-10-26T23:36:06+01:00">23:36 Uhr</time><span class="also">auch bei <a href="https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/" rel="noopener">Hacker News</a></span></div></li></ol></section>
+<section id="agenturen"><h2>Agenturen<span class="count">16 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQVHA0cGhpY0JOWVByN25sTEstRFd6Q3RSamVLcHNKblpOSEZ6MG8wbG1ZYV9RejZ1d2ZpTFUxRjgzaGxhd0VYR0VTWUV1Yjk0eV9HbnpvbFYtaDVBbndkQXo5RWFpT1U4TllVS2tmMGNWTEFnbThtU3RFdWRlb2R5YTFDSWFoM1JDWHptSzdSekg3aGdtQWVxZERxVER4dnktTGZPMDdXTk5OQmM?oc=5" rel="noopener">Böses Erwachen für Trump? Aktuelle US-Wahl-Umfragen &amp; Trends live - STERN.de</a></h3><p class="summary">Böses Erwachen für Trump? Aktuelle US-Wahl-Umfragen &amp; Trends live STERN.de</p><div class="byline"><span class="source">dpa</span><time datetime="2026-10-27T10:09:26+01:00">10:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNMVgtUWQwczlqeUFIVHRfbS1EaWg3ZnhydU1HSHlUS3VEZ0JXcVNHWm1xUm9id290UE5sLWpYZkNNdC1qZGkxcmVtUUNVUWJxTnpPa2kzYzR2ZmVMaHlmOFdSN0htQVB5RVhGckFTQmxsYkZlemRFR0VvMEduXzFxZU5RaDlFNk5aNFlwNGU5aVRzUVZwS0JOeHcwdWdLY3lmYWd5VU5MSkdjWUxtbmMzUi1fTC1nMldiaEdKR09HVGpmQ29CLWVlRTl1WUNkM0xtZVI3UThKeVQ4UDhKU0xXdg?oc=5" rel="noopener">Welthandel: Merz wirbt in Asien für Freihandelsabkommen mit Pazifik-Region - Spiegel</a></h3><p class="summary">Welthandel: Merz wirbt in Asien für Freihandelsabkommen mit Pazifik-Region Spiegel</p><div class="byline"><span class="source">Reuters (DE)</span><time datetime="2026-10-27T09:27:00+01:00">09:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiggJBVV95cUxORU5GY0lxUnE3enlJdTJXLVFLTXlVaTF3TjE2ZnN2VGd0TXJyMEtZd3hJdzVzRFptYmsyQU03elhNQVRGMlBzckJyc0U2aFdDcGhYX2ZYenl2eG1FMG41LVpkdll0ZlRoa3hLd05BVlNBdkNKQVltdU1hR1h0bGlqT2g0WUpfQmdRYnRmRHJsdlNaY01pLXRJNEVKSW5GN1pvN1liTTlrWktkLVJkNFFGZUZKaHFUYllWTkJEd0poUm95ZVdOVlFzQ3I0eXdrUDRuLWtmMGJnbVRGRTVWa1pIdnhvRVJXeHpPN05OSW0zVi11TFNDTmlBRjU1cUJkNlFEX0E?oc=5" rel="noopener">Verstoß gegen die Sorgfaltspflicht? Polizei ermittelt nach Schiffsunfall gegen Kapitän der „Mein Schiff 3“ - Tagesspiegel</a></h3><p class="summary">Verstoß gegen die Sorgfaltspflicht? Polizei ermittelt nach Schiffsunfall gegen Kapitän der „Mein Schiff 3“ Tagesspiegel</p><div class="byline"><span class="source">dpa</span><time datetime="2026-10-27T08:39:00+01:00">08:39 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxPb01zejVnOVZSUDVGTjF3MGVwTDN4M0stRDAzTXNlamJ6Mk96dTNUVjZDeFJLR2tIQXFLUW1JV3lvbEdDWGRrNnI5RzhCY3BHTUVyV3JLNW1CdDVuYTdIaXdJNXExLU9XTHVUa08taVJYQUd4c21pRGJaYWxhakQ2S3NHa1pmTWxScU1VZ090RnZxTzc1cTRBSlVQVF9MOXR0NTVBRExLVGg1Z2tV?oc=5" rel="noopener">Britain&#x27;s minimum wage set for nearly 4 per cent rise, Times reports - The Financial Express</a></h3><p class="summary">Britain&#x27;s minimum wage set for nearly 4 per cent rise, Times reports The Financial Express</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-27T05:29:33+01:00">05:29 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPTlF1QkdkM3ZoYlE2Qmh4Qjl3bTViNGQteUtzeTR0Sno0OVc2Ri1sMDRJS2J5SVpULW5oNzlTdmVwdVNsRHNPMDh1dEdLT1R4UVpuaUQ2eEdnOUh1TXk0ZENtYWxZYXFBRUdnX0tfT3FveUI5aFRvZkZBVUNuNTExa01ucmR3UE1YQUpQbVEtWkg4cTJPUElPN0dHZ1RpdWlJaGh3d2VQU3pQUUdRWGljaEdLRXhlLVRUT21IZWhR?oc=5" rel="noopener">Trump approval rises from record low to 32% ahead of midterm election, Reuters Ipsos poll finds - Reuters</a></h3><p class="summary">Trump approval rises from record low to 32% ahead of midterm election, Reuters Ipsos poll finds Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-27T00:04:25+01:00">00:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxONkI1dVc1WGVsRGwyMkZtNFFfR3NpaFR2M2JTQ05POTBkZ29lSVpuelFJVWFCTC1tNEJ3Y0F6YUxHWUJkWjJqcm1KWnhNajVxNk5iUFZuck9ZV0tOVEdxYjlxcG0ycUk5UUlyU3l6bnpJY0NFMDJqcXJ4cWJGeUJRbTV5YTVtQy1CSXlTUmZn?oc=5" rel="noopener">DoorDash in talks to buy Instacart in roughly $17 billion deal, source says - Reuters</a></h3><p class="summary">DoorDash in talks to buy Instacart in roughly $17 billion deal, source says Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T22:47:43+01:00">22:47 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOY3V6RnhJNUdQRC1uU19vNFk4YUR3MVlHbmpOdnUxMGo4R2RoWVhvXzAzTGczekw4akxaVjB3VzF4bHRhRFZFTFJ5eGY0ZGFOZ2NtcTBQa0RqZlgzVHlQb0pUcVJjN3RBM3lZTFhjaTNCM3JXLWxzR1F3NTZDLU0teHZyb2FpX2xzajM1UlpVVFRDTmhTRFhpeVR1WWxaT1dva0E0TEVoTjllb3hMSDVFVkRYTnpaQXRhZ0w3ZU9vR1hhQQ?oc=5" rel="noopener">Microsoft offers buyouts to around 60,000 employees to contain costs - Reuters</a></h3><p class="summary">Microsoft offers buyouts to around 60,000 employees to contain costs Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T22:44:09+01:00">22:44 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxNQXI0Ml92cUxsR2hZRHB2OHJLOXIxeHA5MkFFU2JTb091Vk93VXRZdEZ1MFV6OUE4eFBubzhPcDA4M1ZSSjNBN0hzR3dwci1RQzNRcVM1eFJEY0MxTGVRNWdEVGpxWTJvRWl0aFNmWHhYYjBpeDljSjNsRUV5eDlyRGZqVEctMjYyYkZ0cEFHSTB3RWJmc1FxeFZ2VnI2NW9jZHhkV0R5TmJKWkRIZlJ2U3BQbV8?oc=5" rel="noopener">US consumers paying the most for fuel price spikes from Iran war, study says - Reuters</a></h3><p class="summary">US consumers paying the most for fuel price spikes from Iran war, study says Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T21:20:15+01:00">21:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPRmpNcDhCbWpETXNLU0hDNDVmbGh6Y1l3d0NJWXAyUHJKdTNCam1RSmxmU3N5M2ExemdvTlJfYUtfaDhlQlp1RGg2Q2Y1OGpxSWF6WEV5TTdyWmlxXzBsNjVHbmhBQ0M1SUEzYWRsV28xZ05GWVE1QmFvUTVtcGw0QzhsZlViWlN3WjJhZzdvQWdldGdncWVvZTFvV3U3UDRVRTZRR0piQjZHWHNfUUhIZ3lSTFJXdw?oc=5" rel="noopener">US judge refuses to block Eli Lilly weight-loss drug ads, rules against Novo Nordisk - Reuters</a></h3><p class="summary">US judge refuses to block Eli Lilly weight-loss drug ads, rules against Novo Nordisk Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T21:05:00+01:00">21:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQU1JXYWUtZ2l1TGNtSDlwbkN6SkxUR1RxaWZjQnFpNk8yTzBuLTR5OEUxQ296SmZEd3dDS25tMjh1eW5hRGg4X1gtVUpVQi1UbWIyYXpJQmh6NGxpX011WWlEYWh0Z3FKRm55UUl6UnpKUTZmM3lhUElLNUVIb0tkWDBYVkI1LXI2aWxwT1Q2aUpSZjhOcUVxaTByX21WVlExQVE?oc=5" rel="noopener">EXCLUSIVE: US, Canada working on deal to ease steel, auto tariffs, sources say - Reuters</a></h3><p class="summary">EXCLUSIVE: US, Canada working on deal to ease steel, auto tariffs, sources say Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T20:30:00+01:00">20:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMihwJBVV95cUxNcDU4SVhYWUZCTWNqNGV1dW5Rb0pnS3l1S09yeUs0R2hrclNIMUxBbzhDcWtDOTRTbHMzVnhEY0o3eEhMMDl4d2dsdTVCbWxwM2N0WDhpYnNKNzZrZ0lOdFF2UFpiOTFlbFduRzBWcHVtU21hWk5WNFRIOEN3bUxPV1JpNVR3bGtKVjRWTXFjTGVQUlNNQ2tjcGJTcXJFbHdEVWxQMnRZZ1d4WDVUeDBlUWstNzJzd3FxNjFCLVNBNVJnWEFPU0czZ21CdFFMb2xqLXdBYXFfb2N0VHV4RDlodjNRVUxxRzA4UnZTTGllbVVTZmpRckJYcjE2NGpmUzdYTXZPdGktWQ?oc=5" rel="noopener">Tui-Kreuzfahrtschiff stößt mit Containerschiffen zusammen Polizei ermittelt gegen Kapitän der „Mein Schiff 3“ - Tagesspiegel</a></h3><p class="summary">Tui-Kreuzfahrtschiff stößt mit Containerschiffen zusammen Polizei ermittelt gegen Kapitän der „Mein Schiff 3“ Tagesspiegel</p><div class="byline"><span class="source">dpa</span><time datetime="2026-10-26T19:13:00+01:00">19:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRUpwWFJGWXloMTBrUXEydE5jejMtVUVRMXFiZXBud2hwQjROU0U5cUk4NjVTbHhMcFU2Y3A5YjV3ME1SZGVTbno4TnpqSmUzUXFhakhmb00zZWg5NS15VWxNZG5EMlp6YU5kZ210SnVLVjRVODRxYmtmcHNwb2RwdnFrNXNzVHVmMjdjN2lZTUFzV1VDUXl1YlU4aUdRSFpxTFlMdUt2ZG5JQQ?oc=5" rel="noopener">US CFTC, NBA agree to cooperate over basketball and prediction markets - Reuters</a></h3><p class="summary">US CFTC, NBA agree to cooperate over basketball and prediction markets Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T18:57:17+01:00">18:57 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQVU9GVS0tRWdFWnJ6SUJGaGFMWE5HNFJCS19OUVl4djA1Mmc2bWowb01BLVVDb1drb0NaVEtyVWZVUUt1RzNOdi16OUxBZVVBQnQyQ2ZZdWlyQ09vUGZWcy1ydmpMcXhoSjNLUzdzUXJCTW16bTNYMkxScWpHWDFNNkxMSHc2WW1hWlZ1YW50Szk1MDFEN3hIMEJ3S25WeV9PSHRjTGdjUXlOYWR2U0N1d2p3b3hrQmM?oc=5" rel="noopener">Belarusian security official convicted in Switzerland in case involving the abduction of an opposition figure — Reuters - UA.NEWS</a></h3><p class="summary">Belarusian security official convicted in Switzerland in case involving the abduction of an opposition figure — Reuters UA.NEWS</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T18:51:17+01:00">18:51 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNSXZrWlJVYTllelhNczNoX2dHZ2pQYk1FTUZtLVNPYUdZUEdEVElSZGpLR0QzWTJZS25DOUNHdXdvakRCcHBLVmxKbFBwVmNXWUhtZllwZ2p5ZzdjdnBUb3ZkOWRmT3VzbUNLQ09YRVVJQk5WSWtncHVkRjZUWlJYbDJ2TzRFM0hEM1YtOHd0c05XaW1GRFJhMU1aZEpzOVJZaU5UQTZCMi1EMExhNnRKRmRmR2gyaGZq?oc=5" rel="noopener">Cadence unveils suite of AI models that chipmakers can run in-house - Reuters</a></h3><p class="summary">Cadence unveils suite of AI models that chipmakers can run in-house Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-26T18:22:18+01:00">18:22 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxPSEJhQnhhVUFpQUs5WHBkNHl4bm93bXZBTm0wcDZ6Y0lyZ21wSnlkaVhQX1o2ako0aDF2RzhBYXhLMmt0eWdWMVNkQjhOTTJ3V0N4VS1QVXRFWmh4LWJXblB5NFhFOU9qRFMzY09fd2Jrd1JSTmpKQ3B5ME9VTkUxa3Vja2UxeTlHUXFkQnA2RUhsX2w5M25xalRyQXd1d3JXaTJFR0hPU3FXYWtiSEJjOEdBR1huLXM?oc=5" rel="noopener">„Das müsst ihr nicht zeigen“: Ski-Star schämt sich für Liebesjubel mit Freundin - Merkur</a></h3><p class="summary">„Das müsst ihr nicht zeigen“: Ski-Star schämt sich für Liebesjubel mit Freundin Merkur</p><div class="byline"><span class="source">AFP</span><time datetime="2026-10-26T16:12:50+01:00">16:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxNZTNEcW4yeWhxejhJUmtKeEJWZlpiWExtbHRGZ3YtMU05dmZUWndkNHFwZ0RXSXdXRFlGaWhIZW45TWU0YVc1UWRrQWtpUGp0WUM3QXpCYTFwN2txeno4MlFOWGUzMnhCVDVTZmhXQjk1RGNNYTJjN1otNEJ2RkV6TE9MYlB2NWxKS056TmhCeFBTVGEwYVRaYTY4MndDdlRkbG5GUjFONVZoV2htdnUzNw?oc=5" rel="noopener">Polizei warnt vor neuer Betrugsmasche „Ghost Pairing“ - Onetz</a></h3><p class="summary">Polizei warnt vor neuer Betrugsmasche „Ghost Pairing“ Onetz</p><div class="byline"><span class="source">dpa</span><time datetime="2026-10-26T13:13:56+01:00">13:13 Uhr</time></div></li></ol></section>
+<section id="deutschland"><h2>Deutschland &amp; Welt<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.deutschlandfunk.de/kanzler-merz-wirbt-in-singapur-fuer-freihandelsabkommen-mit-laendern-der-pazifik-region-100.html" rel="noopener">Asien-Reise - Kanzler Merz wirbt in Singapur für Freihandelsabkommen mit Ländern der Pazifik-Region</a></h3><p class="summary">Bundeskanzler Merz hat sich bei einem Besuch in Singapur für Freihandelsabkommen zwischen der EU und den Mitgliedsstaaten der sogenannten Transpazifischen Partnerschaft eingesetzt. Beide Seiten würden mehr als ein Drittel des Welthandels vereinen, sagte Merz in dem Stadtstaat.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/welthandel-merz-wirbt-in-asien-fuer-freihandelsabkommen-mit-pazifik-region-a-cd130177-0f37-4627-aafd-23990d1d3d69#ref=rss" rel="noopener">SPIEGEL</a></span></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/porsche-verkauft-weniger-autos-aber-gewinn-steigt" rel="noopener">Auto: Porsche verkauft weniger Autos - aber Gewinn steigt</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:16:58+01:00">10:16 Uhr</time><span class="also">auch bei <a href="https://www.faz.net/aktuell/wirtschaft/unternehmen/business-liveticker-porsche-verkauft-weniger-autos-aber-gewinn-steigt-faz-200452404.html" rel="noopener">FAZ</a></span></div></li>
+<li class="story"><h3><a href="https://www.sportschau.de/fussball/bayern-stuermer-harry-kane-gewinnt-ballon-dor,ballon-d-or-kane-100.html" rel="noopener">Ballon d&#x27;Or: Harry Kane vom FC Bayern gewinnt Auszeichnung</a></h3><p class="summary">Harry Kane ist bei der Gala in London mit dem Ballon d&#x27;Or ausgezeichnet worden. Er ist der erste Bundesliga-Spieler seit Matthias Sammer 1996, der den Award gewinnt. Kane setzte sich vor Mbappé und Yamal durch.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-27T08:56:03+01:00">08:56 Uhr</time><span class="also">auch bei <a href="https://www.sueddeutsche.de/sport/ballon-d-or-live-liveticker-gala-kane-li.3569528" rel="noopener">Süddeutsche</a></span></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/wissenschaft/umwelt/2026-10/wmo-treibhausgase-co2-konzentration-el-nino-gxe" rel="noopener">WMO-Bericht: CO2-Konzentration in der Atmosphäre steigt 2025 auf neuen Höchststand</a></h3><p class="summary">Die Konzentration von CO2 in der Atmosphäre ist laut der Weltwetterorganisation weiter gestiegen. Der Anstieg sei beträchtlich, aber langsamer als in den Vorjahren.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/bundespraesident-steinmeier-beginnt-china-reise-100.html" rel="noopener">Staatsbesuch - Bundespräsident Steinmeier beginnt China-Reise</a></h3><p class="summary">Bundespräsident Steinmeier beginnt heute einen Staatsbesuch in China.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/partei-von-fl-vio-bolsonaro-raeumt-niederlage-bei-praesidentschaftswahl-in-brasilien-ein-100.html" rel="noopener">&quot;Erkennen Ergebnis an&quot; - Partei von Flávio Bolsonaro räumt Niederlage bei Präsidentschaftswahl in Brasilien ein</a></h3><p class="summary">Die Partei des brasilianischen Präsidentschaftskandidaten Flávio Bolsonaro hat dessen Niederlage bei der Stichwahl gegen Amtsinhaber Lula da Silva eingeräumt. Die rechtsgerichtete &quot;Liberale Partei&quot; teilte mit, man erkenne das vom Obersten Wahlgericht verkündete Ergebnis an, müsse aber die vorgebrachten Bedenken …</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/wegen-geldwaesche-ermittlungen-fl-vio-bolsonaro-darf-brasilien-nicht-verlassen-102.html" rel="noopener">Anordnung des Obersten Gerichts - Wegen Geldwäsche-Ermittlungen: Flávio Bolsonaro darf Brasilien nicht verlassen</a></h3><p class="summary">Nach seiner Niederlage bei der Stichwahl um das Präsidentenamt in Brasilien darf der unterlegene Kandidat Flávio Bolsonaro das Land nicht verlassen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/richtungsweisende-wahl-in-israel-enges-rennen-um-mehrheit-erwartet-100.html" rel="noopener">Knesset - Richtungsweisende Wahl in Israel: Enges Rennen um Mehrheit erwartet</a></h3><p class="summary">In Israel hat eine richtungsweisende Parlamentswahl begonnen. Rund 7,3 Millionen Wahlberechtigte sind heute aufgerufen, die 120 Abgeordneten der Knesset zu bestimmen. Angesichts der gesellschaftlichen Spaltung und der zunehmenden internationalen Isolation Israels gilt die Abstimmung als Weichenstellung.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/frankreich-verdaechtiger-bestreitet-rassistisches-motiv-fuer-schuesse-aus-fahrzeug-nahe-paris-100.html" rel="noopener">Ein Toter und fünf Verletzte - Frankreich: Verdächtiger bestreitet rassistisches Motiv für Schüsse aus Fahrzeug nahe Paris</a></h3><p class="summary">Nach den tödlichen Schüssen vom Freitag in der Nähe von Paris suchen die Ermittler nach dem Motiv des Täters.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/waffenruhe-in-verminter-frontstadt-oleschky-in-kraft-humanitaere-hilfe-soll-beginnen-102.html" rel="noopener">Ukraine-Krieg - Waffenruhe in verminter Frontstadt Oleschky in Kraft - humanitäre Hilfe soll beginnen</a></h3><p class="summary">In der abgeriegelten Frontstadt Oleschky im Süden der Ukraine ist eine örtlich begrenzte Waffenruhe in Kraft getreten.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/zahl-der-ebola-infektionen-im-kongo-steigt-auf-mehr-als-10-100.html" rel="noopener">Westafrika - Zahl der Ebola-Infektionen im Kongo steigt auf mehr als 10.000</a></h3><p class="summary">In der Demokratischen Republik Kongo ist die Zahl der Ebola-Infektionen auf mehr als 10.000 gestiegen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/pflegekommission-tagt-erstmals-staffler-csu-hofft-auf-vereinfachung-des-systems-102.html" rel="noopener">Reformpläne - Pflegekommission tagt erstmals - Staffler (CSU) hofft auf Vereinfachung des Systems</a></h3><p class="summary">In Berlin kommt heute erstmals die von der Bundesregierung eingesetzte Kommission zusammen, die Vorschläge für eine Pflegereform erarbeiten soll.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/niedersachsen-auto-faehrt-gezielt-in-menschengruppe-polizei-geht-nicht-von-anschlag-aus-100.html" rel="noopener">Neustadt am Rübenberge - Niedersachsen: Auto fährt gezielt in Menschengruppe - Polizei geht nicht von Anschlag aus</a></h3><p class="summary">Im niedersächsischen Neustadt am Rübenberge bei Hannover ist ein Auto gezielt in eine Gruppe Menschen gefahren.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/21-tote-bei-drohnenangriff-auf-markt-in-sudanesischer-region-darfur-100.html" rel="noopener">Bürgerkrieg - 21 Tote bei Drohnenangriff auf Markt in sudanesischer Region Darfur</a></h3><p class="summary">Bei einem Drohnenangriff auf einen Markt in der sudanesischen Region Darfur sind 21 Menschen getötet worden.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/huthi-rebellen-im-jemen-greifen-erneut-ziele-in-saudi-arabien-an-raketen-und-drohnen-abgefangen-102.html" rel="noopener">Mittlerer Osten - Huthi-Rebellen im Jemen greifen erneut Ziele in Saudi-Arabien an - Raketen und Drohnen abgefangen</a></h3><p class="summary">Die Huthi-Rebellen im Jemen haben erneut Ziele in Saudi-Arabien aus der Luft angegriffen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-10-27T10:30:44+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/dorfclub-gegen-hauptstadt-pokal-duell-der-gegensaetze" rel="noopener">DFB-Pokal: Dorfclub gegen Hauptstadt: Pokal-Duell der Gegensätze</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:29:26+01:00">10:29 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/sport/2026-10/kylian-mbappe-sponsoren-china-mao-zedong-dongpeng-mengniu-gxe" rel="noopener">Fußball: Kylian Mbappé verliert nach Mao-Äußerungen chinesische Sponsoren</a></h3><p class="summary">Er lache oft über ein Meme, das ihn als chinesischen Diktator zeige, sagte Kylian Mbappé in einer Show. Chinesische Sponsoren brachen daraufhin die Zusammenarbeit ab.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:23:53+01:00">10:23 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/gesundheit/2026-10/ebola-kongo-demokratische-republik-epidemie-gxe" rel="noopener">Ebola in Zentralafrika: Mehr als 10.000 Ebola-Fälle in der DR Kongo registriert</a></h3><p class="summary">Die Zahl der Ebola-Infektionen in Zentralafrika wächst schnell. Bisher wurden in der Demokratischen Republik Kongo mehr als 10.000 Infektionen mit dem Virus gezählt.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:20:34+01:00">10:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/video/video-1673294.html" rel="noopener">&quot;Umfragen sind alles andere als eindeutig, Pia Steckelbach, ARD Tel Aviv, zur Knesset-Wahl in Israel</a></h3><p class="summary">&quot;Umfragen sind alles andere als eindeutig, Pia Steckelbach, ARD Tel Aviv, zur Knesset-Wahl in Israel</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-27T10:17:57+01:00">10:17 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/panorama/Indonesier-impfen-Wolken-mit-Trockeneis-und-Salz-id31461900.html" rel="noopener">Wettermodifikation gegen Brände: Indonesier &quot;impfen&quot; Wolken mit Trockeneis und Salz</a></h3><p class="summary">In Indonesien haben Waldbrände in diesem Jahr bereits riesige Flächen vernichtet. Giftige Dämpfe bedrohen zudem Menschen über die Grenzen des Landes hinaus sowie Tiere. Die indonesischen Behörden starten nun eine ungewöhnliche Aktion, um die Flammen endlich einzudämmen.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-10-27T10:17:52+01:00">10:17 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/politik/Russland-trifft-wichtige-Dnipro-Bruecke-im-Sueden-Kiews-id31461872.html" rel="noopener">Infrastruktur im Visier: Russland trifft wichtige Dnipro-Brücke im Süden Kiews</a></h3><p class="summary">Die ukrainische Hauptstadt Kiew steht unter massivem Beschuss. Eine Brücke im Süden wird beschädigt, bereits am Abend stirbt mindestens ein Zivilist. Präsident Selenskyj betont, dass sich in der Nähe &quot;keine einzige militärische Einrichtung&quot; befinde.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-10-27T10:17:21+01:00">10:17 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/politik/usa-unter-trump/us-midterms-2026-was-waeren-die-folgen-eines-erfolgs-der-demokraten-accg-201612085.html" rel="noopener">US-Midterms 2026: Wird Trump zur „lahmen Ente“?</a></h3><p class="summary">Sollten die Demokraten die Kongresswahl gewinnen, könnten sie Trump das Leben schwer machen. Vor allem die Macht über die Finanzen könnte ein Hebel sein.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T10:14:24+01:00">10:14 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/digital/2026-10/iphone-duo-apple-display-bruch-pixelfehler-gxe" rel="noopener">iPhone Duo: Apple bestätigt Probleme beim ersten auffaltbaren iPhone-Modell</a></h3><p class="summary">Das neue iPhone Duo von Apple weist Fehler auf. Nach Berichten von Nutzern soll es nach dem Auffalten gebrochen sein oder einen Pixelfehler angezeigt haben.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:13:29+01:00">10:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/video/2026-10/parlamentswahlen-in-israel-haben-begonnen" rel="noopener">Parlamentswahlen in Israel haben begonnen</a></h3><p class="summary">In Israel haben am Dienstag die vorgezogenen Parlamentswahlen begonnen. Erstmals seit dem Hamas-Angriff vom 7.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:10:29+01:00">10:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/wirtschaft/immobilien-wohnen/bauen-kaufen/wie-sich-mit-grauwasser-trinkwasser-und-geld-sparen-lassen-accg-201300271.html" rel="noopener">Wiederaufbereitung: Mit Grauwasser Geld sparen</a></h3><p class="summary">In großen Mengen fließt Trinkwasser durch die Toilettenspülung. Das geht auch anders.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T10:10:00+01:00">10:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/feuilleton/debatten/wolfang-streeck-wird-80-accg-201622911.html" rel="noopener">Wolfgang streeck wird 80: Wer hat uns beraten? Sozialdemokraten!</a></h3><p class="summary">Der Soziologe Wolfgang Streeck studierte in Frankfurt, ohne sich für die Kritische Theorie zu interessieren. Lieber betrachtete er die Realität aus dem Blickwinkel von Sozialdemokraten. Jetzt wird er 80.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T10:09:24+01:00">10:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/muenchen/muenchen-samuel-koch-schauspieler-theater-bayerischer-kunstpreis-inklusion-interview-li.3563962" rel="noopener">Bayerischer Kunstpreis: „Es ist der Geist, der sich den Körper baut“: Samuel Koch ist Performer des Jahres</a></h3><p class="summary">Nach seinem Unfall dachte Samuel Koch, es gibt nichts „Bescheuerteres“, als in seinem Zustand Schauspieler zu werden. Jetzt erhält er für seine Darstellungskunst einen wichtigen Preis. Aber es gibt noch mehr, wofür er sich einsetzt.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-10-27T10:08:32+01:00">10:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/rhein-main/sexualstraftaeter-wird-am-frankfurter-flughafen-einreise-verweigert-aktuelle-nachrichten-aus-frankfurt-hessen-faz-19735361.html" rel="noopener">Rhein-Main-Liveblog: Sexualstraftäter wird am Frankfurter Flughafen Einreise verweigert</a></h3><p class="summary">Was ist los in Frankfurt &amp; Hessen? Lesen Sie aktuelle News &amp; Nachrichten im News-Ticker von heute ► Was heute wichtig ist, erfahren Sie bei der F.A.Z.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T10:08:18+01:00">10:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/video/ballon-d-or-spieler-des-jahres-ausgezeichnet-201624558.html" rel="noopener">Kane und Putellas: Weltfußballer des Jahres ausgezeichnet</a></h3><p class="summary">Harry Kane, der Stürmer des FC Bayern gewinnt den Ballon d’Or 2026 für die Männer in London. Bei den Frauen setzte sich zum dritten Mal die Spanierin Alexia Putellas durch. Auch weitere Trophäen gingen nach Spanien.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T10:06:19+01:00">10:06 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/zahl-der-ebola-faelle-im-kongo-uebersteigt-10-000" rel="noopener">Tödliche Viruskrankheit: Zahl der Ebola-Fälle im Kongo übersteigt 10.000</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:05:53+01:00">10:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/politik/Beck-Auch-Israels-Oppositionschef-wuerde-Gaza-Krieg-zu-Ende-fuehren-id31462085.html" rel="noopener">DIG-Chef im ntv Frühstart: Beck: Auch Israels Oppositionschef würde Gaza-Krieg zu Ende führen</a></h3><p class="summary">Israel wählt ein neues Parlament - und in Deutschland hoffen viele auf das Ende von Premier Netanjahu. Auch dann aber würde der Gaza-Krieg weitergehen, glaubt Volker Beck, Präsident der Deutsch-Israelischen Gesellschaft.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-10-27T10:03:53+01:00">10:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/vfb-und-pejcinovic-ab-in-den-kampfmodus" rel="noopener">DFB-Pokal: VfB und Pejcinovic: Ab in den «Kampfmodus»</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:03:04+01:00">10:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/sexualstraftaeter-wird-am-flughafen-einreise-verweigert" rel="noopener">Kriminalität: Sexualstraftäter wird am Flughafen Einreise verweigert</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:02:37+01:00">10:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/rhein-main/frankfurt/frankfurter-fdp-lockert-brandmauer-zur-afd-wer-gewinnt-dabei-201621704.html" rel="noopener">Frankfurter Wende: Was bringt der FDP die Lockerung der Brandmauer zur AfD?</a></h3><p class="summary">Die Frankfurter FDP löst ihre Brandmauer auf und will AfD-Anträge nur noch am Inhalt messen. Offen bleibt, wem diese neue Linie nützt.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T10:02:01+01:00">10:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-10/27/fury-in-the-slaughterhouse-geben-2027-zwei-jubilaeumskonzerte" rel="noopener">Rock-Jubiläum: Fury in the Slaughterhouse geben 2027 zwei Jubiläumskonzerte</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-10-27T10:00:08+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wissen/klima/treibhausgase-so-hoch-wie-nie-100.html" rel="noopener">Bericht der Weltwetterorganisation: Treibhausgase so hoch wie nie</a></h3><p class="summary">Immer mehr Treibhausgase sammeln sich in der Atmosphäre. Das zeigt ein neuer Bericht der Weltwetterorganisation. Offenbar erholt sich die Natur von Hitze und Trockenheit nicht so schnell wie erwartet. Von N. Gode und S. Biegger.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-10-27T10:00:07+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/ausland/spannungen-zwischen-iran-und-usa-die-zeichen-stehen-auf-krieg-a-763fb589-ecc1-4c11-b9d6-b64daa6d1958#ref=rss" rel="noopener">Spannungen zwischen Iran und USA: Die Zeichen stehen auf Krieg</a></h3><p class="summary">Eine erneute Eskalation am Persischen Golf wird immer wahrscheinlicher. Können Diplomaten einen Flächenbrand noch verhindern?</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-10-27T09:55:00+01:00">09:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/feuilleton/debatten/adults-only-der-erste-flug-auf-dem-kinder-unerwuenscht-sind-was-soll-das-201618951.html" rel="noopener">Fliegen für „Adults only“: Auf diesem Flug sind Kinder unerwünscht</a></h3><p class="summary">Der erste Adults-only-Flug: Ein amerikanischer Reiseveranstalter wirbt für erholsame Ferien ganz ohne störende Kinder. Dabei sind das Problem doch eher die Erwachsenen, die sich danebenbenehmen.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T09:50:36+01:00">09:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/sport/fussball/pressestimmen-zur-ballon-d-or-wahl-von-harry-kane-accg-201624577.html" rel="noopener">Ballon D&#x27;or: „Kane, der Eroberer“</a></h3><p class="summary">Oft wurde Harry Kane prognostiziert, er würde niemals einen Titel holen. Nun gewinnt der Teamplayer und Anti-Star sogar eine individuelle Trophäe. Die Presse würdigt den Briten.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T09:49:16+01:00">09:49 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/politik/ausland/liveblog-nahost-israel-wahl-2026-hat-begonnen-faz-200583539.html" rel="noopener">Liveblog Nahost: Wahl in Israel hat begonnen</a></h3><p class="summary">Über 7,3 Millionen Wähler zur Stimmabgabe aufgerufen +++ UN-Kommission wirft Israel Verbrechen gegen die Menschlichkeit im Westjordanland vor +++ alle Entwicklungen im Liveblog</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-10-27T09:48:48+01:00">09:48 Uhr</time></div></li></ol></section>
+<section id="wirtschaft"><h2>Wirtschaft &amp; Finanzen<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.wiwo.de/unternehmen/auto/porsche-autobauer-stabilisiert-rendite-bei-schwachem-absatz/100265166.html" rel="noopener">Autobauer: Porsche stabilisiert Rendite bei schwachem Absatz</a></h3><p class="summary">Porsche erholt sich vom Gewinneinbruch. Doch China-Schwäche, US-Zölle und die verhaltene E-Auto-Nachfrage bremsen den Sportwagenbauer weiter deutlich.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:12:00+01:00">09:12 Uhr</time><span class="also">auch bei <a href="https://www.manager-magazin.de/unternehmen/mobilitaet/porsche-sportwagenbauer-stabilisiert-rendite-trotz-schwachem-absatz-a-78c2a869-ff90-4a33-8bca-f757a3b773db#ref=rss" rel="noopener">manager magazin</a></span></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/microsoft-bietet-rund-60-000-mitarbeitern-abfindungen-an-a-51915fa4-261a-4828-ae37-1add671256a7#ref=rss" rel="noopener">Microsoft bietet rund 60.000 Mitarbeitern Abfindungen an</a></h3><p class="summary">Der Ausbau von KI-Infrastruktur wird immer teurer. Um die Kosten unter Kontrolle zu bringen, sollen bei Microsoft nun Mitarbeiter gehen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T07:47:00+01:00">07:47 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/unternehmen/microsoft-techkonzern-bietet-60-000-mitarbeitern-abfindungen-an-a-b0b9c84d-ab45-4b2f-a353-1f601334571d#ref=rss" rel="noopener">SPIEGEL Wirtschaft</a></span></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/versicherer/versicherung-welche-autoversicherungen-bei-akkuschaeden-zahlen/100246776.html" rel="noopener">Versicherung: Welche Autoversicherungen bei Akkuschäden zahlen und die Extrakosten übernehmen</a></h3><p class="summary">Elektroautos werden immer beliebter. Doch Schäden am Akku können mehr als 20.000 Euro kosten. Worin sich geeignete Kfz-Versicherungen unterscheiden und welche Tarife überzeugen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:25:34+01:00">10:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/unternehmen/industrie/mercedes-autobauer-kappt-gewinnprognose-aktie-verliert-fuenf-prozent/100265218.html" rel="noopener">Autohersteller: Mercedes kappt Gewinnprognose – Aktie verliert fünf Prozent</a></h3><p class="summary">Ein herausforderndes Marktumfeld in China sowie höhere Kosten im vierten Quartal belasten die Jahresziele des Autobauers. Erst im Sommer gab es eine Umsatzwarnung.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:21:56+01:00">10:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dax-aktuell-dax-startet-kaum-veraendert-beiersdorf-enttaeuscht/100265163.html" rel="noopener">Dax aktuell: Dax öffnet im Minus – Beiersdorf enttäuscht die Anleger</a></h3><p class="summary">Vor den Zinsentscheidungen von Fed und EZB bleibt der Dax unter Druck. Mehrere Konzerne legen ihre Quartalszahlen vor, darunter Beiersdorf und Porsche.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:21:08+01:00">10:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/auto/audi-neckarsulm-ig-metall-fordert-von-audi-perspektiven-fuer-neckarsulm/100265206.html" rel="noopener">Audi Neckarsulm: IG Metall fordert von Audi Perspektiven für Neckarsulm</a></h3><p class="summary">In den USA kündigt der Audi-Chef eine große Investition an, während daheim die Zukunft fraglich ist. Die Chefin der IG Metall hält das für ein Unding.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T10:20:04+01:00">10:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/mobilitaet/ratgeber-service/kraftstoffe-super-super-plus-e10-das-sind-die-unterschiede-02/28592616.html" rel="noopener">Kraftstoffe: Super, Super Plus, E10 – Das sind die Unterschiede</a></h3><p class="summary">E10 ist günstiger als Super (E5). Aber können beide Kraftstoffe bedenkenlos getankt werden? Was sind die Unterschiede? Ein Überblick.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:18:00+01:00">10:18 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/meinung/wirtschaftsforum/lars-felds-ordnungsruf-weniger-staat-statt-noch-mehr-sozialismus/100264819.html" rel="noopener">Lars Felds Ordnungsruf: Weniger Staat statt noch mehr Sozialismus</a></h3><p class="summary">Politik und Ökonomie verklären den Sozialismus. Seit 2013 nehmen die Staatseingriffe in die Wirtschaft zu – doch die Politik fällt damit regelmäßig auf die Nase. Ein Gastbeitrag.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:15:29+01:00">10:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/rente-mit-63-warum-der-kompromiss-bei-der-rentenreform-frauen-benachteiligt/100264430.html" rel="noopener">Rentenreform: „Wieder auf faule Kompromisse zu verfallen, schadet dem Vertrauen in die Rente“</a></h3><p class="summary">Die Bundesregierung ringt um die Rente ab 63. Eine Idee: Sie bleibt, aber mit Einschnitten. Dann muss man auch die Mütterrente abschaffen, sagt der Ökonom Axel Börsch-Supan.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T10:14:25+01:00">10:14 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/handel/beiersdorf-nivea-rueckgang-verlangsamt-sich-geschaeft-bleibt-schwierig-a-8be261ee-29e5-4faa-94be-ac42001cb5fb#ref=rss" rel="noopener">Beiersdorf: Nivea-Rückgang verlangsamt sich – Geschäft bleibt schwierig</a></h3><p class="summary">Nach Jahren des Wachstums war Nivea zuletzt unter Druck geraten. Der Konsumgüterriese bremste nun zumindest den Rückgang bei seiner bekanntesten Marke. Das Geschäft bleibt jedoch schwer.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T10:14:00+01:00">10:14 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/karriere/karriere-wie-wird-man-professor-an-einer-deutschen-universitaet/100261010.html" rel="noopener">Karriere und Verdienst: Wie wird man Professor an der Universität?</a></h3><p class="summary">Der Weg zur Professur ist lang. Am Ende schafft es nur ein Bruchteil der Bewerber, viele bleiben im akademischen Mittelbau. Die Voraussetzungen einer Professur im Überblick.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:13:37+01:00">10:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/iran-krieg-mekka-pakt-staaten-betonen-kooperation-oelpreis-faellt-leicht/100136895.html" rel="noopener">+++ Iran-Krieg +++: Mekka-Pakt-Staaten betonen Kooperation – Ölpreis fällt leicht</a></h3><p class="summary">Staaten wollen Gespräche fortsetzen +++ Militärkoalition: Raketen und Drohnen auf Saudi-Arabien abgefangen +++ Iran: Austausch mit den USA nicht abgebrochen +++ Der Newsblog.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:13:00+01:00">10:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/ranking-das-sind-die-zehn-groessten-staedte-deutschlands/24407466.html" rel="noopener">Ranking: Das sind die zehn größten Städte Deutschlands</a></h3><p class="summary">Als föderales Land hat die Bundesrepublik viele Großstädte. Diese zehn sind gemessen an ihrer Einwohnerzahl aktuell die größten Städte in Deutschland.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:12:00+01:00">10:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/personal-bayernlb-chef-winkelmeier-geht-vorzeitig-im-september-2027/100265219.html" rel="noopener">Personal: BayernLB-Chef Winkelmeier geht vorzeitig im September 2027</a></h3><p class="summary">Stephan Winkelmeier, der Vorstandschef der Bayrischen Landesbank verlässt seinen Posten vorzeitig im kommenden Jahr. Wer kommt für die Nachfolge in Frage?</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:10:23+01:00">10:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/bundespolitik-merz-will-enge-handelsanbindung-der-eu-an-asean-staaten/100137034.html" rel="noopener">+++ Bundespolitik +++: Merz will enge Handelsanbindung der EU an Asean-Staaten</a></h3><p class="summary">Steinmeier beginnt Staatsbesuch in China +++ „Politischer Kniefall“ – Bayerischer Digitalminister kritisiert Audi-Chef für Auftritt mit Trump +++ Der Newsblog.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:08:00+01:00">10:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/technik/forschung-innovation/toedliche-viruskrankheit-zahl-der-ebola-faelle-im-kongo-uebersteigt-10000/100265231.html" rel="noopener">Tödliche Viruskrankheit: Zahl der Ebola-Fälle im Kongo übersteigt 10.000</a></h3><p class="summary">Der aktuelle Ebola-Ausbruch wächst besonders schnell. Bisher wurden in der Demokratischen Republik Kongo bereits mehr als 10.000 Infektionen mit dem gefährlichen Virus registriert.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:05:53+01:00">10:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/bundeswehr-wir-muessen-jeden-tag-schneller-und-besser-werden/100262564.html" rel="noopener">Interview mit Christian Freuding: „Ich bin sicher, Russland orientiert sich nicht an unseren Planungszeiträumen“</a></h3><p class="summary">Heeresinspekteur Freuding über seine Erwartung an den „App-Store“ der Bundeswehr, die Enttäuschung über Rüstungsprojekte und die Frage, warum 50 Jahre alte Schützenpanzer digital funken müssen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-10-27T10:04:00+01:00">10:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/finanzen/boerse/boerse-dax-gibt-nach-porsche-mit-rueckenwind-anthropic-ipo-bessert-die-stimmung-a-8d3c9893-35dc-465b-95ae-d6e66d449dc6#ref=rss" rel="noopener">Börse: Dax gibt nach, Beiersdorf rauscht ab, Porsche mit Rückenwind, Anthropic-IPO bessert die Stimmung</a></h3><p class="summary">Nach der Erholung am Vortag gibt der deutsche Leitindex am Dienstag zunächst etwas nach. Für Hoffnung sorgen diplomatische Bemühungen zwischen den USA und Iran. Anleger reagieren erfreut auf Zahlen von Porsche, Beiersdorf knickt dagegen ein.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T10:00:00+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/a4f9f81e-df30-4669-9eca-865d9d14e441?syn-25a6b1a6=1" rel="noopener">Tech stocks rise as AI trade regains steam</a></h3><p class="summary">Asia follows Wall Street higher in wake of Anthropic’s long-awaited IPO filing</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-27T09:50:52+01:00">09:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/welthandel-merz-wirbt-in-asien-fuer-freihandelsabkommen-mit-pazifik-region-a-cd130177-0f37-4627-aafd-23990d1d3d69#ref=rss" rel="noopener">Welthandel: Merz wirbt in Asien für Freihandelsabkommen mit Pazifik-Region</a></h3><p class="summary">Deutschland sucht die wirtschaftliche Unabhängigkeit von China. Freihandelsabkommen spielen dabei eine große Rolle. Das weiß auch Bundeskanzler Merz.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-27T09:27:00+01:00">09:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/erfolg/gruender/mein-haus-digital-in-der-hoehle-der-loewen-so-ging-es-nach-dem-deal-mit-maschmeyer-weiter/100265045.html" rel="noopener">Die Höhle der Löwen: „Carsten Maschmeyer hat uns einen Vertrauensvorschuss gegeben“</a></h3><p class="summary">Für ihren Baubegleiter rufen die Mein-Haus-Digital-Gründerinnen eine hohe Bewertung aus. Die Löwen gehen trotzdem in einen Bieterwettstreit. Wie es nach der Aufzeichnung weiterging.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:20:00+01:00">09:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/dienstleister/infrastruktur-koennen-europaeische-hersteller-die-huawei-luecke-schliessen/100264313.html" rel="noopener">Kritische Infrastruktur: Können hiesige Hersteller die Huawei-Lücke schließen?</a></h3><p class="summary">Ab November dürfen EU-geförderte Solarparks keine chinesischen Wechselrichter mehr einbauen. Der deutsche Hersteller SMA macht sich bereit für den politisch motivierten Absatzschub.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:20:00+01:00">09:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/auto/chinas-autobranche-in-der-krise-peking-erzwingt-grosse-fusionen/100263495.html" rel="noopener">Autohersteller: Tief in den roten Zahlen – Chinas Autobranche muss sich konsolidieren</a></h3><p class="summary">Zu viele Hersteller, zu wenig Gewinn: Peking will die chinesische Autoindustrie gründlich umbauen. Ist die Lage eine Chance für die deutsche Konkurrenz?</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:20:00+01:00">09:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/technologie/forschung/agriboost-so-soll-ein-akku-rucksack-aus-diesel-traktoren-hybride-fahrzeuge-machen/100250139.html" rel="noopener">Gamechanger: Ein Akkurucksack ­wertet alte Trecker zu Ackerhybriden auf</a></h3><p class="summary">Ideen, die unsere Welt ver­ändern und verbessern. Wir stellen sie vor. Diesmal: ­ein Nachrüstsatz, der Dieseltraktoren elektrisch unterstützt.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:20:00+01:00">09:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/industrie/nivea-umsatz-schrumpft-bei-beiersdorf-rueckgang-bei-nivea-aber-gebremst/100265174.html" rel="noopener">Beiersdorf-Zahlen: Umsatz schrumpft bei Beiersdorf – Rückgang bei Nivea aber gebremst</a></h3><p class="summary">Beiersdorf bremst den Abwärtstrend bei Nivea, doch die Kernmarke bleibt unter Druck. Günstigere Produkte und mehr Werbung sollen die Wende bringen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:17:00+01:00">09:17 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/erfolg/management/abfindungen-bei-bmw-so-blickt-ein-mitarbeiter-auf-das-freiwilligenprogramm/100264465.html" rel="noopener">Abfindungen bei BMW: „Wer weiß, ob ich das woanders noch mal so finde?“</a></h3><p class="summary">Der Ansturm auf die Abfindungen bei BMW war groß. Dabei ist die Entscheidung, sie anzunehmen, gar nicht so einfach. Protokoll eines Balanceakts.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:15:00+01:00">09:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/auto/porsche-mission-s-warum-der-superwagen-bildschirme-verbannt-und-auf-ki-setzt/100263485.html" rel="noopener">Porsche: „Nichts am Mission S ist retro“</a></h3><p class="summary">Teslas Roadster hebt mit Raketentechnik ab, Porsche setzt beim Mission S auf ein Retrodesign. Designchef Tobias Sühlmann über den neuen Supersportwagen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:15:00+01:00">09:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/industrie/novartis-schweizer-pharmakonzern-schraubt-ergebnisprognose-nach-oben/100265162.html" rel="noopener">Arzneimittelbranche: Pharmakonzern Novartis schraubt Ergebnisprognose nach oben</a></h3><p class="summary">Novartis hebt nach starkem Quartal die Ergebnisprognose an. Doch der Einbruch beim Verkaufsschlager Entresto setzt den Konzern unter Druck.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T09:08:00+01:00">09:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/fd23db26-a45b-4a98-b771-4234a30b7937?syn-25a6b1a6=1" rel="noopener">HSBC shares slide as results disappoint</a></h3><p class="summary">Third-quarter profits and revenues at Europe’s biggest bank narrowly miss expectations</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-27T09:00:50+01:00">09:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/ausland/nach-der-praesidentenwahl-geldwaesche-ermittlungen-ausreiseverbot-fuer-flavio-bolsonaro/100265022.html" rel="noopener">Nach der Präsidentenwahl: Geldwäsche-Ermittlungen – Ausreiseverbot für Flávio Bolsonaro</a></h3><p class="summary">Der unterlegene Präsidentschaftskandidat Flávio Bolsonaro darf Brasilien nicht verlassen. Diese Anordnung ergeht in einem Geldwäscheverfahren.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-10-27T08:58:00+01:00">08:58 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/porsche-macht-etwas-weniger-umsatz-aber-wieder-gewinn-a-d4d09e69-6ff6-4541-81e4-c87b2d6eede7#ref=rss" rel="noopener">Porsche macht etwas weniger Umsatz – aber wieder Gewinn</a></h3><p class="summary">Der angeschlagene Sportwagenhersteller Porsche hat sich vom Gewinneinbruch des ​vergangenen Jahres etwas erholt. Der Umsatz ging zwar zurück, die Weichen für profitables Wachstum sind aber gestellt.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-27T08:27:00+01:00">08:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/anthropic-boersengang-wie-sich-die-amodei-geschwister-ihre-macht-sichern-a-37904412-6c71-47d4-98ed-cedf2c0828ec#ref=rss" rel="noopener">Anthropic-Börsengang: Wie sich die Amodei-Geschwister ihre Macht sichern</a></h3><p class="summary">Die beiden Anthropic-Mitgründer Dario und Daniela Amodei inszenieren sich als weiße Ritter der KI-Branche. Mit ihrem Börsenprospekt offenbaren sie Pläne für eine höchst ungewöhnliche Firmenstruktur – um sehr reich und sehr mächtig zu werden.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T07:54:00+01:00">07:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/usa-warnen-eu-wegen-milliardenkredits-fuer-airbus-a-75a8cfc3-e8c1-4d76-941c-3d03e027f14f#ref=rss" rel="noopener">USA warnen EU wegen Milliardenkredits für Airbus</a></h3><p class="summary">Ein Milliardenkredit der Europäischen Investitionsbank für Airbus erzürnt die US-Regierung. Trumps Handelsbeauftragter Jamieson Greer droht jetzt indirekt mit der Aufkündigung des brüchigen Handelsfriedens.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-27T07:23:00+01:00">07:23 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/hbm/survivor-syndrom-fuehren-in-entlassungswellen-ohne-sich-selbst-zu-verlieren-a-6aea52b1-0c77-4686-aad2-995582b8426e#ref=rss" rel="noopener">Survivor-Syndrom: Führen in Entlassungswellen, ohne sich selbst zu verlieren</a></h3><p class="summary">Wie führt man ein Team durch eine Entlassungswelle, ohne sich selbst zu verlieren? Ein Wirtschaftspsychologe gibt klare Antworten. Ein Hoch auf alle, die in dieser Zeit Haltung und Ehrlichkeit zeigen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T07:10:00+01:00">07:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/hbm/buerokratieabbau-wie-signal-iduna-mit-friction-fixing-130-000-arbeitsstunden-spart-a-7b7bb3fd-2a0d-4dc4-b2ba-16574cf88361#ref=rss" rel="noopener">Bürokratieabbau: Wie Signal Iduna mit Friction Fixing 130.000 Arbeitsstunden spart</a></h3><p class="summary">Umständliche Abläufe verärgerten die Kundschaft der Signal Iduna – bis die Versicherung mit Friction Fixing begann. Das entschlackte die Prozesse, sparte 130.000 Arbeitsstunden ein und sorgt für bessere Laune bei den Kunden.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T07:09:00+01:00">07:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/handel/edeka-verliert-den-anschluss-marktanteil-sinkt-technologischer-rueckstand-waechst-a-ce17e1a1-2457-4997-a0bb-f97f177f8d74#ref=rss" rel="noopener">Edeka verliert den Anschluss: Marktanteil sinkt, technologischer Rückstand wächst</a></h3><p class="summary">Nach 18 Jahren unter Markus Mosa erlahmt Deutschlands größter Lebensmittelhändler. Jetzt beginnt Edekas schwieriges Endspiel – exklusive Einblicke in einen trägen Giganten.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-10-27T07:05:00+01:00">07:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/unternehmen/gernot-doellner-audi-chef-verteidigt-gemeinsamen-auftritt-mit-donald-trump-a-9451409c-6a95-4667-af91-abe266449904#ref=rss" rel="noopener">Gernot Döllner: Audi-Chef verteidigt gemeinsamen Auftritt mit Donald Trump</a></h3><p class="summary">Der Druck auf Audi-Chef Gernot Döllner wächst nach seinem Auftritt mit Donald Trump. Der Manager verteidigt seine Teilnahme mit wirtschaftlichen Interessen, doch die Kritik aus dem eigenen Konzern ist deutlich.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-27T06:33:00+01:00">06:33 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/0231b234-14dc-4ff0-8263-e1063b0a25d5?syn-25a6b1a6=1" rel="noopener">Lula faces a fiscal reckoning after Brazil’s market rout</a></h3><p class="summary">Concerns about management of economy trigger worst day for currency in more than 25 years</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-27T06:00:28+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/167fd08f-2f01-46ee-a419-074e22ffd1a8?syn-25a6b1a6=1" rel="noopener">France must appease protesters without extra spending, says finance minister</a></h3><p class="summary">Roland Lescure says government can come up with creative solutions without widening budget deficit</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-27T06:00:28+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/2f1667a8-ef1b-46a0-bc95-6061ec85fb8e?syn-25a6b1a6=1" rel="noopener">The winners and losers of the weight-loss economy</a></h3><p class="summary">People on GLP-1s are spending their money differently. Some sectors will benefit, others must adapt or die</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-27T06:00:18+01:00">06:00 Uhr</time></div></li></ol></section>
+<section id="tech"><h2>Tech &amp; IT<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://arstechnica.com/gadgets/2026/10/microsoft-offers-voluntary-buyouts-to-60000-employees/" rel="noopener">Microsoft offers to buy out a quarter of its workforce</a></h3><p class="summary">Employees in the US, Canada, India, and the UK may receive offers to leave MS today.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T23:36:06+01:00">23:36 Uhr</time><span class="also">auch bei <a href="https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/" rel="noopener">Hacker News</a></span></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/ki-microsoft-abfindungen-1770007/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Wegen hoher KI-Investitionen: Microsoft bietet 60.000 Mitarbeitern Abfindungen an</a></h3><p class="summary">Die hohen KI-Investitionen setzen Microsoft offenbar zu. Der Konzern muss Kosten sparen – und setzt dafür beim Personal an. 60.000 Mitarbeiter:innen werden über ein entsprechendes Programm Abfindungen angeboten. Nicht zum ersten Mal.weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-10-26T21:33:09+01:00">21:33 Uhr</time><span class="also">auch bei <a href="https://www.golem.de/news/ki-kosten-microsoft-bietet-bis-zu-60-000-mitarbeitern-abfindungen-an-2610-214531.html" rel="noopener">Golem</a></span></div></li>
+<li class="story"><h3><a href="https://www.heise.de/ratgeber/Welche-Werkzeuge-in-einer-mobilen-IoT-Werkstatt-unverzichtbar-sind-11493445.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" rel="noopener">heise+ | Welche Werkzeuge in einer mobilen IoT-Werkstatt unverzichtbar sind</a></h3><p class="summary">Eine komplette Mikrocontroller-Werkstatt passt in einen Rucksack. Am Beispiel eines kleinen Temperatursensors zeigen wir die wichtigsten Teile.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T10:30:00+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/GPT-6-1-Terra-Guenstiges-Modell-fuer-effiziente-Computerarbeit-11501275.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">GPT-6.1 Terra: Günstiges Modell für effiziente Computerarbeit</a></h3><p class="summary">OpenAI bringt GPT-6.1 Terra als günstigeres Modell für KI-Agenten. Unabhängige Tests zeigen starke Effizienzgewinne.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T10:17:00+01:00">10:17 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Instagram-testet-bis-zu-90-Minuten-lange-Videos-im-Querformat-11501265.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Instagram testet bis zu 90 Minuten lange Videos im Querformat</a></h3><p class="summary">Instagram testet in den USA Videos im Querformat mit bis zu 90 Minuten Länge. Anders als YouTube beteiligt die Plattform Creator nicht an den Werbeeinnahmen.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T10:10:00+01:00">10:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/chatgpt-fuer-teilchenphysiker-warum-das-cern-mit-mistral-ein-eigenes-ki-modell-entwickelt-1769962/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">ChatGPT für Teilchenphysiker? Warum das Cern mit Mistral ein eigenes KI-Modell entwickelt</a></h3><p class="summary">Werden jetzt auch Kernphysiker wegrationalisiert? Das Forschungszentrum Cern will gemeinsam mit Mistral ein KI-Modell für Teilchenphysik entwickeln.weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-10-27T10:00:01+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Jetzt-bewerben-IT-Stipendium-Wintersemester-2026-2027-11492661.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">heise-Angebot: Jetzt bewerben: IT-Stipendium Wintersemester 2026/2027</a></h3><p class="summary">heise medien vergibt zusammen mit e-fellows.net Stipendien für IT-Studierende. Die Bewerbungsfrist für das Wintersemester 2026/2027 endet am 15. November.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T10:00:00+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Kraftstoffknappheit-Schweiz-bereitet-Tempo-80-auf-Autobahnen-vor-11501193.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Kraftstoffknappheit: Schweiz bereitet Tempo 80 auf Autobahnen vor</a></h3><p class="summary">Diesel und Kerosin sind in der Schweiz knapp. Der Bund gibt Pflichtlager frei und prüft eine Temporeduktion auf Autobahnen. Ob das so kommt, ist aber fraglich.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T09:46:00+01:00">09:46 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/steam-frame-valves-headset-bekommt-cd-rom-unterstuetzung-2610-214538.html" rel="noopener">Steam Frame: Valves Headset bekommt CD-ROM-Unterstützung</a></h3><p class="summary">Sony streicht die künftige Unterstützung physischer Medien, Valve fügt sie dem Steam Frame hinzu - nachdem ein Nutzer einen alten Film schauen wollte. (Steam, Headset)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T09:38:02+01:00">09:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Hybridelektrisches-Tragflaechenflugzeug-startet-und-landet-auf-kurzen-Heliport-11501187.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Hybridelektrisches Tragflächenflugzeug startet und landet auf kurzen Heliport</a></h3><p class="summary">Das hybridelektrische Tragflächenflugzeug Electra EL2 kann auf sehr kurzen Distanzen starten und landen. Es eignet sich damit für den Einsatz in urbanen Räumen.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T09:34:00+01:00">09:34 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/proton-angestellte-muessen-erneut-ins-bewerbungsgespraech-2610-214537.html" rel="noopener">Proton: Angestellte müssen erneut ins Bewerbungsgespräch</a></h3><p class="summary">Proton will laut einer internen E-Mail die Angestellten finden, die mit der KI-Strategie kompatibel sind. Andere werden gehen müssen. (Softwareentwicklung, KI)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T09:26:02+01:00">09:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Googlebook-OS-Updates-bringen-Support-fuer-Samsung-Galaxy-Geraete-und-mehr-11501133.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Googlebook OS: Updates bringen Support für Samsung-Galaxy-Geräte und mehr</a></h3><p class="summary">Google hat ein Update für Googlebooks veröffentlicht. Unter anderem bringt es den bisher fehlenden Support für Samsung-Galaxy-Geräte und weitere Optimierungen.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T09:24:00+01:00">09:24 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Sony-Ghost-of-Yotei-Studio-Sucker-Punch-streicht-offenbar-24-Stellen-11501161.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Entlassungen bei Sucker Punch: Sony baut weiter Stellen ab</a></h3><p class="summary">Der „Ghost of Yotei“-Entwickler Sucker Punch hat laut einem Bericht 24 Stellen gestrichen. Für Sony ist es nicht die erste Entlassungswelle in diesem Jahr.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T09:10:00+01:00">09:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/ki-boom-diebe-stehlen-rechenzentrumsfracht-fuer-ueber-100-mio-us-dollar-2610-214536.html" rel="noopener">KI-Boom: Diebe stehlen Rechenzentrumsfracht für über 100 Mio. US-Dollar</a></h3><p class="summary">Diebe fälschen GPS-Daten und kapern Frachtkonten. Seit Juni stehlen sie Rechenzentrumsfracht für über 100 Millionen US-Dollar. (Cybercrime, Rechenzentrum)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T09:09:02+01:00">09:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/php2shell-Erfolgreiche-Angriffe-bestaetigt-noch-viele-Instanzen-ungepatcht-11501167.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">php2shell: Erfolgreiche Angriffe auf PHP-Schwachstelle bestätigt</a></h3><p class="summary">Seit Bekanntwerden der php2shell-Schwachstelle laufen Angriffe darauf. Am Wochenende wurden erste erfolgreiche Attacken bestätigt.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T09:02:00+01:00">09:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/logitech-sonderedition-mx-master-4-developer-edition-ist-speziell-fuer-software-entwickler-2610-214534.html" rel="noopener">Logitech Sonderedition: MX Master 4 Developer Edition ist speziell für Software-Entwickler</a></h3><p class="summary">Die Logitech-Maus MX Master 4 gibt es neuerdings in einer speziellen Ausführung für Software-Entwickler. Die Developer Edition wird dabei künstlich verknappt. (Logitech, Maus)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T09:01:02+01:00">09:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-intelligente-stromspeicher-auch-fuer-die-sonnenarme-zeit-2610-214399.html" rel="noopener">Anzeige: Intelligente Stromspeicher auch für die sonnenarme Zeit</a></h3><p class="summary">Solarstrom lässt sich nicht immer dann gewinnen, wenn der Verbrauch am höchsten ist. Flexible Speicher können diese zeitliche Lücke schließen- ein Vorteil, der in Herbst und Winter besonders relevant wird. (Anker, Technik/Hardware)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T09:00:01+01:00">09:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/tests/Buchsen-satt-Thunderbolt-5-Docks-mit-vielen-Schnittstellen-im-Test-11491887.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" rel="noopener">heise+ | Buchsen satt: Thunderbolt-5-Docks mit vielen Schnittstellen im Test</a></h3><p class="summary">Docks mit Thunderbolt 5 erhöhen das Tempo und vergrößern die Zahl der Anschlüsse. Wir prüfen drei neue, besonders interessante Modelle.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T09:00:00+01:00">09:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/php-luecken-unter-beschuss-erste-erfolgreiche-php2shell-attacken-bestaetigt-2610-214535.html" rel="noopener">PHP-Lücken unter Beschuss: Erste erfolgreiche PHP2Shell-Attacken bestätigt</a></h3><p class="summary">PHP2Shell auszunutzen ist schwierig. Dennoch wurden bereits einige anfällige Systeme infiltriert - unter anderem, um an eine Bitcoin-Wallet zu gelangen. (Sicherheitslücke, PHP)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T08:54:02+01:00">08:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/fritzos-8-50-update-fritzbox-download-1767411/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">FritzOS 8.50: Diese Fritzboxen können das Update jetzt laden</a></h3><p class="summary">FritzOS 8.50 wird schon für erste Router des Herstellers ausgerollt. Mit der Zeit sollen immer mehr Fritzboxen hinzukommen. Welche Geräte das Update jetzt laden können. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-10-27T08:30:00+01:00">08:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/mein-bildungsraum-bund-beendet-bildungsplattform-nach-236-millionen-euro-2610-214533.html" rel="noopener">Mein Bildungsraum: Bund beendet Bildungsplattform nach 236 Millionen Euro</a></h3><p class="summary">Aus der nationalen Bildungsplattform wird eine App für digitale Abiturzeugnisse. Erste Länder testen sie bereits. (Bundesregierung, Politik)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T08:21:01+01:00">08:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/US-Sanktionen-gegen-Weltstrafgericht-Umfangreiche-Ausnahmen-fuer-US-Tech-Branche-11501121.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">US-Sanktionen gegen Weltstrafgericht: Umfangreiche Ausnahmen für US-Tech-Branche</a></h3><p class="summary">Anfang Oktober hat die US-Regierung die Sanktionen gegen den Internationalen Strafgerichtshof ausgebaut. Nun wird bekannt, dass es umfangreiche Ausnahmen gibt.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T08:04:00+01:00">08:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/iX-Workshop-Microsoft-365-Copilot-fuer-IT-Administratoren-11413796.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">heise-Angebot: iX-Workshop: Microsoft 365 Copilot für IT-Administratoren</a></h3><p class="summary">Lernen Sie, wie Sie Microsoft 365 Copilot sicher und datenschutzkonform implementieren.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-27T08:00:00+01:00">08:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/ios-27-2-iphone-update-features-1769564/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">iOS 27.2: Update steht für iPhones bereit – das steckt drin</a></h3><p class="summary">iOS 27.2 ist da und wird an kompatible iPhones ausgerollt. Leider müssen Apple-Fans hierzulande auf einige der Neuerungen verzichten. Woran das liegt und was trotzdem mit dem Update bereitsteht. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-10-27T08:00:00+01:00">08:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/iphone-duo-kaufen-wichtig-display-verfuegbarkeit-1768383/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">iPhone Duo: Gebrochene Displays, Verfügbarkeit, Betriebssystem – was ihr vor dem Kauf wissen müsst</a></h3><p class="summary">Der Verkaufsstart vom iPhone Duo bringt offenbar einige Probleme mit sich. Das Gerät ist in den kommenden Monaten nur schwer zu bekommen. Zudem beklagen erste Nutzer Probleme mit kaputten Displays. Ihr wollt selbst ein Duo kaufen? Wir verraten, was ihr vorab wissen müsst. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-10-27T07:30:00+01:00">07:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-microsoft-365-identitaeten-geraete-und-daten-absichern-2610-214489.html" rel="noopener">Anzeige: Microsoft 365: Identitäten, Geräte und Daten absichern</a></h3><p class="summary">Microsoft 365 Security umfasst Identitäten, Geräte und Daten. Ein dreitägiger Online-Workshop vermittelt die sichere Konfiguration und praktische Anwendung. (Golem Karrierewelt, Identitätsmanagement)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-27T07:15:01+01:00">07:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf" rel="noopener">The Exponential Time Hypothesis Is False [pdf]</a></h3><p class="summary">See also: Announcing three new discoveries in mathematics, computer science, and physics - https://news.ycombinator.com/item?id=50251344 Comments URL: https://news.ycombinator.com/item?id=50251661 Points: 611 # Comments: 218</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-26T22:59:15+01:00">22:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/" rel="noopener">Three new discoveries in mathematics, computer science, and physics</a></h3><p class="summary">Related: The Exponential Time Hypothesis Is False [pdf] - https://news.ycombinator.com/item?id=50251661 Comments URL: https://news.ycombinator.com/item?id=50251344 Points: 872 # Comments: 398</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-26T22:35:28+01:00">22:35 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/health/2026/10/whats-worse-than-having-eye-worms-having-eye-worms-with-babies/" rel="noopener">Worms mate in man&#x27;s eyes, get plucked out right before larvae burst out</a></h3><p class="summary">Case study gives a whole new meaning to &quot;bedroom eyes.&quot;</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T21:27:00+01:00">21:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/science/2026/10/meet-the-real-life-scottish-surgeon-who-inspired-sherlock-holmes/" rel="noopener">Meet the real-life Scottish surgeon who inspired Sherlock Holmes</a></h3><p class="summary">Lindsey Fitzharris chats with Ars about her new book, Sleuth-Hound: The Case of the Real Sherlock Holmes.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T21:15:07+01:00">21:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/" rel="noopener">Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo</a></h3><p class="summary">Included is the ability to limit which applications Siri can directly access.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T21:04:16+01:00">21:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/er-spielte-pavel-chekov-star-trek-darsteller-walter-koenig-ist-tot-2610-214532.html" rel="noopener">Er spielte Pavel Chekov: Star-Trek-Darsteller Walter König ist tot</a></h3><p class="summary">Walter Koenig spielte Pavel Chekov in der klassischen Star-Trek-Serie und den Filmen, war aber auch ein wunderbarer Schurke in Babylon 5. Ein Nachruf von Peter Osteried (Star Trek, In eigener Sache)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-26T20:31:01+01:00">20:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/boersengang-anthropic-1769997/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Countdown für Börsengang eingeläutet: Was Anthropic in seinem Börsenprospekt verrät</a></h3><p class="summary">Mit der Veröffentlichung des Börsenprospekts rückt der erwartete Börsengang von Anthropic näher. Der KI-Anbieter weist darin ein hohes Wachstum, aber auch hohe Verluste aus. Auf 90 Seiten breitet das Unternehmen Risikofaktoren aus.weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-10-26T20:20:02+01:00">20:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/apple/2026/10/apple-reveals-updated-ipad-mini-with-a-bigger-oled-screen-for-700/" rel="noopener">Apple reveals updated iPad mini with a bigger OLED screen for $700</a></h3><p class="summary">Apple claims this is the most significant update ever for the iPad mini line.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T20:04:40+01:00">20:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/ai/2026/10/boston-dynamics-employees-want-to-block-sale-of-robot-dogs-to-ice/" rel="noopener">ICE plan to buy robot dogs spurs protest from hundreds of Boston Dynamics employees</a></h3><p class="summary">US robotics company stands by ICE deal as more than 300 employees warn of risk.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T19:50:41+01:00">19:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://github.com/microsoft/pylance-release/blob/main/docs/tsp/type-server-protocol.md" rel="noopener">Type Server Protocol</a></h3><p class="summary">Article URL: https://github.com/microsoft/pylance-release/blob/main/docs/tsp/type-server-protocol.md Comments URL: https://news.ycombinator.com/item?id=50248371 Points: 241 # Comments: 158</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-26T19:14:49+01:00">19:14 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/krieg-ukraine-trifft-russisches-finanzamts-rechenzentrum-2610-214530.html" rel="noopener">Krieg: Ukraine trifft russisches Finanzamts-Rechenzentrum</a></h3><p class="summary">Ein ukrainischer Drohnenangriff hat offenbar ein staatliches russisches Rechenzentrum beschädigt. Möglicherweise sind auch Steuerdaten betroffen. (Rechenzentrum, Web Service)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-26T19:10:02+01:00">19:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/tech-policy/2026/10/musk-accuses-ukraine-of-violating-starlink-terms-with-deadly-drone-strikes/" rel="noopener">Musk accuses Ukraine of violating Starlink terms with deadly drone strikes</a></h3><p class="summary">Ukraine says Starshield back to normal, denies misuse of Starlink commercial service.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-10-26T19:09:08+01:00">19:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://openai.com/index/introducing-gpt-6-1-terra/" rel="noopener">GPT-6.1 Terra</a></h3><p class="summary">https://developers.openai.com/api/docs/models/gpt-6.1-terra Comments URL: https://news.ycombinator.com/item?id=50248124 Points: 585 # Comments: 372</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-26T19:01:17+01:00">19:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://blog.enlyth.com/posts/oldest-windows-gui-app-win-11/" rel="noopener">Oldest GUI application that still runs on Windows 11</a></h3><p class="summary">Article URL: https://blog.enlyth.com/posts/oldest-windows-gui-app-win-11/ Comments URL: https://news.ycombinator.com/item?id=50248055 Points: 412 # Comments: 236</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-26T18:56:55+01:00">18:56 Uhr</time></div></li></ol></section>
+<footer class="page"><h2>Quellen-Status</h2><ul class="status"><li>dpa (4)</li><li>Reuters (DE) (1)</li><li>Reuters (EN) (27)</li><li>AFP (1)</li><li>tagesschau (62)</li><li>SPIEGEL (19)</li><li>ZEIT ONLINE (15)</li><li>n-tv (50)</li><li>Süddeutsche (15)</li><li>FAZ (161)</li><li>Deutschlandfunk (35)</li><li>Handelsblatt (50)</li><li>SPIEGEL Wirtschaft (20)</li><li>manager magazin (30)</li><li>WirtschaftsWoche (20)</li><li>Financial Times (10)</li><li>heise online (156)</li><li>Golem (40)</li><li>t3n (20)</li><li>Hacker News (16)</li><li>Ars Technica (20)</li></ul><p>Automatisch erzeugt am 27.10.2026 um 10:33 Uhr (CET). Alle Rechte an den verlinkten Inhalten liegen bei den jeweiligen Anbietern. <a href="archiv/index.html">Archiv</a></p></footer>
+</main></body></html>
