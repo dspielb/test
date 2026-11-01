@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nachrichten – 01.11.2026</title><style>:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-alt: #f0f2f5;
+  --border: #dfe3e8;
+  --text: #14181d;
+  --text-muted: #5b6672;
+  --text-faint: #8a939e;
+  --accent: #a03c2f;
+  --accent-soft: #f5e7e4;
+  --shadow: 0 1px 2px rgba(16, 22, 28, 0.06), 0 4px 12px rgba(16, 22, 28, 0.04);
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171b;
+    --surface: #1c2026;
+    --surface-alt: #232830;
+    --border: #303740;
+    --text: #e8ebef;
+    --text-muted: #a3adb9;
+    --text-faint: #78828e;
+    --accent: #e8836f;
+    --accent-soft: #33231f;
+    --shadow: none;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+/* --- Kopfbereich --- */
+
+header.page {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 28px;
+}
+
+header.page .wrap { padding-top: 34px; padding-bottom: 22px; }
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.dateline {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.meta {
+  margin: 14px 0 0;
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+nav.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+nav.categories a {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+nav.categories a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Abschnitte --- */
+
+section { margin-bottom: 40px; scroll-margin-top: 16px; }
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--text);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+h2 .count {
+  margin-left: auto;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.section-note {
+  margin: 8px 0 14px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* --- Artikel --- */
+
+ol.stories {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+li.story {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+li.story:last-child { border-bottom: none; }
+
+li.story h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+li.story h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+li.story h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+p.summary {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.source {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.also {
+  color: var(--text-faint);
+}
+
+.also a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.also a:hover { color: var(--accent); }
+
+/* --- Top-Themen --- */
+
+section.top {
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+section.top h2 {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+section.top li.story { border-bottom-color: var(--border); }
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --- Fuß --- */
+
+footer.page {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+footer.page h2 {
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-bottom: 0;
+}
+
+ul.status {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+ul.status li::before {
+  content: "●";
+  margin-right: 6px;
+  color: #3f9a52;
+}
+
+ul.status li.failed::before { color: #c2503f; }
+
+.empty {
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* --- Archiv --- */
+
+ul.archive {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+ul.archive li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+ul.archive a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+ul.archive a:hover { color: var(--accent); }
+
+ul.archive .weekday {
+  margin-left: 8px;
+  color: var(--text-faint);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.5rem; }
+  .wrap { padding: 0 16px 48px; }
+}
+
+@media print {
+  body { background: #fff; }
+  nav.categories, footer.page { display: none; }
+  li.story { break-inside: avoid; }
+}
+</style></head><body>
+<header class="page"><div class="wrap"><h1>Nachrichtenüberblick</h1><p class="dateline">Sonntag, 1. November 2026 · Stand 11:59 Uhr</p><p class="meta">131 Meldungen aus 20 Quellen · Zeitfenster 24 Stunden · 1 Quelle nicht erreichbar</p><nav class="categories"><a href="#agenturen">Agenturen</a><a href="#deutschland">Deutschland &amp; Welt</a><a href="#wirtschaft">Wirtschaft &amp; Finanzen</a><a href="#tech">Tech &amp; IT</a></nav></div></header>
+<main class="wrap">
+<section class="top" id="top-themen"><h2>Top-Themen</h2><p class="section-note">Meldungen, über die mehrere Quellen gleichzeitig berichten.</p><ol class="stories"><li class="story"><h3><a href="https://www.handelsblatt.com/technik/it-internet/digitalwaehrungen-binance-gibt-kundenauszahlungen-nach-hackerangriff-frei/100266432.html" rel="noopener">Digitalwährungen: Binance gibt Kundenauszahlungen nach Hackerangriff frei</a></h3><p class="summary">Nach dem Rekord-Hackerangriff auf Binance kommen die Kunden der Kryptobörse mit hoher Wahrscheinlichkeit glimpflich davon. Sie können inzwischen Ihre Einlagen auch wieder abheben.</p><div class="byline"><span class="source">Handelsblatt</span><span class="badge">2 Quellen</span><time datetime="2026-11-01T11:55:04+01:00">11:55 Uhr</time><span class="also">auch bei <a href="https://www.wiwo.de/finanzen/geldanlage/binance-kryptoboerse-nimmt-nach-milliarden-raub-auszahlungen-wieder-auf/100266414.html" rel="noopener">WirtschaftsWoche</a></span></div></li></ol></section>
+<section id="agenturen"><h2>Agenturen<span class="count">11 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNMVRNX1Y5b0xXX3dlMU1QX2lRbVkxbkJYSU9SUVdxUFlXQ2hGcjRpRlVIbklCeTlZa1d2VnNOQWFaaVN0NHJVcnJSRVhUSngyVmcxdzlsZVpwSm1wbmduTGpNbXkwWEhKbGZQdURzZ0c0UHl2S28zLUxjbDdSUkdzZTFnMmtubVlvbmFVMHlsX3BvOVpLa2NqcWozZTJUWlhnUWUxYXFn?oc=5" rel="noopener">OPEC+ set to keep oil output targets steady, sources say - Reuters</a></h3><p class="summary">OPEC+ set to keep oil output targets steady, sources say Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-01T10:42:11+01:00">10:42 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOaEE2cFNYMFViSW1IWWZiTUpUb280T050cjNKaGhIaE1XN3hKR0Qtc0JnWnRIOGtSM3NUU3RhTHdZMlIwQWRHb2t4V2N1T1lWZDl2QmJqbkZOZERLTnJlR0dLQ0JrT0F6U0FRNVczeFpYb2c3MnpBZXVpQmZYSnRQVE0xYURQTkw4X1RYOUlKeGdwYW5uM2VVRWxRbWV4SHRCWVRUY2xueVI2LS1tczdaSGxOTlQxZ2gtdXdKVFRBdHZFQQ?oc=5" rel="noopener">Nordkorea testet Raketensprengköpfe mit Streumunition - Spiegel</a></h3><p class="summary">Nordkorea testet Raketensprengköpfe mit Streumunition Spiegel</p><div class="byline"><span class="source">AFP</span><time datetime="2026-11-01T10:31:00+01:00">10:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi-gFBVV95cUxQRmRQOV9VWjdNUDlGYnJpVUdxTGlsX0VGbnF6aS03dHFWMm5Ld203M2J6a1hKU1U4Q1AyWHcya1FITEoxM2JGTHFUbEY5R1I1b1FLamNGYkhLbnpRZHc0cGN2Z0NQMkIxM1hFckpBR0h4MEUtNlFUNmpaQUx3cHBVLUROOVJ3eGh0Zy1KSkNicWpOT2ZnbHZKY2tvQ0NvOF9wRUwtUW43Zkx3cEdnUnVqSGQyaHJQNzYwZzQxUmVzcnFWcDRJOUlCb2VKZ2YwQTFWTGg0dlZNUEdScWp4c1gwaDFlNUlCT0NncGJNR0YwSnc5SGU3STNUelJB?oc=5" rel="noopener">Wildtierhandel: Handel mit wild lebenden Tieren und Pflanzen viel größer als gedacht - Spiegel</a></h3><p class="summary">Wildtierhandel: Handel mit wild lebenden Tieren und Pflanzen viel größer als gedacht Spiegel</p><div class="byline"><span class="source">dpa</span><time datetime="2026-11-01T09:27:00+01:00">09:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbnlscl9pUHZMU05YOW05NmZrcG1ySE5kUWZBekhQd2F4QkhWZmZMN08yOW9BQlZ3bWkzcE56SGd1THZRMGFjRWp5bHpWdUVoMVoyU2lndkFtb3NUc1Y4eG1aa09NU3lBMmRvdGhxVlhLY0p3X1dLa3dVYVJnemZoUjFCUU12YjVtZF9LbkJLT1RuOUZYQWxWbDJjeGNUZ0ZtcXpEZ0cwejN3cmltVXAxNEoxVy1oRVhwb0lUX2lic1ctdDZ4ZXFDUmhiY1plZ2xPb0tV?oc=5" rel="noopener">Graf von Unheilig über sein düsteres Image: »Ich lache gerne« - Spiegel</a></h3><p class="summary">Graf von Unheilig über sein düsteres Image: »Ich lache gerne« Spiegel</p><div class="byline"><span class="source">dpa</span><time datetime="2026-11-01T09:22:00+01:00">09:22 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNTzBFS0hhWUtOcVhOMDVsX25TV3R4eENLbjdCMUpDRDByYTBHWjU3MmtycmM2blh4Y1Y3V2t6SUhIODJidldfcjNOdG0zVHRNdVFWdXZKWVhJeWdFWE9LaDA1MnJlbk1vaC1qLUpuZWU0WERCckY3Nk4tLUhHcnNFZ1pJdzJYRTFxWFl4cjRTNG53QmxkSDAxUUd2NjdnRUhOTDBhbUx5eUppU3Q4Vmh0aFExRlVRTUJzUGl1aWgySFZtRjlnb1E?oc=5" rel="noopener">Germany must do more to boost gas reserves as storage levels hit record low, lobby group says - Reuters</a></h3><p class="summary">Germany must do more to boost gas reserves as storage levels hit record low, lobby group says Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-01T06:04:00+01:00">06:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNTDVfaVJ0UnBxT0RldWJZdEdBV1pzaHlJZzlER0k2Zy1sWHZKQ0I2OW5vTWFOajdDbkxhTVlvSVpSd0RmRk16blRTN3h6NUhOQS1mYUxMSDZoVXhWUUVNNnVuaEc3TnVXeVI1MFhBRFpkcVNwak9SZnNZaUFHVGVoQVN5Q0Y4VkNWeWJST1lKQWFESTBaenk3SzEyeVlOQjNKdzY5dUpEajlLTWNrOGY0cDR3?oc=5" rel="noopener">FBI says North Korea was behind the $6.3 billion Binance crypto hack - NBC News</a></h3><p class="summary">FBI says North Korea was behind the $6.3 billion Binance crypto hack NBC News</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-31T23:52:08+01:00">23:52 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxOODBHZGo0TEhURWc2Rm9nLUJjaF9Hb09YLUpnU3JlTWJ0OHJKd3p0dFZEYWdpYUNPVlNJdFJoYXhGOVdOX29rdHhjQ2F0c2E2VjJRQndHcEtSY1JIdEFzTkJJd3RKX2lKYWxRMnRQYjZvVnpxNnJQTlBmUFY5TWMzZTJ4akRuS1pKNExQY2lCQTAzRVlWOG4wYnZRVV9tRWJQdDJKQ0owZVdZUS1ZQmZYbTlMR0xxbF9uZ3ZvWkRNNDJtX0JNclZhLQ?oc=5" rel="noopener">Iranian envoys meet Qatari mediators as threat looms of US strikes after midterms - Reuters</a></h3><p class="summary">Iranian envoys meet Qatari mediators as threat looms of US strikes after midterms Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-31T21:00:36+01:00">21:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOZk1TVThad3BBcnFwSU44RFlBSjU5NWNaOUxuTEFVQnp2c0tjU3h2Qmc3eUh1RWZGZVpnenlXRk5jcXczZmVhUENIcm53dFBPVm1pQnZxdDhGbmRRRHBXaTdBeHlaRjl3X05USjI3X1ViamRPX19Lc0ZrendnN2N0allNR0tLekhuM0ZCZFpmeWJROTdYY0YtbkdoZ2VEXzFiMlBIRzkwUUpxNXFPdFJERTNxRzNLMzZRUWc?oc=5" rel="noopener">US Senate candidate El-Sayed wants Democratic rival to stay away, source says - Reuters</a></h3><p class="summary">US Senate candidate El-Sayed wants Democratic rival to stay away, source says Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-31T19:20:00+01:00">19:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWGJuYUY0cW8xYW1iREZYczBhdXJkdGZiX1F5RGhESXdQV0dIUEVJY3JkVTlpNlV4cnhEOC1KVU1QWS1FUFRvcFdvTHRDNzJmTENGMURRUFBKTTRuUkxveWZXY1R2dERJN09tUmdGMDU2NkZxcWVidmtuRFYwSW1ta1l4X19uam1laEhYZ01tMkVuQm5nNkh5U0RmVndmSmRINVFkdG1WTlRzeHlMVS1nLW9USUkwUm5JdHdQVkJEVEJld2RURVk4ZzllOU1YZEw3S0VWZjlB?oc=5" rel="noopener">OPEC+ set to keep production targets unchanged in December, source says - TradingView</a></h3><p class="summary">OPEC+ set to keep production targets unchanged in December, source says TradingView</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-31T17:34:11+01:00">17:34 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFBKdXFoTk5Tbk9LM3gwYjIwVFBJcEZBOE9yc202TGxjQlhLOVdVSzduLVgwNjl3clBKUEQ4bmRNaFFLTk82aVJyZ0tuOFppQVo1WVVz?oc=5" rel="noopener">Iranian Envoys Meet Qatari Mediators in Doha, Reuters Reports - PUKmedia یەکێتیی نیشتمانیی کوردستان</a></h3><p class="summary">Iranian Envoys Meet Qatari Mediators in Doha, Reuters Reports PUKmedia یەکێتیی نیشتمانیی کوردستان</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-31T16:56:00+01:00">16:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQUmVTUWlGdkFmblZKTmJTRUZCLS01dWJocVZmVmd1UUtkR3ZLZlMyaG8wMVphRV83QU5RV3haOWlDeG50eG10cU80UkhaeWtnOXgyeHhXV3MzNktnNmgyY1BoMndvVzNTWGtLVnJYQVV3cER4eG93QXdEVWtsU1dnME1SdjJnMlEtSXBqcUlXR3A0MTV4RDE5cGQySHhJYUdUYWZUR3p0Z1J4SWoyeGJ4dlFScmJid2tVTG9lRkZ3?oc=5" rel="noopener">Trump says Flavio Bolsonaro can stay in US as long as he wants - Reuters</a></h3><p class="summary">Trump says Flavio Bolsonaro can stay in US as long as he wants Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-10-31T16:12:00+01:00">16:12 Uhr</time></div></li></ol></section>
+<section id="deutschland"><h2>Deutschland &amp; Welt<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/kind-beim-suessigkeitensammeln-mit-taschenmesser-verletzt" rel="noopener">Halloween: Kind beim Süßigkeitensammeln mit Taschenmesser verletzt</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:52:09+01:00">11:52 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/video/video-1676050.html" rel="noopener">&quot;Katz- und Mausspiel mit der Polizei&quot;, Jan Koch, WDR, zzt. Köln, zu GenZ-Protesten</a></h3><p class="summary">&quot;Katz- und Mausspiel mit der Polizei&quot;, Jan Koch, WDR, zzt. Köln, zu GenZ-Protesten</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-11-01T11:51:45+01:00">11:51 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/politik/deutschland/2026-11/gen-z-regelt-proteste-alexander-dobrindt-innenminister-deutschland" rel="noopener">Jugendproteste: Bundesinnenminister Dobrindt kündigt harte Strafen für Randalierer an</a></h3><p class="summary">In mehreren Städten kam es nach den Protesten zu Gewalt. Das Einsatzkonzept der Polizei sei aber aufgegangen, urteilt Bundesinnenminister Dobrindt.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:50:08+01:00">11:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/politik/ausland/2026-11/ukraine-russland-energieinfrastruktur-drohnen-angriffe-selenskyj" rel="noopener">Stromausfall in der Ukraine: Hunderttausende Ukrainer nach Angriffen ohne Strom</a></h3><p class="summary">Nach russischen Angriffen auf die Energieinfrastruktur ist bei Hunderttausenden Menschen der Strom ausgefallen. Selenskyj fordert erneut die Lieferung von Abwehrraketen.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:48:05+01:00">11:48 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/halloween-nacht-jugendliche-zuenden-molotow-cocktails" rel="noopener">Kriminalität: Halloween-Nacht: Jugendliche zünden Molotow-Cocktails</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:47:56+01:00">11:47 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/politik/Polnischer-Billig-Sprit-lockt-Deutsche-trotz-Grenzkontrollen-id31473293.html" rel="noopener">Auch Warschau senkte Steuern: Polnischer Billig-Sprit lockt Deutsche trotz Grenzkontrollen</a></h3><p class="summary">Deutschland und Polen führen beide an ihrer gemeinsamen Grenze Kontrollen durch. Gleichzeitig deckelt Warschau die Spritpreise: Wer in Polen volltankt, spart rund 30 Euro. Die deutschen Autofahrer zieht es somit weiter zu ihren Nachbarn.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-01T11:46:03+01:00">11:46 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/panorama/mit-der-regionalbahn-durch-deutschland-gehoert-einer-von-ihnen-der-rollator-a-8e889726-4a24-4fbc-9370-1caa0256b34b#ref=rss" rel="noopener">Mit der Regionalbahn durch Deutschland: »Gehört einer von Ihnen der Rollator?«</a></h3><p class="summary">Lachen, Streiten, Schminken: Im Regionalzug kommen die Menschen zu sich selbst. Ich fahre viel und habe mitgeschrieben – Notizen vom Reisen und Leben in der Provinz.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-01T11:46:00+01:00">11:46 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/linke-chefin-wolter-macht-tempo-fuer-koalitionsverhandlungen" rel="noopener">Regierungsbildung in Berlin: Linke-Chefin Wolter macht Tempo für Koalitionsverhandlungen</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:45:51+01:00">11:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/wirtschaft/Netzagentur-Chef-rechnet-mit-erheblich-hoeheren-Heizkosten-id31481181.html" rel="noopener">Deutsche Gasspeicher nicht voll: Netzagentur-Chef rechnet mit &quot;erheblich&quot; höheren Heizkosten</a></h3><p class="summary">Deutschland verfehlt vor dem nahenden Winter offenbar die vorgeschriebenen Speicherziele für Erdgas. Die Bundesnetzagentur sieht die Versorgung dennoch gesichert. Doch bei extremer Kälte könnte es zu Engpässen kommen.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-01T11:44:12+01:00">11:44 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/rhein-main/kultur/ruediger-carl-wie-oma-tinka-ihn-zum-free-jazz-brachte-accg-201252940.html" rel="noopener">Musiker Rüdiger Carl: Oma Tinka brachte ihn zum Free Jazz</a></h3><p class="summary">Wäre das Wort nicht so abgedroschen, würde man ihn eine Legende nennen: Der Frankfurter Musiker Rüdiger Carl hat den Free Jazz maßgeblich geprägt. Neue Töne setzt er mit seinen Akkordeons.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:43:55+01:00">11:43 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/video/gen-z-proteste-in-frankfurt-eskalieren-polizei-im-grosseinsatz-201640775.html" rel="noopener">Proteste: Gen-Z-Proteste in Deutschland: Gewalt und Plünderungen in Frankfurt</a></h3><p class="summary">Die Teilnehmerzahlen blieben deutlich hinter den erwarteten 182.000 zurück. In Frankfurt wurde die Zeil zeitweise gesperrt, während die Versammlung in Berlin nach ersten Angaben nahezu störungsfrei verlief.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:39:59+01:00">11:39 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/karriere-hochschule/klassenzimmer/toxische-maennlichkeit-frauenhass-beginnt-im-klassenzimmer-accg-201597975.html" rel="noopener">Toxische Männlichkeit: Der Frauenhass beginnt im Klassenzimmer</a></h3><p class="summary">In Onlinecommunities mit einer eigenen Sprache werden die Grenzen zwischen pubertärem Verhalten und Radikalisierung vermischt. Auch bei der Amoktat in Schongau war Frauenhass im Spiel.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:36:46+01:00">11:36 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/linke-draengt-auf-wiedereinfuehrung-einer-vermoegensteuer" rel="noopener">Vermögensteuer: Linke drängt auf Wiedereinführung einer Vermögensteuer</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:36:43+01:00">11:36 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/top-torjaeger-fuellkrug-als-x-faktor-auch-fuer-klopp" rel="noopener">Fußball-Bundesliga: Top-Torjäger Füllkrug als X-Faktor - Auch für Klopp?</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:34:41+01:00">11:34 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/sport/fussball/Abgeschotteter-Kompany-hat-null-Einfluss-auf-FC-Bayern-id31481523.html" rel="noopener">Ruhe auch beim Klassiker: &quot;Abgeschotteter&quot; Kompany hat &quot;null Einfluss&quot; auf FC Bayern</a></h3><p class="summary">Vincent Kompany soll sich nach seinem Zusammenbruch dringend erholen. Auch der Bundesliga-Klassiker Bayern gegen Dortmund erlaubt keine Ausnahme, wie die Münchner betonen.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-01T11:31:59+01:00">11:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/hamburger-jugenddemo-endet-mit-brennenden-barrikaden" rel="noopener">Jugendproteste: Hamburger Jugenddemo endet mit brennenden Barrikaden</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:30:23+01:00">11:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/besser-leben/fitness/welche-rolle-spielt-der-zyklus-beim-krafttraining-als-frau-accg-201276607.html" rel="noopener">Sport für Frauen: „Frauen erleiden überproportional häufig Kreuzbandverletzungen“</a></h3><p class="summary">Die Sportwissenschaft hat die körperlichen Besonderheiten von Frauen lange unterschätzt. Dabei kann Weiblichkeit sogar von Vorteil sein. Und welche Rolle spielt der Zyklus? Ein Professor klärt auf.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:28:58+01:00">11:28 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/wissen/Warum-ein-laengst-widerlegtes-Psycho-Experiment-bis-heute-fasziniert-id31467757.html" rel="noopener">Macht Macht wirklich böse?: Warum ein längst widerlegtes Psycho-Experiment bis heute fasziniert</a></h3><p class="summary">Ein Kellergefängnis, grausame Wärter, gebrochene Gefangene: Jahrzehntelang gilt das Stanford-Prison-Experiment als Beleg, dass Menschen durch Macht zu Tätern werden. Nun lässt Netflix die berüchtigte Studie als Reality-Show wiederauferstehen. Die Faszination bleibt, obwohl die alte Lesart bröckelt.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-01T11:26:41+01:00">11:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/ausland/polen-ex-gerichtspraesidenten-staerken-donald-tusk-den-ruecken-a-50466069-ce9c-4480-9d4b-870666760a8b#ref=rss" rel="noopener">Polen: Ex-Gerichtspräsidenten stärken Donald Tusk den Rücken</a></h3><p class="summary">Polens Präsident Nawrocki ist im Streit über das Verfassungsgericht handgreiflich geworden. Vier hochrangige Juristen haben sich nun hinter seinen Gegner, Premier Tusk, gestellt – und pochen auf Veränderungen am höchsten Gericht.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-01T11:26:00+01:00">11:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/01/darueber-wird-nach-zwischenfaellen-bei-jugend-demos-diskutiert" rel="noopener">Proteste: Darüber wird nach Zwischenfällen bei Jugend-Demos diskutiert</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:25:30+01:00">11:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/feuilleton/2026-10/midterms-usa-waehler-korruption-donald-trump" rel="noopener">Midterms in den USA: Es ist die Korruption, stupid!</a></h3><p class="summary">Kurz vor den Zwischenwahlen in den USA gilt in Umfragen plötzlich Korruption als Topthema. Warum erst jetzt, angesichts von Trumps Gebaren? Nun, es steckt mehr dahinter.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:25:21+01:00">11:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/zeit-magazin/wochenmarkt/2026-10/suesskartoffel-curry-spinat-foodykani-sonntagsessen" rel="noopener">Süßkartoffel-Curry mit Spinat: Eine Portion Curry wärmt den Bauch</a></h3><p class="summary">Der Herbst ist Curry-Zeit! Diese vegane Variante leuchtet vor lauter Süßkartoffeln und Spinat. Der Limettensaft sorgt für Frische, die Cashews für den Biss.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:24:37+01:00">11:24 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/2026/43/zusammenbleiben-svenja-flasspoehler-buch-paarbeziehung" rel="noopener">»Zusammenbleiben«: Damit alles immer besser wird</a></h3><p class="summary">Wie führt man eine glückliche Beziehung? Die Philosophin Svenja Flaßpöhler sucht nach unideologischen Antworten.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-01T11:23:48+01:00">11:23 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/politik/inland/liveticker-gen-z-proteste-dobrindt-gewaltbereite-linke-gruppen-und-chaoten-aus-migrantischem-milieu-faz-201635936.html" rel="noopener">Gen-Z-Demos: Dobrindt: Gewaltbereite linke Gruppen und Chaoten aus migrantischem Milieu</a></h3><p class="summary">Innenminister: Demonstrationen wurden „gekapert“ +++ Läden in Frankfurt erhalten Polizeischutz +++ Ministerpräsident „schockiert“ über Gewalt +++ Waffengeschäft geplündert +++ alle Entwicklungen im Liveblog</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:20:04+01:00">11:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/rhein-main/kultur/marteria-in-der-festhalle-frankfurt-accg-201640485.html" rel="noopener">Marteria: Wenn er Kommandos gibt, gehorchen alle</a></h3><p class="summary">Zum Glück in die Zukunft: Marteria bringt auf seiner Tour die Frankfurter Festhalle zum Beben. Mit Sohn, Freundin, Kollegen und Fans.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:19:45+01:00">11:19 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/gesundheitsversorgung-im-gazastreifen-katastrophal-100.html" rel="noopener">&quot;Ärzte ohne Grenzen&quot; - Gesundheitsversorgung im Gazastreifen katastrophal</a></h3><p class="summary">Die Gesundheitsversorgung im Gaza-Streifens ist nach Angaben von &quot;Ärzte ohne Grenzen&quot; weiterhin katastrophal.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/moskau-meldet-drohnenangriff-auf-industrieunternehmen-nahe-moskau-100.html" rel="noopener">Ukraine-Krieg - Moskau meldet Drohnenangriff auf Industrieunternehmen nahe Moskau</a></h3><p class="summary">Bei ukrainischen Drohnenangriffen östlich der russischen Hauptstadt Moskau ist eine Industrieanlage schwer beschädigt worden.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/zehntausende-demonstrieren-friedlich-danach-kommt-es-teils-zu-ausschreitungen-100.html" rel="noopener">Bundesweite Jugendproteste - Zehntausende demonstrieren friedlich - Danach kommt es teils zu Ausschreitungen</a></h3><p class="summary">Zehntausende Menschen sind bundesweit dem Aufruf der Gruppierung &quot;GenZ regelt&quot; zu Jugendprotesten gefolgt. Die Demonstrationen verliefen friedlich. Im Anschluss gab es aber in mehreren Städten Krawalle und Zusammenstöße mit der Polizei. Mehrere Menschen wurden verletzt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/demonstrationen-als-deckmantel-fuer-gewalt-100.html" rel="noopener">CDU-Generalsekretärin Hoppermann - Demonstrationen als Deckmantel für Gewalt</a></h3><p class="summary">CDU-Generalsekretärin Hoppermann hat die Krawalle nach Jugend-Demonstrationen in mehreren deutschen Städten verurteilt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/spd-fordert-bildungsgipfel-100.html" rel="noopener">Jugend-Demos - SPD fordert Bildungsgipfel</a></h3><p class="summary">Die SPD im Bundestag macht sich angesichts der Jugendproteste in mehreren deutschen Städten für einen nationalen Bildungsgipfel stark.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/erste-warnstreiks-der-ig-metall-104.html" rel="noopener">Tarife - Erste Warnstreiks der IG Metall</a></h3><p class="summary">Im Tarifkonflikt der Metallindustrie hat es Warnstreiks gegeben.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/friedliche-proteste-am-tag-krawalle-am-abend-100.html" rel="noopener">Demonstrationen in Frankreich - Friedliche Proteste am Tag - Krawalle am Abend</a></h3><p class="summary">In Frankreich sind den dritten Samstag in Folge hunderttausende Menschen gegen hohe Lebenshaltungskosten und Missstände im Bildungssystem auf die Straße gegangen. Das französische Innenministerium sprach von 320.000 Demonstranten, die Veranstalter von knapp einer Million. Landesweit waren 70.000 Polizisten im Einsatz.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/landesweite-massenproteste-in-italien-fuer-bessere-bildung-und-gegen-hohe-preise-104.html" rel="noopener">Weitgehend friedlich - Landesweite Massenproteste in Italien für bessere Bildung und gegen hohe Preise</a></h3><p class="summary">In Italien haben Hunderttausende Menschen gegen steigende Lebenshaltungskosten und für mehr Geld für Bildung demonstriert. Die Gewerkschaft USB sprach von mindestens einer Million Teilnehmern.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/mueller-gasversorgung-auch-bei-verfehlten-speicherzielen-sicher-102.html" rel="noopener">Chef der Bundesnetzagentur - Müller: Gasversorgung auch bei verfehlten Speicherzielen sicher</a></h3><p class="summary">Deutschland ist nach Einschätzung der Bundesnetzagentur auch ohne Erreichen der gesetzlichen Gasspeicherziele aureichend mit Erdgas ‌versorgt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/linke-stimmt-fuer-koalitionsverhandlungen-mit-gruenen-und-spd-102.html" rel="noopener">Berlin - Linke stimmt für Koalitionsverhandlungen mit Grünen und SPD</a></h3><p class="summary">Die Linke in Berlin hat sich für die Aufnahme von Koalitionsverhandlungen mit Grünen und SPD ausgeprochen. Auf einem Landesparteitag stimmte eine deutliche Mehrheit der Delegierten dafür. Grüne und SPD hatten Koalitionsgesprächen bereits Mitte Oktober zugestimmt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/kramp-karrenbauer-warnt-vor-regierungen-von-afd-und-linken-100.html" rel="noopener">Interview - Kramp-Karrenbauer warnt vor Regierungen von AfD und Linken</a></h3><p class="summary">Die frühere CDU-Vorsitzende Kramp-Karrenbauer hat vor einer Regierungsübernahme der AfD in Sachsen-Anhalt, beziehungsweise der Linken in Berlin gewarnt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/nordkorea-meldet-test-von-streumunition-fuer-ballistische-raketen-100.html" rel="noopener">Trotz Verbots durch die UNO - Nordkorea meldet Test von Streumunition für ballistische Raketen</a></h3><p class="summary">Nordkorea hat nach eigener Darstellung Sprengköpfe mit Streumunition für taktische ballistische Raketen getestet.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-01T11:10:25+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/ausland/asien/hack-binance-100.html" rel="noopener">FBI macht Nordkorea für Hackerangriff auf Binance verantwortlich</a></h3><p class="summary">Laut Experten war es der bisher größte Hackerangriff auf eine Börse für Digitalwährungen. Am Donnerstag war er bekannt geworden - und schnell geriet Nordkorea ins Visier. Nun macht auch das FBI nordkoreanische Hacker dafür verantwortlich.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-11-01T11:08:00+01:00">11:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/feuilleton/medien-und-film/kino/other-mommy-von-rob-savage-die-mutter-mit-dem-leeren-blick-accg-201635999.html" rel="noopener">Kinofilm „Other Mommy&quot;: Die fremde Mutter mit dem leeren Blick</a></h3><p class="summary">Jessica Chastain macht mit einem einzigen Blick aus der vertrauten Mutter eine gefährliche Fremde. Doch Rob Savages Horrorfilm „Other Mommy“ erklärt seinen Schrecken so lange, bis kaum mehr etwas davon übrig bleibt.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-01T11:07:30+01:00">11:07 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/meinung/gen-z-regelt-protest-boomer-gemeinsamkeiten-klischees-kommentar-li.3571265" rel="noopener">Jugendproteste: Zwischen Boomern und Gen Z gibt es mehr Gemeinsamkeiten, als viele denken</a></h3><p class="summary">Die Demonstrationen am Samstag sind tagsüber weitgehend friedlich geblieben, abends jedoch mancherorts eskaliert. Die Stimmung zwischen den Generationen ist überall aufgeladen. Zeit, sich von ein paar Klischees zu verabschieden.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-11-01T11:07:14+01:00">11:07 Uhr</time></div></li></ol></section>
+<section id="wirtschaft"><h2>Wirtschaft &amp; Finanzen<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.handelsblatt.com/technik/it-internet/digitalwaehrungen-binance-gibt-kundenauszahlungen-nach-hackerangriff-frei/100266432.html" rel="noopener">Digitalwährungen: Binance gibt Kundenauszahlungen nach Hackerangriff frei</a></h3><p class="summary">Nach dem Rekord-Hackerangriff auf Binance kommen die Kunden der Kryptobörse mit hoher Wahrscheinlichkeit glimpflich davon. Sie können inzwischen Ihre Einlagen auch wieder abheben.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:55:04+01:00">11:55 Uhr</time><span class="also">auch bei <a href="https://www.wiwo.de/finanzen/geldanlage/binance-kryptoboerse-nimmt-nach-milliarden-raub-auszahlungen-wieder-auf/100266414.html" rel="noopener">WirtschaftsWoche</a></span></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/meinung/kolumnen/inside-america-was-eine-milliardaerssteuer-mit-der-frage-nach-der-macht-zu-tun-hat/100266024.html" rel="noopener">Kolumne Inside America: Was eine Milliardärssteuer mit der Frage nach der Macht zu tun hat</a></h3><p class="summary">Kalifornien stimmt am Dienstag ab, nicht nur über die Zusammensetzung des Kongresses, sondern auch über eine Zwangsabgabe für Superreiche. Die wehren sich – mit teuren Kampagnen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:48:41+01:00">11:48 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/anlagestrategie/trends/tech-aktien-die-aera-der-magnificent-seven-scheint-vorbei/100266107.html" rel="noopener">Tech-Aktien: „Die Ära der ‚Magnificent Seven‘ scheint vorbei“ – 700 Milliarden Dollar an Börsenwert vernichtet</a></h3><p class="summary">Alphabet, Amazon, Apple, Meta, Microsoft, Nvidia und Tesla haben die Börsen lange im Alleingang angetrieben. Nun zeichnen sich klare Gewinner und Verlierer ab.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:48:02+01:00">11:48 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/audi-gernot-doellners-auftritt-mit-donald-trump-schreckt-womoeglich-amerikanische-kaeufer-ab-a-a7d5a0cc-e192-4bca-b657-909509183087#ref=rss" rel="noopener">Audi: Gernot Döllners Auftritt mit Donald Trump schreckt womöglich amerikanische Käufer ab</a></h3><p class="summary">Audi-Boss Gernot Döllner steht wegen seines Wahlkampfauftritts mit US-Präsident Trump in der Kritik. Nun legt eine Marktforschungsstudie nahe: US-Kunden könnten sich deshalb abwenden.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-01T11:48:00+01:00">11:48 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/ausland-chef-der-serbischen-kriminalpolizei-nach-wahl-festgenommen/100266428.html" rel="noopener">Ausland: Vorwurf des Amtsmissbrauchs: Chef der serbischen Kriminalpolizei nach Wahl festgenommen</a></h3><p class="summary">Eine Woche nach dem Wahlsieg der Opposition wird mit Kripo-Chef Marko Kricak ein engster Vertrauter Vucics festgenommen. Die Staatsanwaltschaft erhebt schwere Vorwürfe.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:45:59+01:00">11:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/technologie/forschung/rechenzentren-und-ki-cluster-forscher-entwickeln-neuen-optischen-chip/100250140.html" rel="noopener">Gamechanger: Ein optischer Chip als Datenturbo für Glasfasernetze</a></h3><p class="summary">Ideen, die unsere Welt ver­ändern und verbessern. Wir stellen sie vor. Diesmal: Ein einfach zu fertigender Chip für große Datenströme.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T11:33:00+01:00">11:33 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/konjunktur/konjunktur-containerindex-signalisiert-aufschwung-fuer-die-exportwirtschaft/100259032.html" rel="noopener">Konjunktur: Positive Signale von den Weltmeeren</a></h3><p class="summary">Neue Indikatoren zeigen eine anhaltende Resilienz des Welthandels gegenüber Protektionismus und geopolitischen Krisen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T11:32:13+01:00">11:32 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/it/cyberfirma-monarch-prominente-gruender-streiten-vor-gericht/100265576.html" rel="noopener">Geheimdienste: Machtkampf in Sicherheitsfirma von Ex-BND-Chef Schindler und Dax-Vorständen</a></h3><p class="summary">Sie wollten mit der Security-Firma Monarch die Welt vor Angriffen fremder Mächte aus dem Cyberspace schützen. Nun streiten sich die Gründer vor Gericht.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T11:31:00+01:00">11:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/demonstrationen-und-krawalle-dobrindt-verurteilt-gewalt-nach-jugend-demos/100266371.html" rel="noopener">Demonstrationen und Krawalle: Dobrindt verurteilt Gewalt nach Jugend-Demos</a></h3><p class="summary">Nach friedlichen Protesten junger Menschen kam es am Abend in manchen Städten zu teils schweren Krawallen. Der Bundesinnenminister sieht bestimmte Gruppen dahinter.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:12:28+01:00">11:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/gen-z-proteste-ausschreitungen-in-mehreren-deutschen-staedten/100266421.html" rel="noopener">Gen Z-Proteste: Ausschreitungen in mehreren deutschen Städten: Gewaltexzesse wie in Paris laut Dobrindt verhindert</a></h3><p class="summary">Für die Szenen aus Frankfurt und Köln am Samstagabend macht der Bundesinnenminister „gewaltbereite linke Gruppen und Chaoten aus dem migrantischen Milieu“ verantwortlich.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:08:11+01:00">11:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/nahost-opposition-warnt-vor-neuem-krieg-mit-iran-unter-netanjahu/100266426.html" rel="noopener">Nahost: Opposition warnt vor neuem Krieg mit Iran unter Netanjahu</a></h3><p class="summary">Angesichts wachsender Spannungen mit dem Iran stellt ein führender Oppositionspolitiker die politische Legitimation Netanjahus für eine neue militärische Auseinandersetzung infrage.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T11:04:46+01:00">11:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/die-welt-in-bildern-blickfang/8906950.html" rel="noopener">Die Welt in Bildern: Blickfang</a></h3><p class="summary">Sie beeindrucken. Sie wühlen auf. Sie faszinieren. Sie erschrecken. Sie dokumentieren den großen Moment. Sie zeigen kleine Wunder. Oder sie erzählen eine Geschichte. Die Welt – ein Blickfang.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T10:50:00+01:00">10:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/1d4dd7b2-9dee-433b-ac2a-e8022af1dd07?syn-25a6b1a6=1" rel="noopener">Binance restarts customer withdrawals after $6.3bn heist</a></h3><p class="summary">Crypto exchange to reimburse users whose assets were stolen in hack blamed on North Korea-linked group</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T10:38:52+01:00">10:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/konflikt-um-verfassungsgericht-ex-gerichtspraesidenten-staerken-polens-regierung-den-ruecken/100266386.html" rel="noopener">Konflikt um Verfassungsgericht: Ex-Gerichtspräsidenten stärken Polens Regierung den Rücken</a></h3><p class="summary">Zwei verfeindete politische Lager streiten über die Besetzung von Posten an Polens Verfassungsgericht. Jetzt melden sich vier ehemalige Präsidenten des Gerichtshofs zu Wort. Ihr Urteil ist eindeutig.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T10:36:13+01:00">10:36 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/silbermuenzen-stark-gestiegener-silberpreis-bund-muss-sammlermuenzen-neu-praegen/100266424.html" rel="noopener">Silbermünzen: Stark gestiegener Silberpreis – Bund muss Sammlermünzen neu prägen</a></h3><p class="summary">Der Materialpreis stieg so stark, dass zwei Sammlermünzen des Bundes nicht ausgegeben werden konnten. Die Neuprägungen sollen dennoch ein Plus bringen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T10:29:17+01:00">10:29 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/gen-z-regelt-pluenderungen-und-angriffe-auf-polizisten-in-frankfurt/100266344.html" rel="noopener">„Gen Z regelt“: Plünderungen und Angriffe auf Polizisten in Frankfurt</a></h3><p class="summary">Randalierer plünderten nach einer Jugenddemo Geschäfte und griffen Polizisten an. In der Nacht beruhigte sich die Lage in Frankfurt, die Polizei blieb mit zahlreichen Einsatzkräften vor Ort.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T10:27:27+01:00">10:27 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/jugendproteste-wird-die-gen-z-immer-radikaler/100265361.html" rel="noopener">Jugendproteste: Jugendforscher über Proteste der Gen Z: „Sauer sein allein reicht nicht“</a></h3><p class="summary">Auch hierzulande rufen Vertreter der Gen Z nun zu Protesten auf. Der Generationenforscher Simon Schnetzer erklärt, was junge Menschen so wütend macht – und was der Protestbewegung fehlt.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T10:24:20+01:00">10:24 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/unternehmen/industrie/pharma-der-westen-hat-fuer-boehringer-chef-kein-monopol-auf-innovation/100266423.html" rel="noopener">Pharma: Boehringer-Chef über Potenziale der Pharmabranche: Westen hat „kein Monopol auf Innovation“</a></h3><p class="summary">Chinesische Unternehmen holen bei der Entwicklung neuer Medikamente rasant auf. Shashank Deshpande, Vorstandschef von Boehringer Ingelheim, sieht darin auch einen Ansporn für Europa.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-01T10:23:46+01:00">10:23 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/finanzen/vorsorge/fruehstartrente-kann-das-neue-depot-die-finanzbildung-retten/100265496.html" rel="noopener">Finanzbildung: Wie die Frühstartrente die Finanzbildung fördern soll</a></h3><p class="summary">Die Frühstartrente soll helfen, Deutschlands Finanzbildung zu verbessern. Das kann tatsächlich klappen, wenn sie gekonnt begleitet wird.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T10:23:05+01:00">10:23 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/soziales/lars-klingbeil-sucht-milliarden-fuer-bundesbaugesellschaft-a-5fdbc648-bfb3-4869-ba71-ed50651d9ac3#ref=rss" rel="noopener">Lars Klingbeil sucht Milliarden für Bundesbaugesellschaft</a></h3><p class="summary">Eine neue Bundesbaugesellschaft soll den Wohnungsmarkt entlasten. Nach SPIEGEL-Informationen versucht Finanzminister Klingbeil, dafür Gelder in Milliardenhöhe zu beschaffen. Bei der Union wundert man sich, woher diese kommen sollen.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-01T10:17:00+01:00">10:17 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/banken/wirecard-ex-chef-markus-braun-interview-im-gefaengnis-ich-bin-nicht-mehr-der-der-ich-war-a-8006b57f-367e-47bc-96dd-190e87fa29d4#ref=rss" rel="noopener">Wirecard: Ex-Chef Markus Braun - Interview im Gefängnis: »Ich bin nicht mehr der, der ich war«</a></h3><p class="summary">Als Wirecard-Chef war Markus Braun Aktienmilliardär. Seit mehr als sechs Jahren sitzt er in Untersuchungshaft, sein Ex-Kollege Jan Marsalek ist auf der Flucht. In der JVA Stadelheim bricht Braun nun sein Schweigen – kurz vor dem Urteil.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-01T10:02:00+01:00">10:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/ausland/us-midterms-2026-wie-elon-musk-mit-rekordspenden-die-naechste-us-wahl-praegt/100266418.html" rel="noopener">US-Midterms 2026: Wie Elon Musk mit Rekordspenden die nächste US-Wahl prägt</a></h3><p class="summary">Elon Musk ist der reichste Mensch der Welt. In der heißen Phase der US-Parlamentswahl wurde er zum Rekordspender für Donald Trumps Republikaner.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T10:00:53+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/industrie/metall-und-elektro-ig-metall-lehnt-erstes-angebot-ab-warnstreiks-kommen/100265296.html" rel="noopener">Tarifverhandlungen: Was bei den Warnstreiks der Metaller gilt</a></h3><p class="summary">Die IG Metall hat ihre Warnstreiks in der Metall- und Elektroindustrie gestartet. Wie die Aktionen ablaufen und was für alle Beschäftigten gilt.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T09:45:00+01:00">09:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/krawalle-nach-gen-z-regelt-festnahmen-und-pluenderungen/100266314.html" rel="noopener">„GenZ regelt“: Frankfurter Chaosnacht überschattet Gen-Z-Demonstrationen</a></h3><p class="summary">Zunächst scheinen von den Jugendprotesten friedliche Bilder in Erinnerung zu bleiben. Doch dann kommt es bei Dunkelheit zu Ausschreitungen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T09:40:00+01:00">09:40 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/konjunktur/wirtschaftsexperte-zu-protesten-der-wunsch-nach-vergeltung-nimmt-zu/100260004.html" rel="noopener">Proteste: „Solche Proteste sind Ausdruck eines sehr starken Vertrauensverlustes“</a></h3><p class="summary">Verhaltensökonom Ernst Fehr über die volkswirtschaftliche Bedeutung von Fairness und Vertrauen – und eine polarisierte Gesellschaft im Krisenmodus.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T09:39:00+01:00">09:39 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/erfolg/management/abfindung-warum-offene-angebote-oft-firmen-schaden/100265630.html" rel="noopener">Kostendruck: So lindern Chefs die Sorgen rund um Abfindungen</a></h3><p class="summary">Unternehmen wie BMW oder Mercedes zahlen ihren Mitarbeitern viel Geld, damit sie gehen. Wie machen ihre Führungskräfte mit Vertrösteten und Unmotivierten weiter?</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T09:38:00+01:00">09:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/technologie/wirtschaft-von-oben/solarkraftwerke-auf-parkplaetzen-hier-werden-parkplaetze-zu-kraftwerken/100265599.html" rel="noopener">Wirtschaft von oben: Hier überdachen das Disneyland und deutsche Firmen ihre Parkplätze mit Solarmodulen</a></h3><p class="summary">Parkplätze bieten riesiges Potenzial für Solarstrom. Satellitenbilder zeigen, welche Firmen es ausschöpfen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-01T09:37:00+01:00">09:37 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/metall-und-elektroindustrie-warnstreiks-der-ig-metall-sind-angelaufen-a-4e8ae251-bec3-4e9a-a09b-b32b0eca149c#ref=rss" rel="noopener">Metall- und Elektroindustrie: Warnstreiks der IG Metall sind angelaufen</a></h3><p class="summary">Protest unmittelbar nach Ablauf der Friedenspflicht: Die IG Metall verlangt deutlich mehr Lohn und geht in den Konflikt mit den Arbeitgebern. Wie lange die Streiks dauern, ist unklar.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-01T08:35:00+01:00">08:35 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/hbm/fuehrung/videokonferenzen-warum-digitale-teams-klare-etikette-regeln-brauchen-a-4ffc1416-996c-4056-9d4b-32cbeeb9a2ae#ref=rss" rel="noopener">Videokonferenzen: Warum digitale Teams klare Etikette-Regeln brauchen</a></h3><p class="summary">Im Videocall wird nebenher gemailt, gegessen und aufs Handy geschaut. Die Wirtschaftspsychologin Sarah Diefenbach erklärt, warum Teams, die digital zusammenarbeiten, ihre Spielregeln aussprechen müssen und welche technischen Maßnahmen helfen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-01T08:04:00+01:00">08:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/finanzen/boerse/binance-ersetzt-nach-cyberangriff-90-prozent-der-beute-a-2b06b883-1e70-46bd-83d4-01e22ea24029#ref=rss" rel="noopener">Binance ersetzt nach Hackerangriff 90 Prozent der Beute</a></h3><p class="summary">Nach einer Cyberattacke hat Binance Vermögenswerte in Milliardenhöhe zurückgeholt oder abgesichert. Die Beschaffung der verbleibenden Token könnte jedoch länger dauern. Das FBI vermutet Nordkorea hinter dem Angriff.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-01T07:56:00+01:00">07:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/politik/deutschland/schulden-frust-und-inflation-warum-demokratien-scheitern-a-72e92aa1-262c-43b4-8df7-0f03db6cf6a1#ref=rss" rel="noopener">Schulden, Frust und Inflation – warum Demokratien scheitern</a></h3><p class="summary">Zu viele demokratische Staaten bekommen ihre Finanzen nicht in den Griff. Ein Krisensymptom, das auf tiefere Fehlfunktionen hinweist. Es gibt drei Szenarien, wie die Sache ausgehen könnte.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-01T07:37:00+01:00">07:37 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/8ee19897-1d15-4dd7-8ca8-162c4ea22b3a?syn-25a6b1a6=1" rel="noopener">Quant hedge fund to spin out of Tudor in record $9bn launch</a></h3><p class="summary">Xantium to separate from company controlled by billionaire Paul Tudor Jones II next year</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T06:00:18+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/937308d7-aa2e-4dac-b19b-423d83bc1253?syn-25a6b1a6=1" rel="noopener">Bond investors sit out ‘most consequential’ US midterm elections in years</a></h3><p class="summary">Big fund managers are pressing ‘pause’ as vote and economic data releases loom</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T06:00:17+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/50aeab56-c5e3-44c5-9117-8fadc2f980fb?syn-25a6b1a6=1" rel="noopener">Russia forced to ship grain via Arctic as Black Sea battles rage</a></h3><p class="summary">Farmers are exporting agricultural goods from ports thousands of miles away, driving up costs for overseas buyers</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T06:00:09+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/89e3ff89-c097-44cb-a290-0d46726e6075?syn-25a6b1a6=1" rel="noopener">Military briefing: what would another US-Iran conflict look like?</a></h3><p class="summary">US and Israeli options to escalate range from maritime campaigns to attempting regime change but risk provoking retaliation</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T06:00:09+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/ce1e852d-c699-4cf6-b8a0-78fd283556f3?syn-25a6b1a6=1" rel="noopener">EU leaders risk breaking their promise to help European start-ups</a></h3><p class="summary">The bloc is addressing the funding gap for innovators but going the wrong way on harmonising rules to help them stay in Europe</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T06:00:09+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/217e8187-7b57-40dc-9439-03266e6c900f?syn-25a6b1a6=1" rel="noopener">New Zealand’s kingmaker could be a 38-year-old ex-KPMG consultant</a></h3><p class="summary">Fiji-born Qiulae Wong backs ‘land tax’ to fund universal basic income and push down housing prices</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T06:00:09+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/d77e4c6f-0ac7-49ce-bca8-b30080bf9797?syn-25a6b1a6=1" rel="noopener">Michigan feud threatens Democratic unity in key Senate race</a></h3><p class="summary">Abdul El-Sayed disinvites former primary rival Haley Stevens from campaign event amid war of words over Israel</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-01T00:57:07+01:00">00:57 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/soziales/bildungsoekonom-ludger-woessmann-bessere-schulbildung-koennte-deutschland-20-billionen-euro-einbringen-a-ee40144a-48f4-4a35-a0a2-5b6b5edb8fd9#ref=rss" rel="noopener">Bildungsökonom Ludger Wößmann: »Bessere Schulbildung könnte Deutschland 20 Billionen Euro einbringen«</a></h3><p class="summary">Wie kann Deutschland seinen Wohlstand halten? Nur durch bessere Schulbildung, sagt der Ökonom Ludger Wößmann. Doch Politik und Bildungssystem setzten falsche Prioritäten.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-10-31T20:31:00+01:00">20:31 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/55dfa145-4078-450f-a853-5f2d551260f1" rel="noopener">Evacuees from Russian-occupied city arrive in Ukraine</a></h3><p class="summary">Complex humanitarian mission extracted hundreds of people from Oleshky during rare local ceasefire between Moscow and Kyiv</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-10-31T16:17:34+01:00">16:17 Uhr</time></div></li></ol></section>
+<section id="tech"><h2>Tech &amp; IT<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.golem.de/news/protest-habeck-rechnet-bei-audi-mit-tesla-effekt-wegen-trump-wahlhilfe-2611-214720.html" rel="noopener">Protest: Habeck rechnet bei Audi mit &quot;Tesla-Effekt&quot; wegen Trump-Wahlhilfe</a></h3><p class="summary">Die Nähe zum US-Präsidenten drohe dem Image und den Verkaufszahlen der Marke Audi zu schaden, glaubt Ex-Vizekanzler Robert Habeck. (Audi, Politik)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-01T11:26:02+01:00">11:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/die-produktentwicklung-ist-etwas-zutiefst-menschliches-apple-ceo-aeussert-sich-zu-ki-rueckstand-1770975/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">„Die Produktentwicklung ist etwas zutiefst Menschliches“: Apple-CEO äußert sich zu KI-Rückstand</a></h3><p class="summary">John Ternus steht erst seit Kurzem an der Spitze des iPhone-Herstellers. Die Kritik an mangelnden KI-Funktionen sieht er gelassen. Apple wolle die Technologie auf jeden Fall nutzen – aber nicht um jeden Preis. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T11:09:24+01:00">11:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/android-tv-launcher-ohne-werbung-1769245/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Schneller und ohne Werbung. Diese Android-TV-Launcher verbessern deinen Fernseher</a></h3><p class="summary">Smarte Fernseher und Streaming-Boxen mit Android sind vollgestopft mit Werbung und werden mit der Zeit immer langsamer. Glücklicherweise gibt es Launcher, die dweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T11:00:30+01:00">11:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/tests/HP-Elitedesk-8-Mini-G2i-im-Test-Sparsamer-Mini-PC-mit-moderner-Intel-CPU-11502960.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" rel="noopener">heise+ | HP Elitedesk 8 Mini G2i im Test: Sparsamer Mini-PC mit moderner Intel-CPU</a></h3><p class="summary">Genügt das Einstiegsmodell Core Ultra 5 322 für tägliche Büroaufgaben oder rennen ihm CPUs mit mehr Kernen davon? Wir testen den Mini-PC HP Elitedesk 8 G2i.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-01T11:00:00+01:00">11:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/windows-7-vs-windows-11-vergleich-1769126/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">4 Gründe, warum Windows 7 heute besser funktioniert als Windows 11</a></h3><p class="summary">Ein alter Laptop, ein eigentlich veraltetes Betriebssystem: Unser Autor hat im Jahr 2026 nochmal versucht, mit Windows 7 zu arbeiten. Und dabei gemerkt, dass Windows 11 in einigen Punkten das nervigere Betriebssystem ist. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T10:55:00+01:00">10:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-tragbarer-bluetooth-lautsprecher-bose-soundlink-flex-se-jetzt-reduziert-bei-amazon-2611-214697.html" rel="noopener">Anzeige: Tragbarer Bluetooth-Lautsprecher Bose SoundLink Flex SE jetzt reduziert bei Amazon</a></h3><p class="summary">Der Bose SoundLink Flex SE übersteht Regen und Stürze, hält bis zu 12 Stunden durch und ist so günstig wie seit Mitte August nicht mehr. (Technik/Hardware)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-01T10:40:02+01:00">10:40 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/ki-mathe-hausaufgaben-benotung-universitaet-1769844/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Mathe-Professor kapituliert: Warum KI-Hausaufgaben nicht mehr benotbar sind</a></h3><p class="summary">Zu Beginn des KI-Booms galt Mathematik als eine gute Studienwahl – das hat sich geändert. Jetzt zweifeln selbst Lehrkräfte an Universitäten daran, ob sie jungen Menschen raten sollen, das Fach zu studieren. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T10:10:00+01:00">10:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/scheinselbststaendigkeit-warum-dailys-tickets-und-kundenlaptop-fuer-it-freelancer-riskant-sind-2611-214700.html" rel="noopener">(g+) Scheinselbstständigkeit: Warum Dailys, Tickets und Kundenlaptop für IT-Freelancer riskant sind</a></h3><p class="summary">Selbst mit GmbH und sauberem Vertrag können IT-Freelancer als Beschäftigte gelten. Entscheidend ist der Projektalltag. Und der kann Aufträge kosten. Ein Ratgebertext von Pierre Wilken (IT-Freelancer, Wirtschaft)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-01T10:00:02+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/iX-Workshop-Aufgaben-eines-Informationssicherheitsbeauftragten-11480254.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">heise-Angebot: iX-Workshop: Aufgaben eines Informationssicherheitsbeauftragten</a></h3><p class="summary">Sich mit der Rolle des Informationssicherheitsbeauftragten vertraut machen: die Anforderungen verstehen und die notwendigen Kompetenzen erwerben.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-01T10:00:00+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/gta-6-ps5-dualsense-ladestation-tipps-1770173/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">GTA 6 kommt: Warum du jetzt eine PS5-Ladestation für deine Dualsense-Controller brauchst</a></h3><p class="summary">GTA 6 soll ein immersives Erlebnis bieten. Das könnte aber auch dafür sorgen, dass der Akku deines Controllers schneller zur Neige geht. Wir erklären dir, wie du trotzdem nahtlos weiterzocken kannst. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T09:45:00+01:00">09:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/google-ki-plaene-kritik-finnland-1769929/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">„Ich will sie hier nicht“: Googles KI-Pläne sorgen in Finnland für Kritik</a></h3><p class="summary">Für ein Rechenzentrum von Google sind in Finnland rund 250.000 Bäume illegal gefällt worden. Da Umweltprüfungen nicht abgeschlossen waren, stoppten die Behörden die Arbeiten an gleich zwei Standorten.weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T09:10:00+01:00">09:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/amazon-echo-alexa-dot-time-studio-1770439/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Amazons neue Echos: Alexa am Bett und eine Kamera fürs Wohnzimmer</a></h3><p class="summary">Mit drei neuen Geräten sorgt Amazon nicht gerade für mehr Übersicht in seinem Echo-Aufgebot. Immerhin kommen die Geräte mit teilweise sinnvollen Verbesserungen. Ein Feature hätte sich der Versandhändler aber wohl auch sparen können. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T08:50:00+01:00">08:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/saetze-laenger-fuenf-worte-diktieren-claude-code-freeflow-1770271/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">“Sätze länger als fünf Worte werden diktiert”: So baut sich ein Produktmanager mit Claude Code und Freeflow seinen KI-Workflow</a></h3><p class="summary">Produktmanager Jan Werner nutzt in seinem Arbeitsalltag nahezu rund um die Uhr die KI-Diktier-App Freeflow. Warum er von Wispr Flow auf die Open-Source-Lösung uweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T08:25:00+01:00">08:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/hintergrund/Missing-Link-Umgepolt-Bin-ich-der-einzige-Gamer-der-die-Y-Achse-invertiert-11497274.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Missing Link: Invertierte Maussteuerung – sind die 1990er schuld?</a></h3><p class="summary">Maus nach vorn, Blick nach unten: Manche steuern Ego-Shooter wie ein Flugzeug. Doch die Gen Z lacht sich darüber kaputt.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-01T08:12:00+01:00">08:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/ki-verdraengt-den-nachwuchs-wer-entwickelt-in-zehn-jahren-unsere-software-1770554/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">KI verdrängt den Nachwuchs: Wer entwickelt in zehn Jahren unsere Software?</a></h3><p class="summary">Die steigende KI-Nutzung in der Software-Entwicklung führt dazu, dass Unternehmen immer weniger Berufseinsteiger:innen einstellen. Kurzfristig rechnet sich das – doch langfristig wird das zum Problem.weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T08:00:29+01:00">08:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/tests/Mobile-Fotodrucker-im-Test-AgfaPhoto-Realipix-Moments-2-und-Kodak-Dock-Era-D600-11505293.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" rel="noopener">heise+ | Mobile Fotodrucker im Test: AgfaPhoto Realipix Moments 2 und Kodak Dock Era D600</a></h3><p class="summary">Der AgfaPhoto Realipix Moments 2 und der Kodak Dock Era D600 drucken Fotos im Postkartenformat vom Smartphone. Wir haben die kleinen Fotodrucker getestet.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-01T08:00:00+01:00">08:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/audioanschl%c3%bcsse-pc-farben-1999-1769696/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Audioanschlüsse am PC: Warum Grün, Blau und Pink seit 1999 gelten</a></h3><p class="summary">Rot für Mikrofon, Grün für Ausgang oder Blau für Eingang: Warum haben Audiobuchsen oder andere Anschlüsse an Motherboards festgelegte Farben? Und warum haben die sich bis heute gehalten, obwohl sie eigentlich nicht nötig wären? weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T07:45:00+01:00">07:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/star-trek-jubilaeumsjahr-captain-janeway-und-die-autonomen-autos-2611-214692.html" rel="noopener">Star-Trek-Jubiläumsjahr: Captain Janeway und die autonomen Autos</a></h3><p class="summary">Eine Entscheidung aus Star Trek: Voyager sorgt bis heute für Fan-Diskussionen. Dahinter steckt ein moralisches Problem, das ganz schön aktuell ist. Von Emanuel Kessler (Star Trek, Unterhaltung &amp; Hobby)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-01T07:30:02+01:00">07:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/google-maps-carplay-gemini-funktionen-1769471/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Google Maps in Carplay: Was Gemini jetzt für Autofahrer möglich macht</a></h3><p class="summary">Wer Carplay in Kombination mit Google Maps nutzt, darf sich über eine Neuerung freuen. Google gibt seine KI auch für das Apple-Ökosystem frei. Was mit Gemini möglich ist. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T07:15:00+01:00">07:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-sechs-it-jobs-in-security-administration-und-entwicklung-2611-214544.html" rel="noopener">Anzeige: Sechs IT-Jobs in Security, Administration und Entwicklung</a></h3><p class="summary">Von Java und IT-Security bis SAP Analytics und Systemadministration: Sechs neue IT-Jobs bieten spannende Aufgaben und Perspektiven. (Golem Karrierewelt, Unternehmenssoftware)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-01T07:00:02+01:00">07:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/three-js-ki-agenten-javascript-bibliothek-1767987/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Hype um Three.js: Warum KI-Agenten diese JavaScript-Bibliothek lieben</a></h3><p class="summary">Eigentlich ist Three.js nur bei Webentwicklungsprofis bekannt. Plötzlich schreibt das Tool wöchentliche Downloadzahlen im zweistelligen Millionenbereich. Was stweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-01T06:50:00+01:00">06:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve" rel="noopener">Memdoor: A team of 5 Qwen3.8-27B models beats Fable 5 on LiveCodeBench Hard</a></h3><p class="summary">Article URL: https://github.com/guregodevo/memdoor/tree/main/examples/workflows/team-solve Comments URL: https://news.ycombinator.com/item?id=50320995 Points: 243 # Comments: 115</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T23:46:12+01:00">23:46 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.smithsonianmag.com/science-nature/italian-farmer-found-unknown-seeds-attic-with-nothing-lose-planted-them-result-biblical-180989644/" rel="noopener">An Italian farmer found some unknown seeds in his attic and planted them</a></h3><p class="summary">Article URL: https://www.smithsonianmag.com/science-nature/italian-farmer-found-unknown-seeds-attic-with-nothing-lose-planted-them-result-biblical-180989644/ Comments URL: https://news.ycombinator.com/item?id=50320963 Points: 463 # Comments: 136</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T23:41:06+01:00">23:41 Uhr</time></div></li>
+<li class="story"><h3><a href="https://karpathy.bearblog.dev/hacker-tube/" rel="noopener">HackerTube: YouTube built from videos recommended by HN</a></h3><p class="summary">YouTube-style UI over 6,454 videos sourced from 39,834 HN comments since 2007. https://hackertube.org/ Comments URL: https://news.ycombinator.com/item?id=50319510 Points: 1381 # Comments: 379</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T20:56:53+01:00">20:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://twitter.com/jiahaoshao1/status/2116475922190922088" rel="noopener">Anthropic blocks users for anything touching training larger models</a></h3><p class="summary">Article URL: https://twitter.com/jiahaoshao1/status/2116475922190922088 Comments URL: https://news.ycombinator.com/item?id=50319358 Points: 365 # Comments: 209</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T20:39:19+01:00">20:39 Uhr</time></div></li>
+<li class="story"><h3><a href="https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf" rel="noopener">TCP Use-After-Free: CVE-2026-98432 / CVSS 9.8</a></h3><p class="summary">Article URL: https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf Comments URL: https://news.ycombinator.com/item?id=50319143 Points: 518 # Comments: 240</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T20:16:30+01:00">20:16 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/bestenlisten/testsieger/top-10-das-beste-city-und-trekking-e-bike-preis-leistungs-sieger-fuer-899-euro/syrrc15?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Top 10: Das beste City- und Trekking-E-Bike</a></h3><p class="summary">Wir hatten gut 60 City-E-Bikes im Test mit Fokus auf Ausstattung und Preis. Das sind die besten Pedelecs für die Stadt.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-31T20:00:00+01:00">20:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://pivotlake.io/blog/its-the-memory-latency-stupid/" rel="noopener">It&#x27;s the memory latency, stupid</a></h3><p class="summary">Article URL: https://pivotlake.io/blog/its-the-memory-latency-stupid/ Comments URL: https://news.ycombinator.com/item?id=50318720 Points: 200 # Comments: 62</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T19:38:16+01:00">19:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Foerderung-fuer-300mm-Wafer-in-Itzehoe-an-Vishay-uebergeben-11507214.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Förderung für 300mm-Wafer in Itzehoe an Vishay übergeben</a></h3><p class="summary">Power-Mosfets aus Schleswig-Holstein werden künftig auf größeren Siliziumscheiben gefertigt – Vishay erweitert seine Chipfabrik.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-31T17:58:00+01:00">17:58 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Frankreich-plant-Internetsteuer-5-5-Cent-pro-Gigabyte-11507164.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Frankreich plant Internetsteuer: 5,5 Cent pro Gigabyte</a></h3><p class="summary">Ein Antrag im französischen Parlament sieht die Besteuerung von Datenverkehr im Internet vor. Erste Unternehmen laufen dagegen Sturm.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-31T17:03:00+01:00">17:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/bestenlisten/testsieger/top-5-die-beste-akku-grasschere-im-test-makita-testsieger-vor-gardena-und-stihl/x6bw4j7?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Top 5: Die beste Akku-Grasschere im Test</a></h3><p class="summary">Eine Akku-Grasschere hilft überall dort, wo Rasenmäher und Heckenschere zu groß sind. Wir zeigen die besten Geräte.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-31T16:00:00+01:00">16:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/haiku-generiert-googles-satelliten-ki-rechner-meldet-sich-aus-dem-orbit-2610-214715.html" rel="noopener">Haiku generiert: Googles Satelliten-KI-Rechner meldet sich aus dem Orbit</a></h3><p class="summary">Googles experimenteller Satelliten-KI-Rechner ist online und funkt mit Bodenstationen. Die erste Aufgabe der KI an Bord: ein Gedicht über den Weltraum schreiben. (Satelliten, Google)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-31T15:41:02+01:00">15:41 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/nationalversammlung-frankreich-will-eine-steuer-von-5-5-cent-pro-gigabyte-2610-214718.html" rel="noopener">Nationalversammlung: Frankreich will eine Steuer von 5,5 Cent pro Gigabyte</a></h3><p class="summary">Die französische Nationalversammlung hat einen Antrag verabschiedet, der Hersteller digitaler Daten dazu verpflichten würde, 5,5 Cent für jedes Gigabyte zu zahlen. (Internet, Politik)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-31T15:03:02+01:00">15:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://jepsen.io/analyses/particledb-1.1.4" rel="noopener">Jepsen: ParticleDB 1.1.4</a></h3><p class="summary">https://github.com/jepsen-io/particledb Comments URL: https://news.ycombinator.com/item?id=50316100 Points: 267 # Comments: 155</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-10-31T14:39:52+01:00">14:39 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/nasdaq-ki-sorgen-treiben-anleger-aus-tech-aktien-2610-214717.html" rel="noopener">Nasdaq: KI-Sorgen treiben Anleger aus Tech-Aktien</a></h3><p class="summary">Der Technologie-Index Nasdaq 100 hat an Wert eingebüßt - gibt es erste Zweifel daran, ob sich die Investitionen in künstliche Intelligenz wirklich lohnen werden? (KI, Intel)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-31T14:38:01+01:00">14:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/ki-kurs-bei-proton-yen-sagt-umstrittene-mitarbeiterinterviews-zu-ki-ab-2610-214712.html" rel="noopener">KI-Kurs bei Proton: Yen sagt umstrittene Mitarbeiterinterviews zu KI ab</a></h3><p class="summary">Proton streicht die Re-Interviews zur KI-Nutzung. Yen räumt Kommunikationsfehler ein, will KI aber weiter vorantreiben. (Unternehmen, Wirtschaft)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-31T14:09:02+01:00">14:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/das-recht-selbst-zu-denken-ki-verweigerer-erhaelt-religioese-ausnahme-2610-214708.html" rel="noopener">Das Recht, selbst zu denken: KI-Verweigerer erhält religiöse Ausnahme</a></h3><p class="summary">Ein Angestellter aus Kentucky will aus religiösen Gründen sein Denken nicht an KI auslagern. Sein Arbeitgeber macht eine Ausnahme. (KI, Rechenzentrum)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-31T13:30:02+01:00">13:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/foldable-samsung-laestert-in-werbung-ueber-iphone-duos-displayfehler-2610-214716.html" rel="noopener">Foldable: Samsung lästert in Werbung über iPhone Duos Displayfehler</a></h3><p class="summary">Schon nach der Veröffentlichung des iPhone Duos hat Samsung auf die eigene Expertise verwiesen. Nach den Problemen kennt die Schadenfreude keine Grenzen mehr. (iPhone Duo, Smartphone)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-10-31T13:08:01+01:00">13:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Product-Owner-Days-Der-Launch-ist-erst-der-Anfang-11503479.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">heise-Angebot: Product Owner Days: Der Launch ist erst der Anfang</a></h3><p class="summary">Auf der Konferenz am 10. und 11. März 2027 behandeln Expertinnen und Experten die neuesten Methoden rund um Themen wie Product Ownership, KI und mehr.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-31T13:00:00+01:00">13:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Importpakete-2-Euro-zusaetzliche-Gebuehr-pro-Warenposition-11507130.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Neue Zollgebühren: pro Position, nicht pro Paket</a></h3><p class="summary">Durch die Zollreform der Europäischen Union tritt Anfang November eine neue Gebühr in Kraft. Direktimporte aus dem Nicht-EU-Ausland könnten teurer werden.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-10-31T12:56:00+01:00">12:56 Uhr</time></div></li></ol></section>
+<footer class="page"><h2>Quellen-Status</h2><ul class="status"><li>dpa (2)</li><li class="failed">Reuters (DE) – Feed enthielt keine Artikel</li><li>Reuters (EN) (9)</li><li>AFP (1)</li><li>tagesschau (54)</li><li>SPIEGEL (22)</li><li>ZEIT ONLINE (15)</li><li>n-tv (50)</li><li>Süddeutsche (15)</li><li>FAZ (158)</li><li>Deutschlandfunk (30)</li><li>Handelsblatt (50)</li><li>SPIEGEL Wirtschaft (20)</li><li>manager magazin (30)</li><li>WirtschaftsWoche (20)</li><li>Financial Times (9)</li><li>heise online (152)</li><li>Golem (40)</li><li>t3n (20)</li><li>Hacker News (9)</li><li>Ars Technica (20)</li></ul><p>Automatisch erzeugt am 01.11.2026 um 11:59 Uhr (CET). Alle Rechte an den verlinkten Inhalten liegen bei den jeweiligen Anbietern. <a href="archiv/index.html">Archiv</a></p></footer>
+</main></body></html>
