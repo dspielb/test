@@ -1,0 +1,455 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nachrichten – 16.11.2026</title><style>:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-alt: #f0f2f5;
+  --border: #dfe3e8;
+  --text: #14181d;
+  --text-muted: #5b6672;
+  --text-faint: #8a939e;
+  --accent: #a03c2f;
+  --accent-soft: #f5e7e4;
+  --shadow: 0 1px 2px rgba(16, 22, 28, 0.06), 0 4px 12px rgba(16, 22, 28, 0.04);
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171b;
+    --surface: #1c2026;
+    --surface-alt: #232830;
+    --border: #303740;
+    --text: #e8ebef;
+    --text-muted: #a3adb9;
+    --text-faint: #78828e;
+    --accent: #e8836f;
+    --accent-soft: #33231f;
+    --shadow: none;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+/* --- Kopfbereich --- */
+
+header.page {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 28px;
+}
+
+header.page .wrap { padding-top: 34px; padding-bottom: 22px; }
+
+h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.dateline {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.meta {
+  margin: 14px 0 0;
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+nav.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+nav.categories a {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+nav.categories a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Abschnitte --- */
+
+section { margin-bottom: 40px; scroll-margin-top: 16px; }
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--text);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+h2 .count {
+  margin-left: auto;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.section-note {
+  margin: 8px 0 14px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* --- Artikel --- */
+
+ol.stories {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+li.story {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+li.story:last-child { border-bottom: none; }
+
+li.story h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+li.story h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+li.story h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+p.summary {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.source {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.also {
+  color: var(--text-faint);
+}
+
+.also a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.also a:hover { color: var(--accent); }
+
+/* --- Top-Themen --- */
+
+section.top {
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+section.top h2 {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+section.top li.story { border-bottom-color: var(--border); }
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --- Fuß --- */
+
+footer.page {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+footer.page h2 {
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-bottom: 0;
+}
+
+ul.status {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+ul.status li::before {
+  content: "●";
+  margin-right: 6px;
+  color: #3f9a52;
+}
+
+ul.status li.failed::before { color: #c2503f; }
+
+.empty {
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* --- Archiv --- */
+
+ul.archive {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+ul.archive li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+ul.archive a {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+ul.archive a:hover { color: var(--accent); }
+
+ul.archive .weekday {
+  margin-left: 8px;
+  color: var(--text-faint);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.5rem; }
+  .wrap { padding: 0 16px 48px; }
+}
+
+@media print {
+  body { background: #fff; }
+  nav.categories, footer.page { display: none; }
+  li.story { break-inside: avoid; }
+}
+</style></head><body>
+<header class="page"><div class="wrap"><h1>Nachrichtenüberblick</h1><p class="dateline">Montag, 16. November 2026 · Stand 13:23 Uhr</p><p class="meta">132 Meldungen aus 19 Quellen · Zeitfenster 24 Stunden · 2 Quellen nicht erreichbar</p><nav class="categories"><a href="#agenturen">Agenturen</a><a href="#deutschland">Deutschland &amp; Welt</a><a href="#wirtschaft">Wirtschaft &amp; Finanzen</a><a href="#tech">Tech &amp; IT</a></nav></div></header>
+<main class="wrap">
+<section class="top" id="top-themen"><h2>Top-Themen</h2><p class="section-note">Meldungen, über die mehrere Quellen gleichzeitig berichten.</p><ol class="stories"><li class="story"><h3><a href="https://www.deutschlandfunk.de/who-warnt-vor-zunehmender-unwirksamkeit-von-antibiotika-100.html" rel="noopener">Resistenzen - WHO warnt vor zunehmender Unwirksamkeit von Antibiotika</a></h3><p class="summary">Die Weltgesundheitsorganisation hat vor den Gefahren durch die zunehmende Unwirksamkeit von Antibiotika und anderen antimikrobiellen Medikamenten gewarnt.</p><div class="byline"><span class="source">Deutschlandfunk</span><span class="badge">2 Quellen</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time><span class="also">auch bei <a href="https://www.tagesschau.de/wissen/gesundheit/who-antibiotika-resistenzen-100.html" rel="noopener">tagesschau</a></span></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/politik/deutschland/stromsteuer-friedrich-merz-erwartet-einigung-im-koalitionsausschuss-a-f168982c-79b8-49e6-9ab2-dc870587a27c#ref=rss" rel="noopener">Stromsteuer: Friedrich Merz erwartet Einigung im Koalitionsausschuss</a></h3><p class="summary">Die Senkung der Stromsteuer war lange ein Streitpunkt in der Koalition aus SPD und Union. Finanzminister Klingbeil bemängelte eine fehlende Gegenfinanzierung. Kanzler Merz geht nun von einer Lösung aus.</p><div class="byline"><span class="source">SPIEGEL</span><span class="badge">2 Quellen</span><time datetime="2026-11-16T13:07:00+01:00">13:07 Uhr</time><span class="also">auch bei <a href="https://www.zeit.de/politik/deutschland/2026-11/stromsteuer-friedrich-merz-markus-soeder-cdu-csu-bundeskanzler-gxe" rel="noopener">ZEIT ONLINE</a></span></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wirtschaft/unternehmen/commerzbank-unicredit-eu-genehmigung-100.html" rel="noopener">EU gibt UniCredit grünes Licht für Commerzbank-Übernahme</a></h3><p class="summary">Die EU hat ihr Go für die umstrittene Übernahme der Commerzbank durch die italienische Großbank UniCredit gegeben. Die Kommission sieht &quot;keine wettbewerbsrechtlichen Bedenken&quot;. Die Fusion rückt näher.</p><div class="byline"><span class="source">tagesschau</span><span class="badge">2 Quellen</span><time datetime="2026-11-16T12:50:50+01:00">12:50 Uhr</time><span class="also">auch bei <a href="https://www.n-tv.de/wirtschaft/EU-gibt-Unicredit-gruenes-Licht-fuer-Commerzbank-Uebernahme-id31538214.html" rel="noopener">n-tv</a></span></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/banken-eu-und-fed-erlauben-commerzbank-uebernahme-durch-unicredit/100270206.html" rel="noopener">Banken: EU und Fed erlauben Commerzbank-Übernahme durch Unicredit</a></h3><p class="summary">Die EU-Kommission geht bei der Genehmigung auf die Finanzierung des deutschen Mittelstands ein. Zudem hält sie den Deal aus einem übergeordneten Grund für wichtig.</p><div class="byline"><span class="source">Handelsblatt</span><span class="badge">2 Quellen</span><time datetime="2026-11-16T12:40:48+01:00">12:40 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/eu-genehmigt-uebernahme-der-commerzbank-durch-unicredit-a-d345f44c-486c-43ed-968c-6d33229c6372#ref=rss" rel="noopener">SPIEGEL Wirtschaft</a></span></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/deutsche-bahn-bund-will-boni-von-bahn-managern-an-zielvorgaben-knuepfen/100270166.html" rel="noopener">Deutsche Bahn: Bund will Boni von Bahn-Managern an Zielvorgaben knüpfen</a></h3><p class="summary">Die Deutsche Bahn fährt ihren Zielen seit Jahren hinterher. Deshalb will der Bund bei dem Konzern künftig genauer hinschauen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><span class="badge">2 Quellen</span><time datetime="2026-11-16T12:18:00+01:00">12:18 Uhr</time><span class="also">auch bei <a href="https://www.manager-magazin.de/unternehmen/mobilitaet/deutsche-bahn-bund-will-boni-der-bahnmanager-an-ziele-koppeln-a-7cc339b6-e022-4a49-9a2d-56f047920e9e#ref=rss" rel="noopener">manager magazin</a></span></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/vulcan-rakete-absturz-kostet-amazon-40-satelliten-fuer-internetdienst-leo-a-d08e1b4c-da9b-4597-a45a-d69c058b4f2b#ref=rss" rel="noopener">Vulcan-Rakete: Absturz kostet Amazon 40 Satelliten für Internetdienst Leo</a></h3><p class="summary">Der missglückte Start einer Rakete des Gemeinschaftsunternehmens von Boeing und Lockheed Martin ist ein schwerer Schlag für den US-Internetriesen Amazon. Denn damit gingen 40 Satelliten verloren, die für den Internetdienst Amazon Leo bestimmt waren.</p><div class="byline"><span class="source">manager magazin</span><span class="badge">2 Quellen</span><time datetime="2026-11-16T08:41:00+01:00">08:41 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/amazon-absturz-der-vulcan-rakete-kostet-us-konzern-40-satelliten-a-8bd0dc5f-699c-493e-a188-437d49521bcb#ref=rss" rel="noopener">SPIEGEL Wirtschaft</a></span></div></li></ol></section>
+<section id="agenturen"><h2>Agenturen<span class="count">12 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxObFVIT3NJQjJURDh2NGk2dFgzWVlPS2lJc05QWTE3M29LMDRWLWJBdnExTzIxWDdOWEZocWZKWmRzMXRiMHZaVjl0UVRvYlFkLXk2Yk9xSldZb0pZWXdIVnRxaFgtelVLRXlheEdHSVo4NldWODA4LTdOcnJ4eFZuWGFZeGJlQ08yYmhxQ2lpa0FGM0lRYVQ1OV8zU3pmZWFmc2M0aUYwX3JZUXQwYTVQYUNNemo5clBPNm4tSGFqMEMwWVRTUmkzWHpwcGFvamEtSFVwUE9WdkFXQQ?oc=5" rel="noopener">Andy Burnham: Britischer Premierminister erklärt Brexit für gescheitert - Spiegel</a></h3><p class="summary">Andy Burnham: Britischer Premierminister erklärt Brexit für gescheitert Spiegel</p><div class="byline"><span class="source">Reuters (DE)</span><time datetime="2026-11-16T12:09:00+01:00">12:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxQSjNGM241bk5iRDg0UWlLNnltZ0ZpZkxNSC1mVy1MU3VWUG4zQ0pEN1FCQzQyRTRmWlVmLVZ5SVpaYkdMSnBQcURmZE5CNjl2NlNtbE4wMGdueUlsOV9PakRrU3RTVjJWN3BjM2FnVG96VUxmTjhDNEVkeUl6bGJZQzdrRmlTY0lBQmF1MHlPOTltbTFRUUpiSGphalZpSnVfbDc4TFZaYU5rOGgxLWx1cUxwdGhwLUxGc2RJcWhTNDF1YjNZVktxY1l5YlFQRDFkc1Z1d2t0MFlvWWtubmxDaw?oc=5" rel="noopener">Eleven people were killed and 17 others injured after a fire tore through a building near Phuket&#x27;s popular Patong beach, trapping residents in thick smoke as flames spread. Authorities are investigating the cause of the deadly blaze. #dwnews - Facebook</a></h3><p class="summary">Eleven people were killed and 17 others injured after a fire tore through a building near Phuket&#x27;s popular Patong beach, trapping residents in thick smoke as flames spread. Authorities are investigating the cause of the deadly blaze. #dwnews Facebook</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-16T12:07:24+01:00">12:07 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxOTUZ2TkNjZThCaXFMZHBzMTNnZFlsaDVKWVV0dEdpTEpHR2xKeTRNQXpibk0ybi1HWlZPenVCSFJUVTF3X184T2J2SkkwZDlQLWZvSHJCYklfa3dmOVY2cklfUnNSZ2N2QmdzYmM5YlEyNGJTU3FTMFhyY1ctcFVURGlJMVpyRDQ3WVNmcjVlRzd5V2ZQdmc3b25uZGJELTVSQjJkaS0tQQ?oc=5" rel="noopener">Mexico’s Guadalajara cartel founder dies in hospital aged 80 - NBC News</a></h3><p class="summary">Mexico’s Guadalajara cartel founder dies in hospital aged 80 NBC News</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-16T10:38:43+01:00">10:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMid0FVX3lxTE5HRDNBbUJBTUV1M215LUFSNzlua0Z1czFKV0FKZDM2R2ItWm5oM3E3TlRmVFB2c3JHYWhSb2U0clpVZHZRbnpIQlJpaHZjeVNGcUtqd2NlV2I3Z0JOUmwyN054UGVQUVg0X3lEcWRJVmZEaV9zN3k0?oc=5" rel="noopener">Kate &amp; Wills knock India for six as they join stars &amp; kids for game of street cricket on first joint tour in four years - The Sun</a></h3><p class="summary">Kate &amp; Wills knock India for six as they join stars &amp; kids for game of street cricket on first joint tour in four years The Sun</p><div class="byline"><span class="source">Reuters (DE)</span><time datetime="2026-11-16T08:03:00+01:00">08:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPeXB6SmZmMTQwVEtkMTBnWVEzSHNWOVEwbjI4dVdoOHBKUFM3MGVfWUtpOUs5Z21FRkVaZXU0WlYzSlhGZmVLVXVrclMzSjF3eVVhc3BGWi1OTE41dDVrakNuQVlPaVJma25WNDlES1NDSHUySEczdXphaFhyNnBVdllfMFZiZw?oc=5" rel="noopener">Jensen Huang &#x27;plotting Nvidia return&#x27; after quitting over &#x27;spy&#x27; scandal - The Sun</a></h3><p class="summary">Jensen Huang &#x27;plotting Nvidia return&#x27; after quitting over &#x27;spy&#x27; scandal The Sun</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-16T00:47:24+01:00">00:47 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxPSkdFR0ppNThGcnFUbE1vVHBkWG5GQkFrQ3B5M2x0VFh4bDNRVFdXUm9LazNYYUI4WnpBdXpQQ0NpS2llVWFEcE1LTWpLRWVqdFp4eTRibUtROW16ZU5XeXRmc1RwaTZCbzV2UXlKcEhvaHpCNlJSeTFucnl4ZXZvUWVWbXl2MUtHY1hXUzJ3SEFCR3ZZUDY2VGFuTC1lek80UmRZTGlxRkItd2I4S1lrcnotSF8tVG5tTnJySnBoMlJ0NXJtcEo5bjROV1c?oc=5" rel="noopener">US FDA declines to approve Summit lung cancer drug after trial misses key survival goal - Reuters</a></h3><p class="summary">US FDA declines to approve Summit lung cancer drug after trial misses key survival goal Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-16T00:24:24+01:00">00:24 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPbXBEMnhoWXdETmQ4d2JPM3Q2OUw0MDByaUV2di1Nc3ZVcmJHaGJ6bnNLN1lsc3gzeG5hSGlEYnBKaHJOajU2SzlrRXp4UUZtdU5Dc0I1TlNmYlFxWThaUFZvRk11UVJSY2YyakpJSFFGNWlVbmZrMDNXTXkyLXM2MWlydzN1YWwydGc5dmM3WVZjeFVVZDlIVGR2aGFEMzZrUkE3QnRXU1hibDlpU2RWQkkwTkRyZw?oc=5" rel="noopener">Steering problem on tanker caused collision in New Orleans, NTSB says - Reuters</a></h3><p class="summary">Steering problem on tanker caused collision in New Orleans, NTSB says Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-15T22:23:00+01:00">22:23 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxNRENJR2FvRjB1WmJfWk56alNqNHBwRHExSk0tdU91LV9wSUMzVm9PZEtRdHc0Y1JaMW44OVBJc3puTENpMXNBY3VmSVNjSTZIazlYRGh4aUxVaW9GdXNBamZla29sRzJnajdMdU1yQU9xekdPcUwyRXdaRzF4TXhiZXV6RDZIN21yVS15bGpNVUJFZUpnWU1ZTFJqbm94OXhjamR3SXFRV3F0YWZWSnA5ei1Gd2o4UW1PSnlrTnFtMENUb2V1VjVDc09XSFJNN0JaWXc?oc=5" rel="noopener">Rocket from Boeing-Lockheed firm fails mid-flight, destroys payload of Amazon satellites - Reuters</a></h3><p class="summary">Rocket from Boeing-Lockheed firm fails mid-flight, destroys payload of Amazon satellites Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-15T21:26:00+01:00">21:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOdTFBcWR1YzJhai1UdGgzMHpvdm40VExxeXFqM0NtbU9YVmNSNXpNeDlXTGllRXFtczhIUzVsaFFWdVV5TGxESWdneGlXbER1Qlg2b2VhQ2lqMmxVaEd4U01nZmNXcFY2bmNhSTdIN0VycE84MWJDRXdZOGxMRGo0U1k1UjhiamFNQ1JIQmp1MUdxNlZGRm1UanBvaENxR3V2N25NdFVOaWpXX1E?oc=5" rel="noopener">Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain - Reuters</a></h3><p class="summary">Anti-Houthi forces retreat in Yemen as Iran strikes Bahrain Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-15T16:56:00+01:00">16:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQb1Bial83MHdGSDVfRDI4a3lValZwOTVMNVVEVXEyUGJxSDhtODNLc2hDOVBYcE0wQnVGbHEzaDhmWnV1SkdMTTktVlk5LTZnN0FGbllFOU5STDhHVDNtZ2hRSXZsU3RudHlSbURKSTBIVlBOYlFiYzRTWXhwRzItYWlrckNLLWZnOWZqemNNSm5RRVRMQkw0UUdGbkd0Y3Rvb05mQ00yWXg2elk?oc=5" rel="noopener">Three ships struck by drones in Black Sea near Romanian shipping canal, PM says - NBC News</a></h3><p class="summary">Three ships struck by drones in Black Sea near Romanian shipping canal, PM says NBC News</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-15T15:25:35+01:00">15:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxONFpPcFd2Y19laU1VYmh0dTYtVjRYQUhBQ2F4YTVZbE9UX1l6TWRfNjAyWnZXY2tKell3NDYzTHZYa2RIUnlfQ0tld2MwY24wSDBKYWZLUnl2cWpJcExYaTRLTW8waWxLS3cxWmxNX2ZFMGw5ay1HR3ZJLW5qVTlSejVoR09QeVdtMl8yUnp0UWhqMjRqbGs5TDF0SW5lUHR2bmE2Rw?oc=5" rel="noopener">Shell starts gas production from Egypt&#x27;s Mina West field - Reuters</a></h3><p class="summary">Shell starts gas production from Egypt&#x27;s Mina West field Reuters</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-15T14:03:43+01:00">14:03 Uhr</time></div></li>
+<li class="story"><h3><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOZmM1amUxamVQU2FSQkEtR3A3blhMZjNRVUsyMUxZZ0VEUUJlY3JSbUF4aTI1VVJCamhDMWJ0dTBnSmdOMVFseHI1dG03bEhOZHhDbUt4S3N3U2NEQnFZaWZyMlZ3S1lxOTRnS3UtcDZWamdyeHYyVkF0UGhtcjhXV2hod0FjSkYzNDZncmFhdHNteUM2bWM1S2xGV2VxZTRQS3JmYw?oc=5" rel="noopener">Yemen government forces withdraw from area near Bab el Mandeb strait, Houthis in control - NBC News</a></h3><p class="summary">Yemen government forces withdraw from area near Bab el Mandeb strait, Houthis in control NBC News</p><div class="byline"><span class="source">Reuters (EN)</span><time datetime="2026-11-15T13:42:41+01:00">13:42 Uhr</time></div></li></ol></section>
+<section id="deutschland"><h2>Deutschland &amp; Welt<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.deutschlandfunk.de/who-warnt-vor-zunehmender-unwirksamkeit-von-antibiotika-100.html" rel="noopener">Resistenzen - WHO warnt vor zunehmender Unwirksamkeit von Antibiotika</a></h3><p class="summary">Die Weltgesundheitsorganisation hat vor den Gefahren durch die zunehmende Unwirksamkeit von Antibiotika und anderen antimikrobiellen Medikamenten gewarnt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time><span class="also">auch bei <a href="https://www.tagesschau.de/wissen/gesundheit/who-antibiotika-resistenzen-100.html" rel="noopener">tagesschau</a></span></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/politik/deutschland/stromsteuer-friedrich-merz-erwartet-einigung-im-koalitionsausschuss-a-f168982c-79b8-49e6-9ab2-dc870587a27c#ref=rss" rel="noopener">Stromsteuer: Friedrich Merz erwartet Einigung im Koalitionsausschuss</a></h3><p class="summary">Die Senkung der Stromsteuer war lange ein Streitpunkt in der Koalition aus SPD und Union. Finanzminister Klingbeil bemängelte eine fehlende Gegenfinanzierung. Kanzler Merz geht nun von einer Lösung aus.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-16T13:07:00+01:00">13:07 Uhr</time><span class="also">auch bei <a href="https://www.zeit.de/politik/deutschland/2026-11/stromsteuer-friedrich-merz-markus-soeder-cdu-csu-bundeskanzler-gxe" rel="noopener">ZEIT ONLINE</a></span></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wirtschaft/unternehmen/commerzbank-unicredit-eu-genehmigung-100.html" rel="noopener">EU gibt UniCredit grünes Licht für Commerzbank-Übernahme</a></h3><p class="summary">Die EU hat ihr Go für die umstrittene Übernahme der Commerzbank durch die italienische Großbank UniCredit gegeben. Die Kommission sieht &quot;keine wettbewerbsrechtlichen Bedenken&quot;. Die Fusion rückt näher.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-11-16T12:50:50+01:00">12:50 Uhr</time><span class="also">auch bei <a href="https://www.n-tv.de/wirtschaft/EU-gibt-Unicredit-gruenes-Licht-fuer-Commerzbank-Uebernahme-id31538214.html" rel="noopener">n-tv</a></span></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/eu-genehmigt-uebernahme-der-commerzbank-durch-unicredit-a-d345f44c-486c-43ed-968c-6d33229c6372#ref=rss" rel="noopener">EU genehmigt Übernahme der Commerzbank durch Unicredit</a></h3><p class="summary">Seit zwei Jahren arbeitet Unicredit auf eine Übernahme der Commerzbank hin. Nun gibt Brüssel die Pläne frei. Es ist ein entscheidender Schritt für den Zusammenschluss der beiden Banken.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-16T11:57:00+01:00">11:57 Uhr</time><span class="also">auch bei <a href="https://www.faz.net/aktuell/wirtschaft/unternehmen/business-liveticker-eu-gibt-unicredit-gruenes-licht-fuer-commerzbank-uebernahme-faz-200452404.html" rel="noopener">FAZ</a></span></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/manuela-schwesig-spd-als-ministerpraesidentin-in-mecklenburg-vorpommern-wiedergewaehlt-100.html" rel="noopener">Manuela Schwesig (SPD) als Ministerpräsidentin in Mecklenburg-Vorpommern wiedergewählt</a></h3><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/eu-kommission-unicredit-darf-commerzbank-uebernehmen-102.html" rel="noopener">Banken - EU-Kommission: Unicredit darf Commerzbank übernehmen</a></h3><p class="summary">Die italienische Großbank Unicredit hat die Genehmigung der Europäischen Kommission für eine Übernahme der Commerzbank erhalten.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/kritik-aus-spd-bundestagsfraktion-an-plaenen-zu-abschiebezentren-in-ruanda-100.html" rel="noopener">Migration - Kritik aus SPD-Bundestagsfraktion an Plänen zu Abschiebezentren in Ruanda</a></h3><p class="summary">Die Pläne von Bundesinnenminister Dobrindt von der CSU zu Abschiebezentren in Ruanda sorgen in der SPD-Bundestagsfraktion für Kritik. Der innenpolitische Sprecher, Fiedler, sagte, er könne das Vorhaben nicht vorbehaltlos unterstützen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/voelkerrechtler-verweist-auf-offene-fragen-bei-abschiebezentren-in-ruanda-100.html" rel="noopener">Migration - Völkerrechtler verweist auf offene Fragen bei Abschiebezentren in Ruanda</a></h3><p class="summary">Mit Blick auf ein von mehreren europäischen Staaten geplantes Abschiebezentrum in Ruanda hat der Rechtswissenschaftler Daniel Thym auf offene Fragen verwiesen. Der Konstanzer Jurist sagte im Deutschlandfunk, die Politik müsse unter anderem beantworten, wie die Menschen untergebracht werden und ob sie arbeiten dürfen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/return-hubs-worum-es-bei-dem-geplanten-abschiebezentrum-in-ruanda-geht-100.html" rel="noopener">Deutsche Asylpolitik - &quot;Return Hubs&quot;: Worum es bei dem geplanten Abschiebezentrum in Ruanda geht</a></h3><p class="summary">Bundesinnenminister Dobrindt strebt die Einrichtung eines Abschiebezentrums in Ruanda gemeinsam mit vier anderen EU-Ländern an. Die Maßnahme ist innerhalb der Bundesregierung umstritten. Außerdem gibt es weitere Hürden für die sogenannten &quot;Return Hubs&quot;. Ein Überblick.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/afd-interne-debatte-ueber-migrationspolitik-entbrannt-100.html" rel="noopener">Nach Zwischenwahlen in USA - AfD-interne Debatte über Migrationspolitik entbrannt</a></h3><p class="summary">In der AfD haben Zweifel an strikten Forderungen in der Migrationspolitik eine parteiinterne Debatte ausgelöst. Nachdem der Bundesvorsitzende Chrupalla in einer Videoansprache abmildernde Worte wählte, bekräftigten andere Parteimitglieder die im eigenen Programm als &quot;Remigration&quot; festgeschriebene Forderung …</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/bsw-mitgruender-fordern-distanz-zur-afd-100.html" rel="noopener">Parteien - BSW-Mitgründer fordern Distanz zur AfD</a></h3><p class="summary">Führende BSW-Politiker fordern von ihrer Partei eine klare Distanz zur AfD.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/verfassungschutzbericht-sieht-rechtsextremismus-in-thueringen-etabliert-100.html" rel="noopener">2025 - Verfassungschutzbericht sieht Rechtsextremismus in Thüringen etabliert</a></h3><p class="summary">Rechtsextremisten sind laut Verfassungsschutz in Thüringen fest etabliert.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/beschlussentwurf-fuer-weltklimakonferenz-veroeffentlicht-100.html" rel="noopener">COP31 - Beschlussentwurf für Weltklimakonferenz veröffentlicht</a></h3><p class="summary">Bei der UNO-Klimakonferenz in Antalya liegt nun ein Entwurf für einen gemeinsamen Beschlusstext vor.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/deutsche-stromkonzerne-nutzen-ihre-marktmacht-in-gaspreis-krise-102.html" rel="noopener">Müncher Ifo-Institut - Deutsche Stromkonzerne nutzen ihre Marktmacht in Gaspreis-Krise</a></h3><p class="summary">Die ​fünf größten deutschen Stromerzeuger haben offenbar in den vergangenen Jahren aufgrund ihrer Markmacht höhere Preis durchgesetzt.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.deutschlandfunk.de/wahrheitskommission-zum-voelkermord-an-den-jesiden-nimmt-arbeit-auf-100.html" rel="noopener">Berlin - Wahrheitskommission zum Völkermord an den Jesiden nimmt Arbeit auf</a></h3><p class="summary">In Berlin hat heute eine Wahrheitskommission zum Völkermord der Dschihadistenmiliz IS an der Minderheit der Jesiden im Irak und in Syrien ihre Arbeit aufgenommen.</p><div class="byline"><span class="source">Deutschlandfunk</span><time datetime="2026-11-16T13:21:08+01:00">13:21 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/video/2026-11/gipfel-in-manila-regionale-kooperation-und-chinas-beziehungen-im-fokus" rel="noopener">Gipfel in Manila: Regionale Kooperation und Chinas Beziehungen im Fokus</a></h3><p class="summary">In der philippinischen Hauptstadt Manila treffen sich derzeit führende Politiker aus der Region zum Gipfel der südostasiatischen Staaten ASEAN.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:20:09+01:00">13:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/thueringer-innenminister-maessigung-bei-afd-gescheitert" rel="noopener">Verfassungsschutzbericht: Thüringer Innenminister: Mäßigung bei AfD gescheitert</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:18:14+01:00">13:18 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/politik/Ukraine-Krieg-Franzoesische-Soldaten-sollen-seit-Monaten-im-Einsatz-sein-id31538473.html" rel="noopener">Parlament fühlt sich übergangen: Berichte: Französische Soldaten seit Monaten in der Ukraine im Einsatz</a></h3><p class="summary">Bislang ist kein westlicher Staat offiziell mit Militärangehörigen in der Ukraine aktiv. Doch Medienberichten zufolge sind französische Soldaten in dem von Russland angegriffenen Land im Einsatz - jedoch nicht für Kampfhandlungen.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-16T13:15:29+01:00">13:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/drei-streifen-als-staatsaffaere-und-neue-dfb-zeiten-mit-nike" rel="noopener">Fußball-Nationalmannschaft: Drei Streifen als Staatsaffäre und neue DFB-Zeiten mit Nike</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:15:24+01:00">13:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/holzbock-auf-regionalbahn-geworfen-polizei-sucht-zeugen" rel="noopener">Vermutlich von Brücke: Holzbock auf Regionalbahn geworfen – Polizei sucht Zeugen</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:14:52+01:00">13:14 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/erster-verdachtsfall-von-gefluegelpest-in-rheinland-pfalz" rel="noopener">Vogelgrippe: Erster Verdachtsfall von Geflügelpest in Rheinland-Pfalz</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:12:39+01:00">13:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/mitgruender-von-biermoesl-blosn-michael-well-ist-tot" rel="noopener">Teil von bayerischer Kultband: Biermösl-Blosn-Mitgründer Michael Well ist tot</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:12:14+01:00">13:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/polizistinnen-legen-berufung-gegen-entlassung-ein" rel="noopener">Jetzt zum OVG: Polizistinnen legen Berufung gegen Entlassung ein</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:11:23+01:00">13:11 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/wirtschaft/immobilien-wohnen/vergesellschaftung-in-berlin-was-sagt-das-grundgesetz-zur-entschaedigung-accg-201683731.html" rel="noopener">Vergesellschaftungsdebatte: Wie viel Entschädigung darf es denn sein?</a></h3><p class="summary">In der Verfassung findet sich eine rechtliche Grundlage für die Enteignungspläne eines linken Bündnisses in Berlin. Aber was sagt das Grundgesetz über die Höhe der Entschädigung?</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-16T13:10:57+01:00">13:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/news/2026-11/16/bodelschwingh-haus-wolmirstedt-in-finanzieller-schieflage" rel="noopener">Soziales: Bodelschwingh-Haus Wolmirstedt in finanzieller Schieflage</a></h3><p class="summary">None</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:10:50+01:00">13:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wetter/deutschland/wettervorhersage-deutschland-100.html" rel="noopener">Wetter Deutschland: Wolken, Temperaturen, Wind und Aussichten</a></h3><p class="summary">Am Dienstag ist es teilweise stürmisch mit Regenfällen, die im Verlauf nordostwärts vorankommen. Vom Westen und Südwesten bis in die Mitte wird es später freundlicher, es folgen aber noch Schauer und einzelne Gewitter samt Sturmböen. 4 bis 17 Grad.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-11-16T13:10:40+01:00">13:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/geld/2026-11/angehoerige-pflege-finanzielle-belastung-beruf-rente-aufruf" rel="noopener">Angehörige pflegen: Wie kommen Sie als pflegende Angehörige über die Runden?</a></h3><p class="summary">Wer einen geliebten Menschen pflegt, zahlt oft einen hohen Preis: weniger Einkommen heute, weniger Rente später. Erzählen Sie uns, wie Sie finanziell zurechtkommen.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T13:10:26+01:00">13:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/politik/ukraine/ukraine-liveticker-berichte-franzoesische-soldaten-in-der-ukraine-praesent-faz-110683325.html" rel="noopener">Liveblog Ukrainekrieg: Berichte: Französische Soldaten in der Ukraine präsent</a></h3><p class="summary">Mission dient der Ausbildung und der Wartung von Militärgerät +++ Brücke von Kertsch kurzzeitig für den Fahrzeugverkehr gesperrt +++ Russland meldet Angriff auf die Krimbrücke +++ alle Neuigkeiten im Liveblog</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-16T13:08:32+01:00">13:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/leute/Der-erste-Harry-Potter-Film-verzaubert-bis-heute-id31538377.html" rel="noopener">25 Jahre voller Magie: Der erste &quot;Harry Potter&quot;-Film verzaubert bis heute</a></h3><p class="summary">Ein Junge mit Blitznarbe, ein sprechender Hut und ein Bahnhofsgleis, das es eigentlich gar nicht gibt: Vor 25 Jahren beginnt mit &quot;Harry Potter und der Stein der Weisen&quot; ein beispielloser Kinoerfolg. Und der Zauber hält bis heute an.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-16T13:08:13+01:00">13:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/leute/William-und-Kate-liefern-sich-Cricket-Duell-in-Mumbai-id31538629.html" rel="noopener">Royals auf Indienreise: William und Kate liefern sich Cricket-Duell in Mumbai</a></h3><p class="summary">Zum Auftakt ihrer Indienreise tauschen William und Kate royale Pflichten gegen Cricketschläger. Während Kate gegen eine Sportlegende eine gute Figur macht, hat ihr Mann zunächst weniger Glück. Später darf er allerdings gleich zweimal jubeln.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-16T13:07:58+01:00">13:07 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/ratgeber/Kein-Erfolg-fuer-Klagen-gegen-Sonderkuendigung-fuer-TV-Vertraege-id31537839.html" rel="noopener">Lineares Fernsehen: Kein Erfolg für Klagen gegen Sonderkündigung für TV-Verträge</a></h3><p class="summary">Nach einer Gesetzesreform durften Vermieter alte Fernsehverträge ohne Frist und Schadenersatz kündigen. Drei betroffene TV-Anbieter wenden sich ans Bundesverfassungsgericht - ohne Erfolg.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-16T13:06:17+01:00">13:06 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.n-tv.de/leute/Iris-Katzenberger-schickt-ihrem-Ex-Glueckwuensche-id31538349.html" rel="noopener">Neue Liebe von Peter Klein: Iris Katzenberger schickt ihrem Ex &quot;Glückwünsche&quot;</a></h3><p class="summary">Der Rosenkrieg zwischen Daniela Katzenbergers Mutter Iris und Peter Klein dominiert monatelang die Schlagzeilen. Inzwischen sind die beiden nicht nur geschieden, sondern jeweils auch neu liiert. Iris Katzenberger veranlasst das zu einem kleinen Seitenhieb auf den Ex.</p><div class="byline"><span class="source">n-tv</span><time datetime="2026-11-16T13:05:53+01:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/kultur/kino/olivia-wilde-findet-getrennte-elternschaft-unheimlich-schwierig-a-aeac4b9b-2c87-490e-bb6b-32d4bd0dceb9#ref=rss" rel="noopener">Olivia Wilde findet getrennte Elternschaft »unheimlich schwierig«</a></h3><p class="summary">Man geht auseinander – und für die Kinder findet man dann schon einen Weg: Wenn das nur so einfach wäre. Schauspielerin Olivia Wilde hat verraten, wie belastend die Trennung von Jason Sudeikis für sie und ihre Kinder war.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-16T13:02:00+01:00">13:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/politik/deutschland/spd-vorsitz-franziska-giffey-unterstuetzt-hubertus-heil-a-7e0da726-a2cf-45ef-8c8b-8b775e25468b#ref=rss" rel="noopener">SPD-Vorsitz: Franziska Giffey unterstützt Hubertus Heil</a></h3><p class="summary">Hubertus Heil will Lars Klingbeil an der Spitze der SPD ablösen. Berlins ehemalige Bürgermeisterin Franziska Giffey stärkt ihm den Rücken. Der Bundestagsabgeordnete Ralf Stegner mahnt: »Es gibt keinen Messias.«</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-16T12:59:00+01:00">12:59 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/rhein-main/region-und-hessen/weihnachtsmaerkte-in-hessen-und-rhein-main-die-termine-fuer-2026-accg-201655936.html" rel="noopener">Infos und Termine: Die Hochsaison auf den Weihnachtsmärkten startet</a></h3><p class="summary">Nun duftet es wieder nach Glühwein, gebrannten Mandeln und kandierten Äpfel: Die Zeit der Weihnachtsmärkte hat wieder begonnen, in der Region gibt es Dutzende. Ein umfassender Überblick.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-16T12:58:50+01:00">12:58 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.zeit.de/politik/deutschland/2026-11/cdu-grossbeeren-friedrich-merz-ruecktritt-adrian-hepp-stromsteuer-gxe" rel="noopener">Friedrich Merz: Brandenburger CDU-Ortsverband Großbeeren fordert Rücktritt von Merz</a></h3><p class="summary">Einstimmig hat der CDU-Ortsverband Großbeeren beschlossen, den Rücktritt von Friedrich Merz zu fordern. Auslöser ist der Streit um die Senkung der Stromsteuer.</p><div class="byline"><span class="source">ZEIT ONLINE</span><time datetime="2026-11-16T12:58:49+01:00">12:58 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.faz.net/aktuell/politik/inland/spd-vorsitz-hubertus-heil-kandidiert-doch-manuela-schwesig-entscheidet-accg-201687155.html" rel="noopener">SPD-Vorsitz: Das entscheidet Manuela Schwesig</a></h3><p class="summary">Will sie die SPD mit Lars Klingbeil oder mit Hubertus Heil führen? Oder vielleicht doch allein? Oder ist es noch viel schöner an der Seitenlinie? Die ganze Partei starrt nach Schwerin.</p><div class="byline"><span class="source">FAZ</span><time datetime="2026-11-16T12:55:09+01:00">12:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.sueddeutsche.de/meinung/kommentar-usa-trump-gleichberechtigung-susie-wiles-li.3579372" rel="noopener">US-Regierung: Inkompetente Frauen werden gefeuert, inkompetente Männer dürfen bleiben</a></h3><p class="summary">Nachdem Donald Trump nun auch seine Stabschefin entlassen hat, gibt es in seinem Kabinett mit 21 Mitgliedern nur noch drei Ministerinnen. In seiner Personalpolitik ist ein klares Muster zu erkennen.</p><div class="byline"><span class="source">Süddeutsche</span><time datetime="2026-11-16T12:54:06+01:00">12:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.tagesschau.de/wirtschaft/energie/energieverbrauch-deutsche-industrie-100.html" rel="noopener">Energieverbrauch der Industrie sinkt wegen hoher Preise</a></h3><p class="summary">Wegen hoher Preise und weniger Produktion hat die deutsche Industrie 2025 weniger Energie verbraucht. Dabei wird Kohle immer unwichtiger. Doch auch die Erneuerbaren spielen eine eher untergeordnete Rolle.</p><div class="byline"><span class="source">tagesschau</span><time datetime="2026-11-16T12:49:07+01:00">12:49 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/geschichte/bankraub-warum-das-klassische-gangstergenre-vor-dem-aus-steht-a-864bced4-f407-4c33-ba85-61641fb52ee7#ref=rss" rel="noopener">Bankraub: Warum das klassische Gangstergenre vor dem Aus steht</a></h3><p class="summary">1993 wurden in Deutschland Tausende Banken überfallen, inzwischen nur noch 80 im Jahr. Spektakuläre Fälle aber bleiben unvergessen – vor allem bei Menschen, die von Verbrechern als Geiseln genommen wurden.</p><div class="byline"><span class="source">SPIEGEL</span><time datetime="2026-11-16T12:49:00+01:00">12:49 Uhr</time></div></li></ol></section>
+<section id="wirtschaft"><h2>Wirtschaft &amp; Finanzen<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/banken-eu-und-fed-erlauben-commerzbank-uebernahme-durch-unicredit/100270206.html" rel="noopener">Banken: EU und Fed erlauben Commerzbank-Übernahme durch Unicredit</a></h3><p class="summary">Die EU-Kommission geht bei der Genehmigung auf die Finanzierung des deutschen Mittelstands ein. Zudem hält sie den Deal aus einem übergeordneten Grund für wichtig.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:40:48+01:00">12:40 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/eu-genehmigt-uebernahme-der-commerzbank-durch-unicredit-a-d345f44c-486c-43ed-968c-6d33229c6372#ref=rss" rel="noopener">SPIEGEL Wirtschaft</a></span></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/deutsche-bahn-bund-will-boni-von-bahn-managern-an-zielvorgaben-knuepfen/100270166.html" rel="noopener">Deutsche Bahn: Bund will Boni von Bahn-Managern an Zielvorgaben knüpfen</a></h3><p class="summary">Die Deutsche Bahn fährt ihren Zielen seit Jahren hinterher. Deshalb will der Bund bei dem Konzern künftig genauer hinschauen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T12:18:00+01:00">12:18 Uhr</time><span class="also">auch bei <a href="https://www.manager-magazin.de/unternehmen/mobilitaet/deutsche-bahn-bund-will-boni-der-bahnmanager-an-ziele-koppeln-a-7cc339b6-e022-4a49-9a2d-56f047920e9e#ref=rss" rel="noopener">manager magazin</a></span></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/vulcan-rakete-absturz-kostet-amazon-40-satelliten-fuer-internetdienst-leo-a-d08e1b4c-da9b-4597-a45a-d69c058b4f2b#ref=rss" rel="noopener">Vulcan-Rakete: Absturz kostet Amazon 40 Satelliten für Internetdienst Leo</a></h3><p class="summary">Der missglückte Start einer Rakete des Gemeinschaftsunternehmens von Boeing und Lockheed Martin ist ein schwerer Schlag für den US-Internetriesen Amazon. Denn damit gingen 40 Satelliten verloren, die für den Internetdienst Amazon Leo bestimmt waren.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T08:41:00+01:00">08:41 Uhr</time><span class="also">auch bei <a href="https://www.spiegel.de/wirtschaft/amazon-absturz-der-vulcan-rakete-kostet-us-konzern-40-satelliten-a-8bd0dc5f-699c-493e-a188-437d49521bcb#ref=rss" rel="noopener">SPIEGEL Wirtschaft</a></span></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/energie/energiekonzern-uniper-stellt-mittelfristziele-ins-schaufenster-privatisierung-nimmt-form-an/100270234.html" rel="noopener">Energiekonzern: Uniper stellt Mittelfristziele ins Schaufenster – Privatisierung nimmt Form an</a></h3><p class="summary">Der Bund muss seine Uniper-Beteiligung bis 2028 deutlich reduzieren. Neue Ergebnisziele und Investitionen sollen den Konzern attraktiver machen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T13:09:56+01:00">13:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/finanzen/steuern-recht/abfindungsrechner-wie-sie-steuern-sparen-und-mehr-netto-behalten/100269426.html" rel="noopener">Abfindungsrechner: Wie kann ich nach Steuern mehr von der Abfindung behalten?</a></h3><p class="summary">Von einer Abfindung bleibt oft wenig übrig, weil hohe Steuern anfallen. Unser Abfindungsrechner zeigt, wie sich Fünftelregelung und weitere Strategien auswirken.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T13:09:00+01:00">13:09 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/geldwaesche-mailaender-gericht-stellt-revolut-bank-ein-jahr-unter-verwaltung/100270182.html" rel="noopener">Geldwäsche: „Finanzreservoir für Schwerverbrecher“ – Italienisches Gericht stellt Revolut-Tochter ein Jahr unter Verwaltung</a></h3><p class="summary">Über Konten der Bank flossen 41,9 Millionen Euro von Verdächtigen, gemeldet hat Revolut nichts. Die Richter sehen darin ein System – und setzen eine Frist von 60 Tagen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T13:08:28+01:00">13:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/12d927a9-98b1-40b9-8f75-01fb56a693d1?syn-25a6b1a6=1" rel="noopener">US tech stocks set to open lower amid Nvidia fallout</a></h3><p class="summary">Chipmaker falls 3.6% in pre-market trading and CoreWeave drops 7.5% as AI jitters continue</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-16T13:07:09+01:00">13:07 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/karriere/unternehmen-warum-projekte-scheitern-und-oft-nicht-die-chefs-schuld-sind/100231883.html" rel="noopener">Management: „Ich halte die Purpose-Debatte für überhöht“</a></h3><p class="summary">Die Organisationssoziologin Judith Muster forscht dazu, warum Prozesse und Projekte in Unternehmen scheitern. Im Interview erklärt sie, weshalb daran selten bloß die Führungskräfte schuld sind.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T13:02:00+01:00">13:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/bundespolitik-merz-kuendigt-einigung-bei-absenkung-der-stromsteuer-an/100137034.html" rel="noopener">+++ Bundespolitik +++: Merz kündigt Einigung bei Absenkung der Stromsteuer an</a></h3><p class="summary">Giffey unterstützt Kandidatur von Heil +++ Merz pocht auf „schnellstmöglichen Abschluss“ der Reformen +++ SPD-Chef Klingbeil will von CDU mehr Tempo bei Reformen +++ Der Newsblog.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T13:00:00+01:00">13:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/meinung/kommentare/kommentar-die-toerichte-idee-einer-rueckkehr-von-jensen-huang/100270142.html" rel="noopener">Kommentar: Die törichte Idee einer Rückkehr von Jensen Huang</a></h3><p class="summary">Der Ex-Nvidia-Chef besitzt nur 3,6 Prozent der Aktien, hat keine Sonderstimmrechte und ist im puritanischen Amerika als Ehebrecher gebrandmarkt. Die Idee eines schnellen Comebacks ist aussichtslos.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:58:03+01:00">12:58 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/koalitionsausschuss-merz-fordert-vollstaendige-senkung-der-stromsteuer/100270228.html" rel="noopener">Koalitionsausschuss: Merz fordert vollständige Senkung der Stromsteuer</a></h3><p class="summary">Reizthema Stromsteuer: Vor dem Treffen des Koalitionsausschusses zeigt sich der Kanzler sicher, dass es mit der versprochenen Senkung klappt. Zur Finanzierung sagt er zunächst nichts Konkretes.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:57:53+01:00">12:57 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/industrie/fricke-gruppe-wie-der-norddeutsche-landmaschinen-haendler-zum-global-player-wurde-a-8bb27045-ab5f-4863-93e5-1c257632dc46#ref=rss" rel="noopener">Fricke-Gruppe: Wie der norddeutsche Landmaschinen-Händler zum Global Player wurde</a></h3><p class="summary">Einst Dorfschmiede, heute Landmaschinenhändler: Hans-Peter Fricke hat sein Familienunternehmen in dritter Generation zum Global Player getrimmt. Inspiration lieferten auch Mannesmann, Hexal und McDonald’s.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T12:57:00+01:00">12:57 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/ukraine-krieg-eu-aussenbeauftragte-nennt-russische-forderung-an-die-nato-absurd/100270227.html" rel="noopener">Ukraine-Krieg: EU-Außenbeauftragte nennt russische Forderung an die Nato absurd</a></h3><p class="summary">Russland fordert den Rückzug von Nato-Truppen und -Ausrüstung aus Staaten wie Tschechien, Polen und Ungarn. Die EU sieht in dem Vorschlag lediglich den Versuch, die Nato zu schwächen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:55:10+01:00">12:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/deutschland/koalition-kanzler-koalitionsvertrag-gilt-unabhaengig-von-spd-personal/100270235.html" rel="noopener">Koalition: Kanzler: Koalitionsvertrag gilt unabhängig von SPD-Personal</a></h3><p class="summary">Bei der SPD könnten Personalveränderungen anstehen. Das veranlasst die Union dazu, auf den Koalitionsvertrag hinzuweisen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:53:37+01:00">12:53 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/finanzen/immobilien/immobilien-gutachter-kritisieren-gesetz-gegen-vergesellschaftung/100270226.html" rel="noopener">Immobilien: Gutachter kritisieren Gesetz gegen Vergesellschaftung</a></h3><p class="summary">Die Bundesregierung will Vergesellschaftungen per Gesetz durch hohe Hürden verhindern. Ein von der Linken in Auftrag gegebenes Gutachten sieht das kritisch.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T12:52:53+01:00">12:52 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/politik/international/energie-griechenland-will-gruenen-strom-nach-deutschland-exportieren/100269110.html" rel="noopener">Energie: Ein Stromkabel für 15 Milliarden Euro: Griechenland will grünen Strom nach Deutschland exportieren</a></h3><p class="summary">Eine neue Stromtrasse soll Solarenergie aus Griechenland mit Windstrom aus der Nordsee zusammenführen. Damit könnte das Land zu einem Elektrizitätsdrehkreuz für Europa werden.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:51:26+01:00">12:51 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/7974acec-e378-4298-a1a7-2b16b00d8b32?syn-25a6b1a6=1" rel="noopener">Biggest IPOs this year lose investors money as AI frenzy fades</a></h3><p class="summary">Ten biggest flotations have fallen more than 20% on average in 2026 after four years of gains</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-16T12:47:31+01:00">12:47 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/technik/medizin/erkaeltungszeit-warum-sie-ihr-nasenspray-besser-nicht-mit-anderen-teilen/100270229.html" rel="noopener">Erkältungszeit: Warum Sie Ihr Nasenspray besser nicht mit anderen teilen</a></h3><p class="summary">Die Nase ist verstopft, doch zum Glück gibt die Hausapotheke noch ein angebrochenes Nasenspray des Liebsten her? Warum Ärzte davon abraten, es zu benutzen.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:38:00+01:00">12:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/mobilitaet/elektromobilitaet/audi-a2-so-faehrt-sich-die-neuauflage-des-sparsamen-kleinwagens/100270219.html" rel="noopener">Elektromobilität: So fährt sich die Neuauflage des Audi A2</a></h3><p class="summary">Der Audi A2 war seiner Zeit voraus – und scheiterte trotzdem am Markt. Jetzt kehrt das Effizienzwunder zurück. Mit hoher Reichweite und niedrigem Verbrauch. Reicht das diesmal?</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:33:38+01:00">12:33 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.handelsblatt.com/meinung/kommentare/kommentar-meyer-werft-uebernahme-durch-reederei-msc-haette-fatale-folgen/100270000.html" rel="noopener">Kommentar: Die Übernahme-Offerte der Reederei MSC für die Meyer-Werft gleicht einem unmoralischen Angebot</a></h3><p class="summary">Noch ist nichts bestätigt. Kommt es aber am Dienstag tatsächlich zur Übernahme der Papenburger Werft, gerät der gesamte Kreuzfahrtmarkt ins Trudeln. Der Profiteur hieße China.</p><div class="byline"><span class="source">Handelsblatt</span><time datetime="2026-11-16T12:20:02+01:00">12:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/banken/commerzbank-uebernahme-eu-kommission-genehmigt-unicredit-deal-ohne-auflagen-a-8304b831-feaa-4b8a-8b7a-403bc63e3d8e#ref=rss" rel="noopener">Commerzbank-Übernahme: EU-Kommission genehmigt UniCredit-Deal ohne Auflagen</a></h3><p class="summary">UniCredit-Chef Andrea Orcel kommt bei der Übernahme der Commerzbank einen entscheidenden Schritt weiter. Die Wettbewerbshüter der EU genehmigten die geplante Übernahme „ohne Auflagen“.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T12:20:00+01:00">12:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/deutschland/streit-in-der-koalition-wuest-draengt-auf-niedrigere-stromsteuer-fuer-alle/100269897.html" rel="noopener">Haushalt: Wüst und Rhein fordern niedrigere Stromsteuer für alle</a></h3><p class="summary">Die CDU-Ministerpräsidenten Hendrik Wüst und Boris Rhein setzen auf eine Stromsteuersenkung für alle Verbraucher. Das sei eine Frage der Glaubwürdigkeit.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T12:13:00+01:00">12:13 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/banken/commerzbank-uebernahme-was-plant-unicredit-fuer-das-frankfurter-geldhaus/100269444.html" rel="noopener">Commerzbank-Übernahme: „Von Verhandlungen kann keine Rede sein“</a></h3><p class="summary">Commerzbank und UniCredit sprechen über ihren Zusammenschluss. Doch nach WirtschaftsWoche-Infos soll der Austausch bescheiden laufen. Die EU gibt die Pläne nun frei.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T12:06:00+01:00">12:06 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/noble-speisesalze-maldon-salt-muss-sich-fuer-k-s-beimischung-rechtferitgen-a-e7a7603b-ba2b-44e9-9b26-d37ba3236ec9#ref=rss" rel="noopener">Maldon Salt: Nobelsalz-Hersteller muss sich für K+S-Beimischung rechtfertigen</a></h3><p class="summary">Der britische Nobelsalzhersteller Maldon Salt ist in Erklärungsnot geraten. Anwohner des Werksgeländes hatten beobachtet, wie Lkw-Ladungen mit Säcken des deutschen Herstellers K+S angeliefert wurden.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-16T12:04:00+01:00">12:04 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/5b39e975-b9f5-4ff9-a7d2-ce6a30c4fdbd?syn-25a6b1a6=1" rel="noopener">‘Success and fame’ undermine tech leaders, warns Nvidia and Tesla investor</a></h3><p class="summary">Superstar status of executives affects tech founders’ personal lives and their companies, says Lingotto’s James Anderson</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-16T12:00:03+01:00">12:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/mobilitaet/telekom-lufthansa-cppib-was-ex-bmw-chef-harald-krueger-heute-macht-a-5c797ec1-a123-4a9e-a0b7-45779da1b705#ref=rss" rel="noopener">Telekom, Lufthansa, CPPIB: Was Ex-BMW-Chef Harald Krüger heute macht</a></h3><p class="summary">Abseits der Öffentlichkeit hat der einst abservierte Spitzenmanager zu alter Stärke zurückgefunden. Er berät, analysiert – und muss nicht führen.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T11:56:00+01:00">11:56 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/banken/finanzbranche-eu-gibt-unicredit-gruenes-licht-fuer-commerzbank-uebernahme/100270205.html" rel="noopener">Commerzbank: EU gibt Unicredit grünes Licht für Commerzbank-Übernahme</a></h3><p class="summary">Seit zwei Jahren arbeitet die Unicredit auf eine Übernahme der Commerzbank hin. Nun gibt Brüssel die Pläne frei.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T11:36:29+01:00">11:36 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/cf57a196-bcbc-4605-a977-73fa0498aeed?syn-25a6b1a6=1" rel="noopener">Ukraine strikes Crimean Bridge in record drone attack</a></h3><p class="summary">Russia’s defence ministry said it intercepted or destroyed largest number of drones since beginning of war in past 24 hours</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-16T11:29:11+01:00">11:29 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/technologie/forschung/holz-beton-hybriddecke-wie-forscher-zwei-drittel-beton-und-co-sparen/100260506.html" rel="noopener">Gamechanger: Holz und Beton – so wollen Forscher Geschossdecken klimafreundlicher machen</a></h3><p class="summary">Ideen, die unsere Welt ­verändern und verbessern. Wir stellen sie vor. Diesmal: Hybrid-Etagendecken, dünn wie ­Stahlbeton – aber viel leichter.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T11:26:00+01:00">11:26 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/energie/uniper-konzern-schraubt-gewinnziele-hoch-und-nutzt-kraftwerke-als-rechenzentren-a-33c09004-5bce-4e75-837b-b2cf34483b4a#ref=rss" rel="noopener">Uniper: Konzern schraubt Gewinnziele hoch und nutzt Kraftwerke als Rechenzentren</a></h3><p class="summary">Der Energiekonzern Uniper hebt zum Kapitalmarkttag seine Ziele an. Während der Bund weiter nach einem Käufer sucht, kommt das Unternehmen einem Bericht zufolge bei der Umnutzung stillgelegter Kraftwerke als Rechenzentren voran.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T11:11:00+01:00">11:11 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/politik/ausland/nvidia-skandal-vor-donald-trumps-china-reise-warum-xi-jinping-triumphiert/100270141.html" rel="noopener">Nvidia-Krise: Warum Peking schon vor Donald Trumps China-Reise triumphiert</a></h3><p class="summary">Trump will in Shenzhen Geschichte schreiben. Doch ausgerechnet die heikelsten Themen sollen bei den Treffen mit Putin und Xi tabu sein: die Ukraine und der Spionageskandal bei Nvidia.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T11:06:00+01:00">11:06 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/industrie/energieverbrauch-die-deutsche-industrie-verbraucht-deutlich-weniger-energie/100270144.html" rel="noopener">Energieverbrauch: Die deutsche Industrie verbraucht deutlich weniger Energie</a></h3><p class="summary">Hohe Energiepreise haben die Produktion in energieintensiven Branchen gebremst. Die Chemieindustrie bleibt weiterhin der größte Verbraucher.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T11:01:00+01:00">11:01 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/dienstleister/abu-dhabi-ex-schenker-chef-soll-noatum-zum-globalen-logistikriesen-machen/100269319.html" rel="noopener">Globale Logistik: Die komplexe neue Aufgabe des ehemaligen Schenker-Chefs</a></h3><p class="summary">Abu Dhabi will an die Weltspitze in der Logistik – mit Jochen Thewes. Der einstige Schenker-Chef soll bis 2031 aus dem Nichts ein globales Imperium bauen.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T10:30:00+01:00">10:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.wiwo.de/unternehmen/handel/black-friday-2026-einzelhandel-peilt-rekordumsatz-von-62-milliarden-euro-fuer-aktionstage-an/100270147.html" rel="noopener">Black Friday: Einzelhandel peilt Rekordumsatz von 6,2 Milliarden Euro für Aktionstage an</a></h3><p class="summary">Konsumenten können sich rund um den „Black Friday“ und „Cyber Monday“ über Rabatte freuen. Der Branchenverband erwartet Rekordumsätze.</p><div class="byline"><span class="source">WirtschaftsWoche</span><time datetime="2026-11-16T10:06:59+01:00">10:06 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/finanzen/boerse/boerse-dax-stabil-auf-hohem-niveau-nvidia-zahlen-und-oelpreis-im-fokus-a-3cdd4662-3e31-49c3-913e-2b34eea499cc#ref=rss" rel="noopener">Börse: Dax vor Nvidia-Zahlen nahe Rekordhoch, Infineon-Aktie mit Kursrutsch, Goldpreis fällt</a></h3><p class="summary">Der Dax startet kaum verändert in die neue Woche. Im Fokus stehen die Zahlen von Nvidia am Dienstagabend. Halbleiteraktien wie Infineon geben nach. Der Goldpreis fällt auf den tiefsten Stand seit einem Jahr.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T09:12:00+01:00">09:12 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/bundeshaushalt-rechnungshof-praesident-ansgar-heveling-sieht-bei-subventionen-viel-sparpotenzial-a-288a2b18-a2fb-4f3b-a484-e638d21040ee#ref=rss" rel="noopener">Haushalt: Rechnungshof-Präsident Ansgar Heveling sieht bei Subventionen viel Sparpotenzial</a></h3><p class="summary">Die Diskussion über die Finanzierung von Steuersenkungen belastet die Koalition. Bundesrechnungshof-Präsident Heveling sieht dagegen durchaus Möglichkeiten, die notwendigen Milliarden zu beschaffen.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-16T08:06:00+01:00">08:06 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.manager-magazin.de/unternehmen/tech/nvidia-gestuerzter-ceo-huang-stoesst-mit-comeback-plaenen-auf-widerstand-a-88265699-cb4f-4f45-8460-00bebb0e5ca6#ref=rss" rel="noopener">Nvidia: Elon Musk unterstützt Forderung nach Rückkehr von Jensen Huang</a></h3><p class="summary">150.000 Menschen, darunter Prominente wie Elon Musk, fordern in einem offenen Brief die Rückkehr von Jensen Huang an die Spitze des Chipkonzerns Nvidia. Doch ein mögliches Comeback stößt auch auf scharfen Widerstand.</p><div class="byline"><span class="source">manager magazin</span><time datetime="2026-11-16T07:54:00+01:00">07:54 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.ft.com/content/a61f1fe9-55d9-498e-9ecc-c3a66980d63a?syn-25a6b1a6=1" rel="noopener">The perfect sell-off</a></h3><p class="summary">Plus, fast-tracking Anthropic’s IPO</p><div class="byline"><span class="source">Financial Times</span><time datetime="2026-11-16T07:30:01+01:00">07:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/bitcoin-kostete-zeitweise-nur-noch-rund-62-500-dollar-a-ce2126df-8f14-49c2-bfda-cb46bfcb1b67#ref=rss" rel="noopener">Bitcoin kostete zeitweise nur noch rund 62.500 Dollar</a></h3><p class="summary">In der vergangenen Woche war für Bitcoin-Anleger wieder Nervenstärke gefragt. Innerhalb weniger Tage verlor die Kryptowährung mehr als 10.000 Dollar.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-16T07:29:00+01:00">07:29 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.spiegel.de/wirtschaft/service/vermoegen-und-einkommen-wie-reich-sie-wirklich-sind-finden-wir-es-heraus-a-762ac689-da1b-4816-89f0-436c71cd2389#ref=rss" rel="noopener">Vermögen und Einkommen: Wie reich Sie wirklich sind? Finden wir es heraus</a></h3><p class="summary">Geld ist nicht alles: Wenn es um Vermögen geht, spielen noch ganz andere Kriterien eine Rolle. Ob Sie in Deutschland als reich gelten und wie Sie im Vergleich mit anderen dastehen, erfahren Sie mit unserem interaktiven Rechner.</p><div class="byline"><span class="source">SPIEGEL Wirtschaft</span><time datetime="2026-11-16T07:23:00+01:00">07:23 Uhr</time></div></li></ol></section>
+<section id="tech"><h2>Tech &amp; IT<span class="count">40 Meldungen</span></h2><ol class="stories"><li class="story"><h3><a href="https://www.golem.de/news/anzeige-ladegeraet-mit-100-w-und-vier-ports-reduziert-bei-amazon-2611-215263.html" rel="noopener">Anzeige: Ladegerät mit 100 W und vier Ports reduziert bei Amazon</a></h3><p class="summary">Ein Ladegerät von Ugreen mit 100 W, vier Ports und effizienter GaN-Technologie gibt es bei Amazon zum günstigen Aktionspreis. (Anker, Technik/Hardware)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T13:19:02+01:00">13:19 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/autonome-killerroboter-staaten-ringen-um-verbot-ki-basierter-waffen-2611-215262.html" rel="noopener">Autonome Killerroboter: Staaten ringen um Verbot KI-basierter Waffen</a></h3><p class="summary">Angeblich kommen im Ukraine-Krieg schon autonome Killerdrohnen zum Einsatz. Doch weltweit könnten solche Waffen verboten werden. (Militär, KI)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T13:16:01+01:00">13:16 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Wolfenstein-3-ist-offiziell-Xbox-kuendigt-Fortsetzung-nach-neun-Jahren-an-11526331.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">„Wolfenstein 3“ ist offiziell: Xbox kündigt Fortsetzung nach neun Jahren an</a></h3><p class="summary">Bethesda und Xbox kündigen einen neuen Teil der „Wolfenstein“-Reihe an. Auf welche Plattformen der Shooter kommt, ist ungewiss.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T13:08:00+01:00">13:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/hintergrund/JIM-Studie-Kommunikation-per-Messenger-ganz-vorne-passiver-bei-Social-Media-11526368.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">JIM-Studie: Kommunikation per Messenger ganz vorne, passiver bei Social Media</a></h3><p class="summary">Laut JIM-Studie 2026 posten Jugendliche seltener selbst, suchen aber häufiger per KI-Chatbot. KI-Antworten nehmen Jüngere eher hin als Ältere.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T13:08:00+01:00">13:08 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-balkonkraftwerk-mit-speicher-bei-mini-power-100-euro-guenstiger-mit-golem-gutschein-2611-215211.html" rel="noopener">Anzeige: Balkonkraftwerk mit Speicher bei Mini Power 100 Euro günstiger mit Golem-Gutschein</a></h3><p class="summary">Ein Komplettset aus Balkonkraftwerk und Speicher findet sich beim Anbieter Mini Power. Golem-Leser erhalten einen Exklusiv-Rabatt von 100 Euro. (Balkonkraftwerk, Energie &amp; Klima)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T13:05:01+01:00">13:05 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/scraping-in-den-nutzungsbedingungen-verlagsverbaende-fordern-unterlassungserklaerung-von-meta-2611-215260.html" rel="noopener">Scraping in den Nutzungsbedingungen: Verlagsverbände fordern Unterlassungserklärung von Meta</a></h3><p class="summary">Meta hat die Einführung seiner umstrittenen Nutzungsbedingungen nur aufgeschoben, aber nicht verbindlich abgesagt. (Meta, Urheberrecht)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T13:02:02+01:00">13:02 Uhr</time></div></li>
+<li class="story"><h3><a href="https://arstechnica.com/gadgets/2026/11/the-drone-delivery-boom-could-be-a-nightmare-for-people-traumatized-by-war/" rel="noopener">Delivery drones are coming. For some with PTSD, that&#x27;s a terrifying prospect.</a></h3><p class="summary">For those who have lived under armed drones, the sound overhead can be distressing.</p><div class="byline"><span class="source">Ars Technica</span><time datetime="2026-11-16T13:00:57+01:00">13:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/videokonferenz-alternativen-europa-1727336/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Videokonferenz ohne Zoom und Teams: Drei starke Alternativen aus Europa</a></h3><p class="summary">Bei der Auswahl von Videokonferenz-Tools siegt oft Bequemlichkeit. Dabei ist das Loseisen von US-Tech auch in diesem Segment simpel. Wir haben drei Gratis-Alterweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T12:55:00+01:00">12:55 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Manjaro-Linux-Projekt-wird-eingetragener-Verein-11526245.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Manjaro: Linux-Projekt wird eingetragener Verein</a></h3><p class="summary">Das Manjaro-Projekt ist nun offiziell auch ein eingetragener Verein. Die Umstrukturierung soll Vertrauen wiederherstellen und mehr Unterstützung bringen.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T12:47:00+01:00">12:47 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/nach-november-updates-microsoft-bestaetigt-druckerproblem-2611-215258.html" rel="noopener">Nach November-Updates: Microsoft bestätigt Druckerproblem</a></h3><p class="summary">Der Fehler tritt unter Windows und Windows Server bei bestimmten Dokumenten mit komplexen Formatierungen auf. (Betriebssysteme, Microsoft)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T12:45:01+01:00">12:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/microsoft-365-weltweiter-ausfall-programmfehler-1773794/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Microsoft 365: Wie ein unentdeckter Programmfehler für den weltweiten Ausfall sorgte</a></h3><p class="summary">Ein Fehler schlummerte seit Juli in Microsofts System – bis drei Faktoren eine weltweite Kettenreaktion auslösten. Warum der Ausfall ausgerechnet zur Hauptnutzungszeit begann. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T12:40:44+01:00">12:40 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-bestseller-studio-lautsprecher-mit-bluetooth-jetzt-zum-tiefpreis-bei-amazon-2611-215259.html" rel="noopener">Anzeige: Bestseller-Studio-Lautsprecher mit Bluetooth jetzt zum Tiefpreis bei Amazon</a></h3><p class="summary">Die Edifier MR3 liefern Hi-Res-Klang mit 36 Watt, Bluetooth 5.4 und App-Equalizer und sind bei Amazon im Angebot. (Technik/Hardware, Lautsprecher)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T12:36:02+01:00">12:36 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/1000-Kilowatt-pro-Schrank-KI-Chips-drohen-Rechenzentren-zu-sprengen-11526263.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">1000 Kilowatt pro Schrank: KI-Chips drohen Rechenzentren zu sprengen</a></h3><p class="summary">Moderne Prozessoren heizen so stark, dass Wasser direkt an den Chip muss und neue 800-Volt-Stromnetze entstehen. Die Politik streitet über Effizienzregeln.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T12:32:00+01:00">12:32 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/mini-rechner-windows-11-laeuft-ohne-jailbreak-auf-iphone-duo-2611-215257.html" rel="noopener">Mini-Rechner: Windows 11 läuft ohne Jailbreak auf iPhone Duo</a></h3><p class="summary">Windows 11 lässt sich auf Apples faltbarem iPhone Duo wie auf einem kleinen Laptop verwenden - ohne Jailbreak. Es gibt aber einige gewichtige Abstriche. (iPhone Duo, Smartphone)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T12:30:02+01:00">12:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/gta-6-box-ohne-code-1773748/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">GTA 6: Vorbesteller ärgern sich über Boxen ohne Codes</a></h3><p class="summary">GTA 6 gibt es nur als Download. Dennoch könnt ihr eine Box fürs Regal kaufen. Darin befindet sich dann der Code fürs Spiel. Bei manchen Fans fehlte dieser aber – oder war angeblich schon abgelaufen. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T12:20:40+01:00">12:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Chinesisches-Elektroflugzeug-CE-25A-fliegt-mit-Menschen-an-Bord-11526183.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Chinesisches Elektroflugzeug CE-25A fliegt mit Menschen an Bord</a></h3><p class="summary">Nach 19 unbemannten Flügen ist das Elektroflugzeug CE-25A des chinesischen Flugzeugherstellers Comac erstmals mit drei Menschen an Bord abgehoben.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T12:20:00+01:00">12:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/schon-seit-2025-alice-huang-arbeitet-nicht-mehr-bei-megaspeed-2611-215255.html" rel="noopener">Schon seit 2025: Alice Huang arbeitet nicht mehr bei Megaspeed</a></h3><p class="summary">Megaspeed weist alle Vorwürfe von sich, Nvidia-Hardware nach China weitergeleitet zu haben. (Nvidia, Cloud Computing)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T12:15:02+01:00">12:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/hintergrund/Agentische-Frontend-QA-Vom-pruefenden-Coding-Agent-zum-Regressionstest-11519362.html?wt_mc=rss.red.ho.ho.atom.beitrag_plus.beitrag_plus" rel="noopener">heise+ | Agentische Frontend-QA: Vom prüfenden Coding Agent zum Regressionstest</a></h3><p class="summary">Ein Praxisbericht zeigt, wie Coding Agents wie Claude Code mit Playwright-Skripten und MCP Frontend-Tests übernehmen können.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T12:00:00+01:00">12:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/NIS-2-in-der-Praxis-Pflichten-Haftung-und-Risikomanagement-fuer-KMU-11521881.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">heise-Angebot: NIS-2 in der Praxis – Pflichten, Haftung und Risikomanagement für KMU</a></h3><p class="summary">Ab dem 19. Januar lernen IT-Verantwortliche und Entscheider in vier Sessions, was NIS-2 verlangt – von Pflichten und Haftung bis zum „Stand der Technik“.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T12:00:00+01:00">12:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Nach-KI-Betrug-Suedkorea-kontrolliert-vor-Hochschulpruefung-saemtliche-Brillen-11526110.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Nach KI-Betrug: Südkorea kontrolliert vor Hochschulprüfung sämtliche Brillen</a></h3><p class="summary">Mit Mini-Kamera und generativer KI zum fast perfekten Ergebnis: Erfolgreicher KI-Betrug führt zu strengen Kontrollen gegen Smart Glasses und andere Hilfsmittel.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T11:57:00+01:00">11:57 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/darum-erstrahlte-unscheinbarer-komet-ploetzlich-tausendfach-heller-1773740/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Darum erstrahlte ein unscheinbarer Komet plötzlich tausendfach heller als normal</a></h3><p class="summary">Wissenschaftler:innen haben herausgefunden, warum ein eigentlich unscheinbarer Komet im Sommer 2026 plötzlich tausendfach heller erstrahlte als normal. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T11:45:15+01:00">11:45 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/skydance-nach-der-warner-uebernahme-so-werden-hbo-max-und-paramount-zusammengelegt-2611-215254.html" rel="noopener">Skydance nach der Warner-Übernahme: So werden HBO Max und Paramount+ zusammengelegt</a></h3><p class="summary">Paketangebote mit HBO Max und Paramount+ sind in wenigen Monaten geplant. Später werden die beiden Abos eins. (Skydance, Streaming)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T11:40:02+01:00">11:40 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Studie-Landoekosysteme-nehmen-kaum-noch-zusaetzliches-CO-auf-11526097.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Studie: Landökosysteme nehmen kaum noch zusätzliches CO₂ auf</a></h3><p class="summary">Forscher haben herausgefunden, dass terrestrische Ökosysteme kaum noch zusätzliches CO₂ aufnehmen, Ozeane dagegen immer mehr. Das hat Folgen.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T11:38:00+01:00">11:38 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/anzeige-tv-hintergrundbeleuchtung-mit-kamera-zum-tiefpreis-bei-amazon-2611-215253.html" rel="noopener">Anzeige: TV-Hintergrundbeleuchtung mit Kamera zum Tiefpreis bei Amazon</a></h3><p class="summary">Eine TV-Hintergrundbeleuchtung von Govee mit Kamera, RGBIC+W und Alexa ist bei Amazon zum reduzierten Preis erhältlich. (Technik/Hardware)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T11:32:02+01:00">11:32 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Alibaba-startet-Qwen4-Max-Effizienter-und-guenstiger-als-der-Vorgaenger-11526093.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Qwen4-Max: Alibabas Spitzenmodell legt deutlich zu und wird zugleich günstiger</a></h3><p class="summary">Alibabas Qwen4-Max ist leistungsfähiger und günstiger als sein Vorgänger. Unabhängige Benchmarks zeigen aber weiterhin Abstand zur westlichen Spitze.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T11:29:00+01:00">11:29 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/gamedev-mobile-games-studios-setzen-besonders-haeufig-auf-ki-2611-215252.html" rel="noopener">Gamedev: Mobile-Games-Studios setzen besonders häufig auf KI</a></h3><p class="summary">Eine große Entwicklerumfrage zeigt auch, wofür KI tatsächlich genutzt wird: Es sind eher nicht finale Spielinhalte. (GDC 2027, KI)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T11:25:01+01:00">11:25 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/Apples-Smart-Glasses-sollen-Siri-AI-Augen-geben-11526106.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">Apples Smart Glasses sollen Siri AI Augen geben</a></h3><p class="summary">Für 2027 steht bei Apple angeblich ein Pendant zu Metas Ray-Ban-Kamerabrille auf der Produktagenda. Siri AI kommt eine Schlüsselrolle zu.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T11:24:00+01:00">11:24 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.heise.de/news/ConnectWise-ScreenConnect-Angreifer-installieren-Malware-ueber-RMM-Erweiterung-11526055.html?wt_mc=rss.red.ho.ho.atom.beitrag.beitrag" rel="noopener">ConnectWise ScreenConnect: Angreifer installieren Malware über RMM+-Erweiterung</a></h3><p class="summary">IT-Forscher haben Angriffe auf eine Schwachstelle in ConnectWise ScreenConnect beobachtet. Bösartige Akteure installieren dadurch Malware.</p><div class="byline"><span class="source">heise online</span><time datetime="2026-11-16T11:15:00+01:00">11:15 Uhr</time></div></li>
+<li class="story"><h3><a href="https://www.golem.de/news/ki-boom-samsung-will-komplettanbieter-fuer-ki-rechenzentren-werden-2611-215251.html" rel="noopener">KI-Boom: Samsung will Komplettanbieter für KI-Rechenzentren werden</a></h3><p class="summary">Samsungs Firmenkonglomerat umfasst bereits praktisch jeden Aspekt bei Bau und Betrieb von Rechenzentren. Nun soll alles zusammen kommen. (Samsung, KI)</p><div class="byline"><span class="source">Golem</span><time datetime="2026-11-16T11:10:02+01:00">11:10 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/otto-chef-boris-ewenstein-mit-ki-schliessen-wir-die-luecke-zum-kauferlebnis-im-stationaeren-handel-1772862/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Otto-Chef Boris Ewenstein: „Mit KI schließen wir die Lücke zum Kauferlebnis im stationären Handel&quot;</a></h3><p class="summary">Vom Katalog zur KI: Otto-Chef Boris Ewenstein verrät im t3n-Interview, wie sich die Shoppingplattform verändert – und wie sie trotz neuer Checkout-Kanäle relevaweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T11:00:28+01:00">11:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/chatgpt-wallet-so-soll-die-ki-kuenftig-fuer-euch-shoppen-1773710/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">ChatGPT Wallet: So soll die KI künftig für euch shoppen</a></h3><p class="summary">OpenAI hat eine eigene Bezahlfunktion zur Verwendung durch KI-Agenten gestartet. Damit kann ChatGPT im Namen der Nutzer:innen Produkte kaufen – freigegeben per Biometrie.weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T10:00:37+01:00">10:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/vulcan-centaur-rakete-anomalie-amazon-satelliten-1773699/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Mission gescheitert: Vulcan-Centaur-Rakete erleidet „Anomalie” und verliert 40 Amazon-Satelliten</a></h3><p class="summary">Eigentlich sollten sich mittlerweile 40 weitere Amazon-Satelliten in der Erdumlaufbahn befinden. Doch die Vulcan-Centaur-Rakete, die sie dorthin befördern sollte, kämpfte schon wenige Minuten nach dem Launch mit Problemen. Was schon jetzt bekannt ist. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T09:20:19+01:00">09:20 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/fritzos-8-50-fritzbox-update-repeater-download-jetzt-1767411/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">FritzOS 8.50 und 8.51 kommen auf weitere Fritzboxen: Wer die Updates jetzt laden darf</a></h3><p class="summary">Weitere Router, Repeater und Mesh-Sets bekommen von Fritz ein Update spendiert. Damit werden Fritzboxen und Co. auf FritzOS 8.50 und 8.51 angehoben. Was in der Aktualisierung steckt. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T08:50:00+01:00">08:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/5-dinge-die-du-diese-woche-wissen-musst-das-warten-auf-gta-6-ist-alternativlos-oder-1773412/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">5 Dinge, die du diese Woche wissen musst: Das Warten auf GTA 6 ist alternativlos – oder?</a></h3><p class="summary">Jeden Montagmorgen berichten wir über fünf Dinge, die zum Wochenstart wichtig sind. Diesmal geht es um Alternativen zu GTA 6, Claude als Office-Alternative, Grenzüberschreitungen von Vorgesetzten, die Rückkehr der Kabelkopfhörer und kostenlose KI-Tools zum Diktieren. weiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T08:00:29+01:00">08:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/der-grosse-irrglaube-der-ki-firmen-fuer-buerger-geht-es-bei-rechenzentren-nur-um-einen-aspekt-1772777/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">Der große Irrglaube der KI-Firmen: Für Bürger geht es bei Rechenzentren nur um einen Aspekt</a></h3><p class="summary">Big-Tech-Firmen sehen in der Bewegung gegen KI-Rechenzentren einen Kulturkampf um den Fortschritt. Doch für die Anwohner:innen bei solchen Bauten verläuft die eweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T07:30:50+01:00">07:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://pub.cba.mit.edu/863.26/site/" rel="noopener">How to make almost anything</a></h3><p class="summary">Article URL: https://pub.cba.mit.edu/863.26/site/ Comments URL: https://news.ycombinator.com/item?id=50514470 Points: 387 # Comments: 73</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-11-16T06:50:37+01:00">06:50 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/gmbh-co-ki-unternehmen-der-zukunft-1772831/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">KI als Infrastruktur, nicht als Werkzeug: Der Denkfehler, der viele Firmen ausbremst</a></h3><p class="summary">Viele Unternehmen nutzen Künstliche Intelligenz bisher nur punktuell als Werkzeug. Doch um KI-nativ zu werden, braucht es strukturelle Veränderungen: neue Rolleweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T06:30:41+01:00">06:30 Uhr</time></div></li>
+<li class="story"><h3><a href="https://t3n.de/news/120-vollgas-co2-sprit-tempolimit-deutschland-1773235/?utm_source=rss&amp;utm_medium=newsFeed&amp;utm_campaign=newsFeed" rel="noopener">120 statt Vollgas: So viel CO2 und Sprit würde ein Tempolimit in Deutschland sparen</a></h3><p class="summary">Seit rund 50 Jahren hält in Deutschland die Debatte um ein Tempolimit auf Autobahnen an. Eine Einigung ist nicht in Sicht. Dabei sind aktuelle Studien eindeutigweiterlesen auf t3n.de</p><div class="byline"><span class="source">t3n</span><time datetime="2026-11-16T06:00:00+01:00">06:00 Uhr</time></div></li>
+<li class="story"><h3><a href="https://qwen.ai/blog?id=qwen4-max" rel="noopener">Qwen4-Max</a></h3><p class="summary">Article URL: https://qwen.ai/blog?id=qwen4-max Comments URL: https://news.ycombinator.com/item?id=50513215 Points: 606 # Comments: 256</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-11-16T03:14:44+01:00">03:14 Uhr</time></div></li>
+<li class="story"><h3><a href="https://iter.ca/post/ubo-uxss/" rel="noopener">Universal XSS in uBlock Origin from website-driven element picker</a></h3><p class="summary">Article URL: https://iter.ca/post/ubo-uxss/ Comments URL: https://news.ycombinator.com/item?id=50513160 Points: 417 # Comments: 120</p><div class="byline"><span class="source">Hacker News</span><time datetime="2026-11-16T03:04:48+01:00">03:04 Uhr</time></div></li></ol></section>
+<footer class="page"><h2>Quellen-Status</h2><ul class="status"><li class="failed">dpa – Feed enthielt keine Artikel</li><li>Reuters (DE) (2)</li><li>Reuters (EN) (10)</li><li class="failed">AFP – Feed enthielt keine Artikel</li><li>tagesschau (65)</li><li>SPIEGEL (25)</li><li>ZEIT ONLINE (15)</li><li>n-tv (50)</li><li>Süddeutsche (15)</li><li>FAZ (162)</li><li>Deutschlandfunk (44)</li><li>Handelsblatt (50)</li><li>SPIEGEL Wirtschaft (20)</li><li>manager magazin (30)</li><li>WirtschaftsWoche (20)</li><li>Financial Times (12)</li><li>heise online (157)</li><li>Golem (39)</li><li>t3n (20)</li><li>Hacker News (12)</li><li>Ars Technica (20)</li></ul><p>Automatisch erzeugt am 16.11.2026 um 13:23 Uhr (CET). Alle Rechte an den verlinkten Inhalten liegen bei den jeweiligen Anbietern. <a href="archiv/index.html">Archiv</a></p></footer>
+</main></body></html>
